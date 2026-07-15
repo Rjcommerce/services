@@ -1,0 +1,7 @@
+scratch/
+*.docx
+*.txt
+.DS_Store
+vibe-coding.php
+reference.html
+head.html
