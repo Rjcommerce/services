@@ -384,6 +384,31 @@ td.mob-top-0 {padding-top:0px !important;}
             opacity: 1 !important;
         }
         
+        /* Unified outline icon styles */
+        svg.vibe-card__icon, 
+        svg.service-card__icon, 
+        svg.industry-card__icon, 
+        svg.why-choose__icon {
+            width: 44px !important;
+            height: 44px !important;
+            min-width: 44px !important;
+            min-height: 44px !important;
+            max-width: 44px !important;
+            max-height: 44px !important;
+            stroke: #FC766A !important;
+            stroke-width: 1.5px !important;
+            fill: none !important;
+            display: inline-block !important;
+            vertical-align: middle !important;
+        }
+        
+        /* Adjust alignment inside cards */
+        .vibe-card {
+            display: flex !important;
+            align-items: center !important;
+            gap: 20px !important;
+        }
+        
         /* Set cards to 4-column layout on desktop */
         .ai-adoption-grid {
             display: grid !important;
@@ -397,6 +422,11 @@ td.mob-top-0 {padding-top:0px !important;}
             border-radius: 16px !important;
             padding: 35px 25px !important;
             box-sizing: border-box !important;
+        }
+        
+        .adoption-card h3 {
+            margin-top: 20px !important;
+            margin-bottom: 12px !important;
         }
         
         /* Set vibe-section checklist grid to 2-column layout on desktop */
@@ -416,17 +446,15 @@ td.mob-top-0 {padding-top:0px !important;}
             box-sizing: border-box !important;
             gap: 15px !important;
         }
-        .vibe-card__icon {
-            margin: 0 !important;
-            width: 40px !important;
-            height: 40px !important;
+        
+        .solution-item {
+            margin-bottom: 30px !important;
         }
-        .vibe-card__text {
-            margin: 0 !important;
-            font-size: 18px !important;
-            font-weight: 500 !important;
-            color: #111 !important;
+        .solution-item h3 {
+            margin-top: 15px !important;
+            margin-bottom: 10px !important;
         }
+        
         /* Stats Grid fallback layout */
         .stats-grid {
             display: flex !important;
@@ -585,19 +613,35 @@ td.mob-top-0 {padding-top:0px !important;}
 <h3 class="vibe-section__title" id="vibe-section-heading">WHAT AWS CLOUD DEVELOPMENT HELPS BUSINESSES DO:</h3>
 <div class="vibe-section__grid">
 <article class="vibe-card">
-<img alt="Minimize hosting costs by up to 40% with auto-scaling" class="vibe-card__icon" decoding="async" height="48" src="assets/cloned-theme/icons-semantic/efficiency.svg" width="48"/><noscript><img alt="Minimize hosting costs by up to 40% with auto-scaling" class="vibe-card__icon" decoding="async" height="48" src="assets/cloned-theme/icons-semantic/efficiency.svg" width="48"/></noscript>
+<svg class="vibe-card__icon" data-alt="Forecast demand before stockouts happen " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 17h6v-6"></path>
+<path d="m22 17-8.5-8.5-5 5L2 7"></path>
+</svg>
 <p class="vibe-card__text">Minimize hosting costs by up to 40% with auto-scaling</p>
 </article>
 <article class="vibe-card">
-<img alt="Migrate databases with zero downtime and complete data integrity" class="vibe-card__icon" decoding="async" height="48" src="assets/cloned-theme/icons-semantic/transfer.svg" width="48"/><noscript><img alt="Migrate databases with zero downtime and complete data integrity" class="vibe-card__icon" decoding="async" height="48" src="assets/cloned-theme/icons-semantic/transfer.svg" width="48"/></noscript>
+<svg class="vibe-card__icon" data-alt="Identify churning customers weeks in advance " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+<path d="M21 3v5h-5"></path>
+<path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+<path d="M8 16H3v5"></path>
+</svg>
 <p class="vibe-card__text">Migrate databases with zero downtime and complete data integrity</p>
 </article>
 <article class="vibe-card">
-<img alt="Protect user data with compliance-ready IAM policies &amp; VPCs" class="vibe-card__icon" decoding="async" height="48" src="assets/cloned-theme/icons-semantic/database-key.svg" width="48"/><noscript><img alt="Protect user data with compliance-ready IAM policies &amp; VPCs" class="vibe-card__icon" decoding="async" height="48" src="assets/cloned-theme/icons-semantic/database-key.svg" width="48"/></noscript>
+<svg class="vibe-card__icon" data-alt="Target Conversion-Ready Audiences  " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+<path d="m9 12 2 2 4-4"></path>
+</svg>
 <p class="vibe-card__text">Protect user data with compliance-ready IAM policies &amp; VPCs</p>
 </article>
 <article class="vibe-card">
-<img alt="Accelerate release cycles with automated DevOps pipelines" class="vibe-card__icon" decoding="async" height="48" src="assets/cloned-theme/icons-semantic/automation.svg" width="48"/><noscript><img alt="Accelerate release cycles with automated DevOps pipelines" class="vibe-card__icon" decoding="async" height="48" src="assets/cloned-theme/icons-semantic/automation.svg" width="48"/></noscript>
+<svg class="vibe-card__icon" data-alt="Detect operational and financial risk early " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="18" cy="18" r="3"></circle>
+<circle cx="6" cy="6" r="3"></circle>
+<path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
+<line x1="6" x2="6" y1="9" y2="21"></line>
+</svg>
 <p class="vibe-card__text">Accelerate release cycles with automated DevOps pipelines</p>
 </article>
 </div>
@@ -626,42 +670,75 @@ td.mob-top-0 {padding-top:0px !important;}
 </div>
 <div class="ai-adoption-grid">
 <div class="adoption-card">
-<img alt="AWS Development Consulting " height="51" src="assets/cloned-theme/icons-semantic/helpdesk.svg" width="51"/><noscript><img alt="AWS Development Consulting " height="51" src="assets/cloned-theme/icons-semantic/helpdesk.svg" width="51"/></noscript>
+<svg class="service-card__icon" data-alt="Predictive Analytics Consulting " fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 3v16a2 2 0 0 0 2 2h16"></path>
+<path d="M7 16h8"></path>
+<path d="M7 11h12"></path>
+<path d="M7 6h3"></path>
+</svg><noscript><img alt="AWS Development Consulting " height="51" src="assets/images/icons/predictive-analytics-icons-10.svg" width="51"/></noscript>
 <h3>AWS Cloud Consulting</h3>
 <p>We perform a comprehensive audit of your hosting environment, application stack, and security settings, identifying cost leaks, performance bottlenecks, and security gaps.</p>
 </div>
 <div class="adoption-card">
-<img alt="Custom AWS Model Development " height="50" src="assets/cloned-theme/icons-semantic/service-delivery.svg" width="56"/><noscript><img alt="Custom AWS Model Development " height="50" src="assets/cloned-theme/icons-semantic/service-delivery.svg" width="56"/></noscript>
+<svg class="service-card__icon" data-alt="Custom Predictive Model Development " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 16.326A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 .5 8.973"></path>
+<path d="m13 12-3 5h4l-3 5"></path>
+</svg><noscript><img alt="Custom AWS Model Development " height="50" src="assets/images/icons/predictive-analytics-icons-11.svg" width="56"/></noscript>
 <h3>AWS Cloud Migration</h3>
 <p>We migrate your databases, applications, and assets to AWS cloud environments, minimizing downtime and validating configuration variables at launch for complete compatibility.</p>
 </div>
 <div class="adoption-card">
-<img alt="AWS Development Marketing " height="59" src="assets/cloned-theme/icons-semantic/saas-cloud.svg" width="60"/><noscript><img alt="AWS Development Marketing " height="59" src="assets/cloned-theme/icons-semantic/saas-cloud.svg" width="60"/></noscript>
+<svg class="service-card__icon" data-alt="Predictive Analytics Marketing " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 2h13a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-5"></path>
+<path d="M10 10 2.5 2.5C2 2 2 2.5 2 5v3a2 2 0 0 0 2 2h6z"></path>
+<path d="M22 17v-1a2 2 0 0 0-2-2h-1"></path>
+<path d="M4 14a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16.5l1-.5.5.5-8-8H4z"></path>
+<path d="M6 18h.01"></path>
+<path d="m2 2 20 20"></path>
+</svg><noscript><img alt="AWS Development Marketing " height="59" src="assets/images/icons/predictive-analytics-icons-12.svg" width="60"/></noscript>
 <h3>Serverless Development</h3>
 <p>We build applications using services like AWS Lambda and API Gateway, where AWS manages the underlying server lifecycle and compute scales automatically with request traffic.</p>
 </div>
 <div class="adoption-card">
-<img alt="Retail AWS Development " height="60" src="assets/cloned-theme/icons-semantic/backup.svg" width="59"/><noscript><img alt="Retail AWS Development " height="60" src="assets/cloned-theme/icons-semantic/backup.svg" width="59"/></noscript>
+<svg class="service-card__icon" data-alt="Retail Predictive Analytics " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+<path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
+<path d="M3 12A9 3 0 0 0 21 12"></path>
+</svg><noscript><img alt="Retail AWS Development " height="60" src="assets/images/icons/openAI-ads-services-icon25.svg" width="59"/></noscript>
 <h3>AWS Database Management</h3>
 <p>We set up and optimize RDS, Aurora, DynamoDB, and Redshift databases to handle large transactions, scale storage, and implement secure data replication.</p>
 </div>
 <div class="adoption-card">
-<img alt="AWS Development in Healthcare " height="53" src="assets/cloned-theme/icons-semantic/process-flow.svg" width="54"/><noscript><img alt="AWS Development in Healthcare " height="53" src="assets/cloned-theme/icons-semantic/process-flow.svg" width="54"/></noscript>
+<svg class="service-card__icon" data-alt="Predictive Analytics in Healthcare " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 19h8"></path>
+<path d="m4 17 6-6-6-6"></path>
+</svg><noscript><img alt="AWS Development in Healthcare " height="53" src="assets/images/icons/predictive-analytics-icons-5.svg" width="54"/></noscript>
 <h3>DevOps &amp; CI/CD Automation</h3>
 <p>We build automated deployment pipelines using Jenkins, GitHub Actions, or AWS CodePipeline to test and deploy applications quickly and safely.</p>
 </div>
 <div class="adoption-card">
-<img alt="AWS DevOps Analytics " height="61" src="assets/cloned-theme/icons-semantic/revenue.svg" width="53"/><noscript><img alt="AWS DevOps Analytics " height="61" src="assets/cloned-theme/icons-semantic/revenue.svg" width="53"/></noscript>
+<svg class="service-card__icon" data-alt="Predictive HR Analytics " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.744 17.736a6 6 0 1 1-7.48-7.48"></path>
+<path d="M15 6h1v4"></path>
+<path d="m6.134 14.768.866-.5 2 3.464"></path>
+<circle cx="16" cy="8" r="6"></circle>
+</svg><noscript><img alt="AWS DevOps Analytics " height="61" src="assets/images/icons/predictive-analytics-icons-13.svg" width="53"/></noscript>
 <h3>AWS Cost Optimization</h3>
 <p>We analyze your monthly AWS billing and resize instances, clean up unused storage, and configure reserved instances to save up to 40% on hosting spend.</p>
 </div>
 <div class="adoption-card">
-<img alt="AWS Development Software Integration " height="55" src="assets/cloned-theme/icons-semantic/verification-pass.svg" width="62"/><noscript><img alt="AWS Development Software Integration " height="55" src="assets/cloned-theme/icons-semantic/verification-pass.svg" width="62"/></noscript>
+<svg class="service-card__icon" data-alt="Predictive Analytics Software Integration " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<rect rx="2" ry="2" x="3" y="11"></rect>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+</svg><noscript><img alt="AWS Development Software Integration " height="55" src="assets/images/icons/predictive-analytics-icons-14.svg" width="62"/></noscript>
 <h3>Cloud Security &amp; IAM Compliance</h3>
 <p>We configure isolated VPC networks, strict Identity and Access Management (IAM) policies, data encryption at rest and in transit, and firewalls to secure client assets.</p>
 </div>
 <div class="adoption-card">
-<img alt="Model Monitoring and Retraining " height="36" src="assets/cloned-theme/icons-semantic/customer-support-ticket.svg" width="32"/><noscript><img alt="Model Monitoring and Retraining " height="36" src="assets/cloned-theme/icons-semantic/customer-support-ticket.svg" width="32"/></noscript>
+<svg class="service-card__icon" data-alt="Model Monitoring and Retraining " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path>
+<circle cx="12" cy="12" r="3"></circle>
+</svg><noscript><img alt="Model Monitoring and Retraining " height="36" src="assets/images/icons/predictive-analytics-icons-8.svg" width="32"/></noscript>
 <h3>Managed AWS Cloud Support</h3>
 <p>We provide 24/7 cloud infrastructure monitoring, log reviews, automated database backups, and response to scaling triggers for complete peace of mind.</p>
 </div>
@@ -685,32 +762,54 @@ td.mob-top-0 {padding-top:0px !important;}
 </div>
 <div class="industry-solutions-grid">
 <div class="industry-card">
-<img alt="Retail and Ecommerce " height="55" src="assets/cloned-theme/icons-semantic/marketplace-shop.svg" width="53"/><noscript><img alt="Retail and Ecommerce " height="55" src="assets/cloned-theme/icons-semantic/marketplace-shop.svg" width="53"/></noscript>
+<svg class="industry-card__icon" data-alt="Retail and Ecommerce " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="8" cy="21" r="1"></circle>
+<circle cx="19" cy="21" r="1"></circle>
+<path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+</svg><noscript><img alt="Retail and Ecommerce " height="55" src="assets/images/icons/predictive-analytics-icons-15.svg" width="53"/></noscript>
 <h3>Retail &amp; Ecommerce</h3>
 <p>We build auto-scaling, high-availability hosting architectures using Amazon ECS and RDS to handle traffic spikes during peak sales events like Black Friday.</p>
 </div>
 <div class="industry-card">
-<img alt="Healthcare " height="55" src="assets/cloned-theme/icons-semantic/customer-care.svg" width="47"/><noscript><img alt="Healthcare " height="55" src="assets/cloned-theme/icons-semantic/customer-care.svg" width="47"/></noscript>
+<svg class="industry-card__icon" data-alt="Healthcare " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path>
+</svg><noscript><img alt="Healthcare " height="55" src="assets/images/icons/predictive-analytics-icons-16.svg" width="47"/></noscript>
 <h3>Healthcare &amp; Life Sciences</h3>
 <p>We configure HIPAA-compliant cloud hosting, strict IAM permissions, data encryption at rest and in transit, and secure Virtual Private Clouds (VPCs).</p>
 </div>
 <div class="industry-card">
-<img alt="Financial Services " height="57" src="assets/cloned-theme/icons-semantic/business-intelligence.svg" width="60"/><noscript><img alt="Financial Services " height="57" src="assets/cloned-theme/icons-semantic/business-intelligence.svg" width="60"/></noscript>
+<svg class="industry-card__icon" data-alt="Financial Services " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<rect rx="2" x="2" y="5"></rect>
+<line x1="2" x2="22" y1="10" y2="10"></line>
+</svg><noscript><img alt="Financial Services " height="57" src="assets/images/icons/predictive-analytics-icons-6.svg" width="60"/></noscript>
 <h3>Financial Services</h3>
 <p>We build secure, audit-ready databases, transaction logging, and automated backups with AWS CloudTrail to ensure complete security and compliance.</p>
 </div>
 <div class="industry-card">
-<img alt="AWS Development Marketing " height="58" src="assets/cloned-theme/icons-semantic/software-platform.svg" width="58"/><noscript><img alt="AWS Development Marketing " height="58" src="assets/cloned-theme/icons-semantic/software-platform.svg" width="58"/></noscript>
+<svg class="industry-card__icon" data-alt="Predictive Analytics Marketing " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path>
+<path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path>
+<path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path>
+</svg><noscript><img alt="AWS Development Marketing " height="58" src="assets/images/icons/predictive-analytics-icons-4.svg" width="58"/></noscript>
 <h3>SaaS &amp; Software Platforms</h3>
 <p>We design serverless web backends and microservices using AWS Lambda and API Gateway, enabling SaaS platforms to scale compute dynamically.</p>
 </div>
 <div class="industry-card">
-<img alt="AWS DevOps Analytics " height="58" src="assets/cloned-theme/icons-semantic/operations-workflow.svg" width="51"/><noscript><img alt="AWS DevOps Analytics " height="58" src="assets/cloned-theme/icons-semantic/operations-workflow.svg" width="51"/></noscript>
+<svg class="industry-card__icon" data-alt="Predictive HR Analytics " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
+<path d="M15 18H9"></path>
+<path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path>
+<circle cx="17" cy="18" r="2"></circle>
+<circle cx="7" cy="18" r="2"></circle>
+</svg><noscript><img alt="AWS DevOps Analytics " height="58" src="assets/images/icons/predictive-analytics-icons-17.svg" width="51"/></noscript>
 <h3>Logistics &amp; Supply Chain</h3>
 <p>We build real-time inventory synchronization, tracking systems, and delivery routing engines using serverless cloud workflows and databases.</p>
 </div>
 <div class="industry-card">
-<img alt="Manufacturing and Supply Chain " height="59" src="assets/cloned-theme/icons-semantic/charts-analytics.svg" width="60"/><noscript><img alt="Manufacturing and Supply Chain " height="59" src="assets/cloned-theme/icons-semantic/charts-analytics.svg" width="60"/></noscript>
+<svg class="industry-card__icon" data-alt="Manufacturing and Supply Chain " fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"></path>
+<path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+</svg><noscript><img alt="Manufacturing and Supply Chain " height="59" src="assets/images/icons/predictive-analytics-icons-18.svg" width="60"/></noscript>
 <h3>Data Analytics &amp; BI</h3>
 <p>We configure data ingestion pipelines and cloud data warehouses using AWS Glue, Redshift, and Athena to process large datasets efficiently.</p>
 </div>
@@ -734,7 +833,11 @@ td.mob-top-0 {padding-top:0px !important;}
 <div class="solution-right-space"></div>
 <div class="solution-item">
 <div class="solution-icon">
-<img alt="Cost-Optimized Architecture " class="solution-icon" height="42" src="assets/cloned-theme/icons-semantic/deals-conversion.svg" width="42"/><noscript><img alt="Cost-Optimized Architecture " class="solution-icon" height="42" src="assets/cloned-theme/icons-semantic/deals-conversion.svg" width="42"/></noscript>
+<svg class="why-choose__icon" data-alt="Business Outcome Focus " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<line x1="19" x2="5" y1="5" y2="19"></line>
+<circle cx="6.5" cy="6.5" r="2.5"></circle>
+<circle cx="17.5" cy="17.5" r="2.5"></circle>
+</svg><noscript><img alt="Cost-Optimized Architecture " class="solution-icon" height="42" src="assets/images/icons/predictive-analytics-icons-9.svg" width="42"/></noscript>
 </div>
 <div>
 <h3 class="solution-title">Cost-Optimized Architecture</h3>
@@ -743,7 +846,11 @@ td.mob-top-0 {padding-top:0px !important;}
 </div>
 <div class="solution-item">
 <div class="solution-icon">
-<img alt="Ecommerce-Native Cloud Expertise " class="solution-icon" height="54" src="assets/cloned-theme/icons-semantic/e-commerce-store.svg" width="54"/><noscript><img alt="Ecommerce-Native Cloud Expertise " class="solution-icon" height="54" src="assets/cloned-theme/icons-semantic/e-commerce-store.svg" width="54"/></noscript>
+<svg class="why-choose__icon" data-alt="Domain-Specific Model Training " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 10a4 4 0 0 1-8 0"></path>
+<path d="M3.103 6.034h17.794"></path>
+<path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path>
+</svg><noscript><img alt="Ecommerce-Native Cloud Expertise " class="solution-icon" height="54" src="assets/images/icons/predictive-analytics-icons-7.svg" width="54"/></noscript>
 </div>
 <div>
 <h3 class="solution-title">Ecommerce-Native Cloud Expertise</h3>
@@ -752,7 +859,11 @@ td.mob-top-0 {padding-top:0px !important;}
 </div>
 <div class="solution-item">
 <div class="solution-icon">
-<img alt="Full-Stack DevOps &amp; CI/CD " class="solution-icon" height="51" src="assets/cloned-theme/icons-semantic/tasks.svg" width="54"/><noscript><img alt="Full-Stack DevOps &amp; CI/CD " class="solution-icon" height="51" src="assets/cloned-theme/icons-semantic/tasks.svg" width="54"/></noscript>
+<svg class="why-choose__icon" data-alt="End-to-End Delivery " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 6a9 9 0 0 0-9 9V3"></path>
+<circle cx="18" cy="6" r="3"></circle>
+<circle cx="6" cy="18" r="3"></circle>
+</svg><noscript><img alt="Full-Stack DevOps &amp; CI/CD " class="solution-icon" height="51" src="assets/images/icons/predictive-analytics-icons-19.svg" width="54"/></noscript>
 </div>
 <div>
 <h3 class="solution-title">Full-Stack DevOps &amp; CI/CD</h3>
@@ -761,7 +872,12 @@ td.mob-top-0 {padding-top:0px !important;}
 </div>
 <div class="solution-item">
 <div class="solution-icon">
-<img alt="High-Availability Infrastructure " class="solution-icon" height="54" src="assets/cloned-theme/icons-semantic/system-mapping.svg" width="54"/><noscript><img alt="High-Availability Infrastructure " class="solution-icon" height="54" src="assets/cloned-theme/icons-semantic/system-mapping.svg" width="54"/></noscript>
+<svg class="why-choose__icon" data-alt="Ecommerce and Retail Specialisation " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 16h.01"></path>
+<path d="M2.212 11.577a2 2 0 0 0-.212.896V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5.527a2 2 0 0 0-.212-.896L18.55 5.11A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+<path d="M21.946 12.013H2.054"></path>
+<path d="M6 16h.01"></path>
+</svg><noscript><img alt="High-Availability Infrastructure " class="solution-icon" height="54" src="assets/images/icons/predictive-analytics-icons-3.svg" width="54"/></noscript>
 </div>
 <div>
 <h3 class="solution-title">High-Availability Infrastructure</h3>
@@ -770,7 +886,9 @@ td.mob-top-0 {padding-top:0px !important;}
 </div>
 <div class="solution-item">
 <div class="solution-icon">
-<img alt="Enterprise-Grade Security " class="solution-icon" height="56" src="assets/cloned-theme/icons-semantic/quality-standard.svg" width="56"/><noscript><img alt="Enterprise-Grade Security " class="solution-icon" height="56" src="assets/cloned-theme/icons-semantic/quality-standard.svg" width="56"/></noscript>
+<svg class="why-choose__icon" data-alt="Transparent Model Governance " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+</svg><noscript><img alt="Enterprise-Grade Security " class="solution-icon" height="56" src="assets/images/icons/predictive-analytics-icons-20.svg" width="56"/></noscript>
 </div>
 <div>
 <h3 class="solution-title">Enterprise-Grade Security</h3>
@@ -779,7 +897,9 @@ td.mob-top-0 {padding-top:0px !important;}
 </div>
 <div class="solution-item">
 <div class="solution-icon">
-<img alt="24/7 Managed Cloud Support " class="solution-icon" height="51" src="assets/cloned-theme/icons-semantic/support.svg" width="54"/><noscript><img alt="24/7 Managed Cloud Support " class="solution-icon" height="51" src="assets/cloned-theme/icons-semantic/support.svg" width="54"/></noscript>
+<svg class="why-choose__icon" data-alt="Ongoing Optimization Support " fill="none" stroke="currentColor" stroke-="" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path>
+</svg><noscript><img alt="24/7 Managed Cloud Support " class="solution-icon" height="51" src="assets/images/icons/predictive-analytics-icons-1.svg" width="54"/></noscript>
 </div>
 <div>
 <h3 class="solution-title">24/7 Managed Cloud Support</h3>
