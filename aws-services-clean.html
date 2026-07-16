@@ -2146,6 +2146,20 @@ document.addEventListener("DOMContentLoaded", function () {
             document.head.appendChild(script);
         }
 
+        function isNewAsset(src) {
+            if (!src) return false;
+            // Check if the path points to our custom local icon assets or the updated WebP hero images or logo grids
+            return src.includes('/icons/lucide/') || 
+                   src.includes('/icons/b2b-saas-bg.png') ||
+                   src.includes('/icons/retail-ecommerce-bg.png') ||
+                   src.includes('/icons/healthcare-bg.png') ||
+                   src.includes('aws-hero-new-v1.webp') ||
+                   src.includes('node-hero-v1.webp') ||
+                   src.includes('CareConnect_workflow_aj.png') ||
+                   src.includes('SecureBank_workflow_aj.png') ||
+                   src.includes('TechMart_workflow_aj.png');
+        }
+
         async function triggerDownload(type) {
             loadJSZip(async () => {
                 const zip = new JSZip();
@@ -2155,7 +2169,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // 1. Crawl all <img> tags
                 document.querySelectorAll('img').forEach(img => {
                     let src = img.getAttribute('src');
-                    if (!src) return;
+                    if (!src || !isNewAsset(src)) return;
                     if (src.endsWith('.svg') || src.includes('/icons/')) {
                         svgs.push(src);
                     } else if (src.endsWith('.webp') || src.endsWith('.png') || src.endsWith('.jpg') || src.endsWith('.jpeg')) {
@@ -2169,6 +2183,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const match = style.match(/url\(['"]?([^'"]+)['"]?\)/);
                     if (match && match[1]) {
                         const src = match[1];
+                        if (!isNewAsset(src)) return;
                         if (src.endsWith('.svg') || src.includes('/icons/')) {
                             svgs.push(src);
                         } else {
