@@ -20,7 +20,10 @@ if meta_desc:
 hero_section = soup.find('section', id='hero')
 if hero_section:
     eyebrow = hero_section.find('p', class_='eyebrow')
-    if eyebrow: eyebrow.decompose()  # Remove eyebrow entirely
+    if not eyebrow:
+        eyebrow = soup.new_tag('p', attrs={'class': 'eyebrow', 'style': 'color: #ffffff; margin-bottom: 1rem; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;'})
+        hero_section.find('.internal-hero-content').insert(0, eyebrow)
+    eyebrow.string = 'AGROCHEMICALS'
     
     h1 = hero_section.find('h1')
     if h1: h1.string = 'Every bag verified. Every dealer accountable. Every acre protected.'
@@ -34,9 +37,9 @@ if hero_section:
         parent = trust_items[0].parent
         parent.clear()
         parent.append(BeautifulSoup('''
-        <span class="features-pill-tag">EPA / FIFRA-ready compliance</span>
-        <span class="features-pill-tag">Works with your ERP</span>
-        <span class="features-pill-tag">Live in ~6 weeks</span>
+        <span class="features-pill-tag" style="background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.15);"><svg class="icon" width="14" height="14" style="color: #6862a7;"><use href="#icon-check"/></svg> EPA / FIFRA-ready compliance</span>
+        <span class="features-pill-tag" style="background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.15);"><svg class="icon" width="14" height="14" style="color: #6862a7;"><use href="#icon-check"/></svg> Works with your ERP</span>
+        <span class="features-pill-tag" style="background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.15);"><svg class="icon" width="14" height="14" style="color: #6862a7;"><use href="#icon-check"/></svg> Live in ~6 weeks</span>
         ''', 'html.parser'))
 
     cta_btn = hero_section.find('a', class_='btn-primary')
@@ -179,28 +182,27 @@ new_css = """
   background: var(--agro-surface);
   border: 1px solid var(--agro-border);
   border-radius: 24px;
-  padding: 32px;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   transition: all 0.3s ease;
   box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+  overflow: hidden;
 }
 .agro-bento-item:hover {
   transform: translateY(-4px);
   border-color: rgba(104, 98, 167, 0.4);
   box-shadow: 0 12px 40px rgba(15, 15, 37, 0.1);
 }
-.agro-bento-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: var(--agro-primary-light);
-  color: var(--agro-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
+.agro-bento-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--agro-border);
+}
+.agro-bento-content {
+  padding: 32px;
 }
 .agro-bento-item p {
   font-size: 1.0625rem;
@@ -285,7 +287,7 @@ new_css = """
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: flex-start; /* FIX: Aligns the sticky header to the top of the cards grid */
+  align-items: flex-start;
 }
 .agro-comp-inner {
   grid-template-columns: 1fr 2fr;
@@ -293,7 +295,8 @@ new_css = """
 
 .agro-value-sticky, .agro-comp-sidebar {
   position: sticky;
-  top: 100px; /* FIX: Stays sticky right under the nav bar */
+  top: 50vh; 
+  transform: translateY(-50%);
 }
 
 .agro-value-sticky h2, .agro-comp-sidebar h2 {
@@ -401,11 +404,79 @@ new_css = """
 @media (max-width: 992px) {
   .agro-stack-body, .agro-value-wrapper, .agro-comp-inner { grid-template-columns: 1fr; gap: 40px; }
   .agro-stack-col:first-child { border-right: none; border-bottom: 1px solid var(--agro-border); }
-  .agro-value-sticky, .agro-comp-sidebar { position: static; }
+  .agro-value-sticky, .agro-comp-sidebar { position: static; transform: none; }
   .agro-prob-card { flex: 0 0 320px; }
   .agro-bento-item { flex: 0 0 280px; }
 }
+
+/* Carousel Buttons */
+.carousel-arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--agro-primary);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 10;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel-arrow-btn:hover {
+    background: var(--agro-primary);
+    color: #fff;
+}
+.carousel-arrow-btn.left { left: -24px; }
+.carousel-arrow-btn.right { right: -24px; }
 </style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('.agro-carousel');
+    carousels.forEach(carousel => {
+        let autoScroll;
+
+        // Auto rotation logic
+        const startAutoScroll = () => {
+            autoScroll = setInterval(() => {
+                if (carousel.matches(':hover')) return; // pause on hover
+                carousel.scrollBy({ left: 2, behavior: 'auto' });
+                // If reached end, jump to start
+                if(carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 1) {
+                    carousel.scrollTo({ left: 0, behavior: 'auto' });
+                }
+            }, 30);
+        };
+        startAutoScroll();
+        
+        // Wrap the carousel in a relative container for absolute arrow buttons
+        const wrapper = document.createElement('div');
+        wrapper.style.position = 'relative';
+        carousel.parentNode.insertBefore(wrapper, carousel);
+        wrapper.appendChild(carousel);
+
+        const leftBtn = document.createElement('button');
+        leftBtn.innerHTML = '&#8592;';
+        leftBtn.className = 'carousel-arrow-btn left';
+        
+        const rightBtn = document.createElement('button');
+        rightBtn.innerHTML = '&#8594;';
+        rightBtn.className = 'carousel-arrow-btn right';
+        
+        wrapper.appendChild(leftBtn);
+        wrapper.appendChild(rightBtn);
+
+        leftBtn.addEventListener('click', () => carousel.scrollBy({ left: -350, behavior: 'smooth' }));
+        rightBtn.addEventListener('click', () => carousel.scrollBy({ left: 350, behavior: 'smooth' }));
+    });
+});
+</script>
 """
 if hero_section:
     hero_section.insert_before(BeautifulSoup(new_css, 'html.parser'))
@@ -462,44 +533,20 @@ middle_html = """
     
     <div class="agro-carousel">
       <div class="agro-bento-item">
-        <div class="agro-bento-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-        <p>Verify a crop protection product's authenticity before purchase — no device required for the first check.</p>
+        <img class="agro-bento-img" src="assets/images/card-bg-1.jpg" alt="Authenticity">
+        <div class="agro-bento-content"><p>Verify a crop protection product's authenticity before purchase — no device required for the first check.</p></div>
       </div>
       <div class="agro-bento-item">
-        <div class="agro-bento-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-        <p>Replace shipment-based demand estimates with real, scan-confirmed sell-through data.</p>
+        <img class="agro-bento-img" src="assets/images/card-bg-2.jpg" alt="Temperature">
+        <div class="agro-bento-content"><p>Monitor temperature compliance for cold-sensitive seed treatments in storage and transit.</p></div>
       </div>
       <div class="agro-bento-item">
-        <div class="agro-bento-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg></div>
-        <p>Produce audit-ready batch records for a state or federal inspection in minutes, not days.</p>
+        <img class="agro-bento-img" src="assets/images/card-bg-1.jpg" alt="Shrinkage">
+        <div class="agro-bento-content"><p>Flag shrinkage or theft of high-value patented formulations as it happens, not at the next count.</p></div>
       </div>
       <div class="agro-bento-item">
-        <div class="agro-bento-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-        <p>Deliver dosage, tank-mix compatibility, and safety guidance at the point of scan, in the applicator's language.</p>
-      </div>
-      <div class="agro-bento-item">
-        <div class="agro-bento-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-        <p>Calculate dealer incentive payouts automatically from verified sales — not self-reported invoice volume.</p>
-      </div>
-      <div class="agro-bento-item">
-        <div class="agro-bento-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg></div>
-        <p>Detect counterfeit or diverted product entering regional distribution before it reaches a shelf.</p>
-      </div>
-      <div class="agro-bento-item">
-        <div class="agro-bento-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg></div>
-        <p>Confirm loading and unloading accuracy at regional distribution centers in real time.</p>
-      </div>
-      <div class="agro-bento-item">
-        <div class="agro-bento-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path><path d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path></svg></div>
-        <p>Monitor temperature compliance for cold-sensitive seed treatments in storage and transit.</p>
-      </div>
-      <div class="agro-bento-item">
-        <div class="agro-bento-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
-        <p>Flag shrinkage or theft of high-value patented formulations as it happens, not at the next count.</p>
-      </div>
-      <div class="agro-bento-item">
-        <div class="agro-bento-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg></div>
-        <p>Give every dealer real-time visibility into exactly what they've earned, and why.</p>
+        <img class="agro-bento-img" src="assets/images/card-bg-2.jpg" alt="Dashboard">
+        <div class="agro-bento-content"><p>Give every dealer real-time visibility into exactly what they've earned, and why.</p></div>
       </div>
     </div>
   </div>
@@ -802,6 +849,11 @@ if cta_section:
         cta_intro.clear()
         cta_intro.append(BeautifulSoup("See how Smart Epsilon protects your formulation,<br/>your dealer network, and the growers who trust your label.", 'html.parser'))
         cta_intro['style'] = "font-size: 75%;"
+        
+        # Add the requested CTA button after the text
+        btn_html = '<div style="margin-top: 30px;"><a class="btn btn-primary" href="#contact">Schedule an Agrochemicals Demo <svg class="icon" width="16" height="16"><use href="#icon-arrow-right"/></svg></a></div>'
+        cta_intro.insert_after(BeautifulSoup(btn_html, 'html.parser'))
+        
     if cta_lede: cta_lede.string = ""
 
 # Write to industry-template.html
