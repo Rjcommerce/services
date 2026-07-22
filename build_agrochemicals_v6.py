@@ -320,7 +320,7 @@ new_css = """
   gap: 24px;
 }
 .agro-value-card {
-  background: var(--agro-surface-alt);
+  background: #ffffff;
   padding: 32px 40px;
   border-radius: 20px;
   border: 1px solid var(--agro-border);
@@ -330,7 +330,7 @@ new_css = """
   align-items: flex-start;
 }
 .agro-value-card:hover {
-  background: var(--agro-surface);
+  background: var(--agro-surface-alt);
   transform: translateY(-4px);
   border-color: rgba(104, 98, 167, 0.4);
   box-shadow: 0 12px 40px rgba(15, 15, 37, 0.1);
@@ -447,12 +447,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const startAutoScroll = () => {
             autoScroll = setInterval(() => {
                 if (carousel.matches(':hover')) return; // pause on hover
-                carousel.scrollBy({ left: 2, behavior: 'auto' });
+                carousel.scrollBy({ left: 1, behavior: 'auto' });
                 // If reached end, jump to start
                 if(carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 1) {
                     carousel.scrollTo({ left: 0, behavior: 'auto' });
                 }
-            }, 30);
+            }, 40);
         };
         startAutoScroll();
         
