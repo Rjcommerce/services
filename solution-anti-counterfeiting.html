@@ -2080,6 +2080,74 @@
   
   document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
 })();
+
+// =============================================
+// SECTION 4: STAKEHOLDER TABS
+// =============================================
+const stakeTabs = document.querySelectorAll('.features-capsule-tab');
+const stakeImgs = document.querySelectorAll('.features-screenshot[data-stake-img]');
+const stakeContents = document.querySelectorAll('.features-slide-content[data-stake-content]');
+
+stakeTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const index = tab.getAttribute('data-stake-index');
+    
+    stakeTabs.forEach(t => {
+      t.classList.remove('is-active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    tab.classList.add('is-active');
+    tab.setAttribute('aria-selected', 'true');
+    
+    stakeImgs.forEach(img => {
+      if (img.getAttribute('data-stake-img') === index) {
+        img.classList.add('is-active');
+      } else {
+        img.classList.remove('is-active');
+      }
+    });
+    
+    stakeContents.forEach(content => {
+      if (content.getAttribute('data-stake-content') === index) {
+        content.classList.add('is-active');
+      } else {
+        content.classList.remove('is-active');
+      }
+    });
+  });
+});
+
+// =============================================
+// SECTION 8: TIMELINE SCROLL PROGRESS
+// =============================================
+const vstepList = document.querySelector('.vstep-list');
+const vstepLine = document.querySelector('.vstep-progress-line');
+const vstepItems = document.querySelectorAll('.vstep-item');
+
+if (vstepList && vstepLine) {
+  window.addEventListener('scroll', () => {
+    const rect = vstepList.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    
+    const startTrigger = viewportHeight * 0.65;
+    
+    let progress = (startTrigger - rect.top) / (rect.height);
+    progress = Math.max(0, Math.min(1, progress));
+    
+    vstepLine.style.height = (progress * 100) + '%';
+    
+    vstepItems.forEach(item => {
+      const itemRect = item.getBoundingClientRect();
+      if (itemRect.top + (itemRect.height * 0.2) < startTrigger) {
+        item.classList.add('is-active');
+      } else {
+        item.classList.remove('is-active');
+      }
+    });
+  }, { passive: true });
+  
+  window.dispatchEvent(new Event('scroll'));
+}
 </script>
 
 </body>
