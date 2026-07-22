@@ -483,8 +483,8 @@ if hero_section:
 
 # MIDDLE SECTIONS CONTENT
 middle_html = """
-<!-- 2. REAL SUPPLY CHAIN PROBLEMS (CAROUSEL) -->
-<section class="agro-section alt">
+<!-- 1. THE REAL SUPPLY CHAIN PROBLEMS -->
+<section class="agro-section">
   <div class="agro-container">
     <div class="agro-header">
       <p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Real-world risks</p>
@@ -522,8 +522,8 @@ middle_html = """
   </div>
 </section>
 
-<!-- 3. PLATFORM CAPABILITIES REDESIGN (CAROUSEL) -->
-<section class="agro-section">
+<!-- 2. PLATFORM CAPABILITIES -->
+<section class="agro-section alt">
   <div class="agro-container">
     <div class="agro-header">
       <p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Platform Capabilities</p>
@@ -552,8 +552,8 @@ middle_html = """
   </div>
 </section>
 
-<!-- 4. HOW EACH SOLUTION APPLIES -->
-<section class="agro-section alt">
+<!-- 3. HOW EACH SOLUTION APPLIES -->
+<section class="agro-section">
   <div class="agro-container">
     <div class="agro-header">
       <p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Agrochemical Implementations</p>
@@ -656,8 +656,8 @@ middle_html = """
   </div>
 </section>
 
-<!-- 5. ENTERPRISE VALUE REDESIGN (TOP-ALIGNED STICKY) -->
-<section class="agro-section">
+<!-- 4. ENTERPRISE VALUE -->
+<section class="agro-section alt">
   <div class="agro-container">
     <div class="agro-value-wrapper">
       <div class="agro-value-sticky">
@@ -728,8 +728,8 @@ middle_html = """
   </div>
 </section>
 
-<!-- 6. COMPLIANCE & REGULATORY (TOP-ALIGNED STICKY) -->
-<section class="agro-section alt">
+<!-- 5. REGULATORY ALIGNMENT -->
+<section class="agro-section">
   <div class="agro-container">
     <div class="agro-comp-inner">
       <div class="agro-comp-sidebar">
