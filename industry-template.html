@@ -4,28 +4,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Anti-Counterfeiting Solution | Smart Epsilon</title>
-<meta content="Protect every unit with overt, covert, and forensic verification working together. Give counterfeiters three problems, not one." name="description"/>
+<title>Agrochemicals | Smart Epsilon</title>
+<meta content="Smart Epsilon gives agrochemical manufacturers plant-to-field visibility, verified authenticity, and dealer accountability." name="description"/>
 <link href="assets/logo-D0kBFmz2.svg" rel="icon" type="image/svg+xml"/>
 <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css" rel="stylesheet"/>
 <link crossorigin="" href="assets/gsap-CzGW6FVa.js" rel="modulepreload"/>
 <link crossorigin="" href="assets/index-C_I5fQ9O.css" rel="stylesheet"/>
 <link href="assets/css/smart-epsilon-theme.css" rel="stylesheet"/>
-
-
-
-
 <style>
-/* LIGHT/WHITE REDESIGN CSS (Overrides dark mode) */
-:root {
-  --agro-surface: #ffffff;
-  --agro-surface-alt: #f7f7fa;
-  --agro-border: rgba(0,0,0,0.06);
-  --agro-darker: #111111;
-  --agro-text: #4a4a5a;
-  --agro-primary: #6862a7;
-}
-
 /* ============================================
    INTERNAL HERO GRID — EXACT 28px SVG MATCH
    ============================================ */
@@ -58,129 +44,1099 @@
   pointer-events: auto;
 }
 
-/* Base Sections */
+/* ============================================
+   SECTION 2 — CINEMATIC QUOTE WALL
+   ============================================ */
+.quote-wall-section {
+  background: #ffffff;
+  padding: 120px 0;
+  overflow: hidden;
+}
+.quote-wall-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.quote-wall-header {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  margin-bottom: 80px;
+}
+.quote-wall-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6862a7;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  padding: 0 8px;
+  border-left: 2px solid #6862a7;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.quote-wall-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #111111;
+  line-height: 1.1;
+  max-width: 720px;
+  margin: 0;
+}
+.quote-wall-subtitle {
+  font-size: 1.0625rem;
+  color: rgba(0,0,0,0.6);
+  margin: 1rem 0 0;
+  line-height: 1.6;
+}
+
+.quote-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 0;
+  padding: 52px 0;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  position: relative;
+  overflow: hidden;
+}
+.quote-item:last-child {
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.quote-item__num {
+  font-size: 11px;
+  font-weight: 800;
+  color: rgba(104, 98, 167, 0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.quote-item__body {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: start;
+}
+.quote-item__q {
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 1.5rem;
+}
+.quote-item__q::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -4px;
+  font-size: 3rem;
+  color: #6862a7;
+  font-style: normal;
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+.quote-item__answer {
+  font-size: 0.9375rem;
+  color: rgba(0,0,0,0.6);
+  line-height: 1.7;
+  padding-top: 2px;
+  border-left: 1px solid rgba(104,98,167,0.2);
+  padding-left: 2rem;
+}
+.quote-item__answer em {
+  font-style: normal;
+  color: rgba(0,0,0,0.8);
+}
+.quote-item-bar {
+  position: absolute;
+  bottom: 0;
+  left: 60px;
+  height: 1px;
+  background: #6862a7;
+  width: 0;
+  transition: width 0.6s ease;
+}
+.quote-item:hover .quote-item-bar,
+.quote-item.is-visible .quote-item-bar {
+  width: calc(100% - 60px);
+}
+
+/* ============================================
+   SECTION 3 — STICKY TAB REVEAL
+   ============================================ */
+.sticky-tabs-section {
+  background: #f7f7fa;
+  padding: 0;
+  position: relative;
+}
+.sticky-tabs-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 2rem 64px;
+}
+.sticky-tabs-header .eyebrow {
+  color: #6862a7;
+  margin-bottom: 0.75rem;
+}
+.sticky-tabs-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 700px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 100px;
+  gap: 0;
+}
+.sticky-tabs-nav {
+  position: sticky;
+  top: 80px;
+  height: fit-content;
+  padding-right: 40px;
+  padding-top: 16px;
+}
+.sticky-tab-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 16px 20px 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  position: relative;
+  transition: all 0.3s ease;
+}
+.sticky-tab-btn:first-child {
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+.sticky-tab-btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: #6862a7;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+.sticky-tab-btn.is-active::before {
+  transform: scaleX(1);
+}
+.sticky-tab-btn.is-active .stb-icon {
+  background: #6862a7;
+  color: white;
+}
+.sticky-tab-btn.is-active .stb-label {
+  color: #111111;
+}
+.stb-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(104,98,167,0.08);
+  color: #6862a7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+.stb-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+.stb-layer {
+  font-size: 10px;
+  font-weight: 800;
+  color: #6862a7;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.stb-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(0,0,0,0.5);
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.sticky-tabs-content {
+  position: relative;
+}
+.sticky-tab-panel {
+  display: none;
+  grid-template-rows: auto 1fr;
+  gap: 0;
+  animation: fadeSlideUp 0.4s ease;
+}
+.sticky-tab-panel.is-active {
+  display: grid;
+}
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.stp-image-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  height: 380px;
+  margin-bottom: 32px;
+  position: relative;
+}
+.stp-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.stp-image-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(104,98,167,0.9);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  backdrop-filter: blur(8px);
+}
+.stp-body {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.stp-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 0.75rem;
+  margin-top: 0;
+}
+.stp-desc {
+  font-size: 1rem;
+  color: rgba(0,0,0,0.6);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.stp-features {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.stp-feature {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #6862a7;
+  background: rgba(104,98,167,0.08);
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+.stp-feature svg {
+  color: #6862a7;
+}
+
+/* ============================================
+   SECTION 4 — INSIDE THE PLATFORM LAYOUT
+   ============================================ */
+.features-section {
+  background: #ffffff;
+  padding: 120px 0;
+  overflow: visible;
+}
+.features-capsule-tablist {
+  display: inline-flex;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 100px;
+  padding: 6px;
+  gap: 4px;
+  margin-bottom: 3.5rem;
+}
+.features-capsule-tab {
+  background: transparent;
+  border: none;
+  border-radius: 100px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+.features-capsule-tab.is-active {
+  background: #ffffff;
+  color: #111111;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.features-screenshot {
+  position: absolute;
+  inset: 8px;
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  object-fit: cover;
+  border-radius: 18px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.features-screenshot.is-active {
+  opacity: 1;
+  z-index: 2;
+}
+.features-slide-content {
+  display: none;
+}
+.features-slide-content.is-active {
+  display: block;
+}
+.features-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(104,98,167,0.06);
+  color: #6862a7;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  .features-capsule-tablist { flex-direction: column; border-radius: 20px; }
+  .features-capsule-tab { width: 100%; justify-content: center; }
+}
+/* ============================================
+   SECTION 5 — SLIDER CAROUSEL (WHAT IT SOLVES)
+   ============================================ */
+.bento-section {
+  background: #f7f7fa;
+  padding: 120px 0;
+}
+.bento-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.bento-header { margin-bottom: 56px; max-width: 680px; }
+.bento-header h2 { color: #111111; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; }
+.bento-header p { color: rgba(0,0,0,0.6); font-size: 1.0625rem; line-height: 1.6; }
+
+.bento-slider {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 50px;
+  padding-top: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-inline: -12px;
+  margin-top: -12px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(104,98,167,0.3) transparent;
+}
+.bento-slider::-webkit-scrollbar { height: 8px; }
+.bento-slider::-webkit-scrollbar-track { background: transparent; }
+.bento-slider::-webkit-scrollbar-thumb { background: rgba(104,98,167,0.3); border-radius: 4px; }
+
+.bento-card {
+  flex: 0 0 calc(33.333% - 16px);
+  min-width: 300px;
+  scroll-snap-align: start;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 20px;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.02);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.bento-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(104, 98, 167, 0.4);
+  box-shadow: 0 12px 40px rgba(15, 15, 37, 0.1);
+}
+
+.bento-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(104,98,167,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6862a7;
+  margin-bottom: 32px;
+}
+.bento-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 12px;
+}
+.bento-desc {
+  font-size: 0.9375rem;
+  color: rgba(0,0,0,0.6);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  flex: 1;
+}
+.bento-impact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #6862a7;
+  background: rgba(104,98,167,0.06);
+  padding: 8px 16px;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+@media (max-width: 992px) {
+  .bento-card { flex: 0 0 calc(50% - 12px); }
+}
+@media (max-width: 600px) {
+  .bento-card { flex: 0 0 90%; }
+}
+/* ============================================
+   SECTION 6 — 3 COLUMN IMAGE CARDS
+   ============================================ */
+.integration-section {
+  background: #ffffff;
+  padding: 120px 0;
+}
+.integration-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.integration-header { text-align: center; margin-bottom: 72px; }
+.integration-header h2 { color: #111111; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; }
+.integration-header p { color: rgba(0,0,0,0.6); font-size: 1.0625rem; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+.integration-grid {
+  perspective: 1000px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.int-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  background: #f7f7fa;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+}
+.int-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(104, 98, 167, 0.4);
+  box-shadow: 0 12px 40px rgba(15, 15, 37, 0.1);
+}
+.int-card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.int-card-body {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.int-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 12px;
+}
+.int-card-desc {
+  font-size: 0.9375rem;
+  color: rgba(0,0,0,0.6);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.int-card-badge {
+  margin-top: auto;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6862a7;
+}
+@media (max-width: 992px) {
+  .integration-grid {
+  perspective: 1000px; grid-template-columns: 1fr; }
+}
+/* ============================================
+   SECTION 7 — COMPARISON TABLE
+   ============================================ */
+.comparison-section {
+  background: #f7f7fa;
+  padding: 120px 0;
+}
+.comparison-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.comparison-header { margin-bottom: 56px; }
+.comparison-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.06);
+}
+.comparison-table thead th {
+  padding: 20px 28px;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: left;
+}
+.comparison-table thead th:first-child {
+  background: #ffffff;
+  color: rgba(0,0,0,0.35);
+  width: 35%;
+}
+.comparison-table thead .col-smart {
+  background: #6862a7;
+  color: #ffffff;
+}
+.comparison-table thead .col-single {
+  background: #111111;
+  color: rgba(255,255,255,0.5);
+}
+.comparison-table tbody tr td {
+  padding: 18px 28px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  font-size: 14.5px;
+  line-height: 1.5;
+  background: #ffffff;
+}
+.comparison-table tbody tr td:first-child {
+  font-weight: 700;
+  color: rgba(0,0,0,0.55);
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: #f7f7fa;
+}
+.comparison-table tbody tr td.cell-smart {
+  color: #111111;
+  font-weight: 600;
+  background: rgba(104,98,167,0.03);
+}
+.comparison-table tbody tr td.cell-smart::before {
+  content: '✓ ';
+  color: #6862a7;
+  font-weight: 800;
+}
+.comparison-table tbody tr td.cell-single {
+  color: rgba(0,0,0,0.35);
+}
+.comparison-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+.comparison-table tbody tr:hover td { background: rgba(104,98,167,0.05); }
+.comparison-table tbody tr:hover td.cell-smart { background: rgba(104,98,167,0.12); }
+.comparison-table tbody tr:last-child td:first-child { border-radius: 0 0 0 16px; }
+.comparison-table tbody tr:last-child td:last-child { border-radius: 0 0 16px 0; }
+
+/* ============================================
+   SECTION 8 — VERTICAL STEP JOURNEY (ROLLOUT)
+   ============================================ */
+.vstep-section {
+  background: #ffffff;
+  padding: 120px 0;
+}
+.vstep-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.vstep-header { margin-bottom: 64px; }
+.vstep-header h2 { color: #111111; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; }
+.vstep-header p { color: rgba(0,0,0,0.6); font-size: 1.0625rem; line-height: 1.6; }
+
+.vstep-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+.vstep-list::before {
+  content: '';
+  position: absolute;
+  left: 23px;
+  top: 32px;
+  bottom: 56px;
+  width: 2px;
+  background: rgba(0,0,0,0.06);
+  z-index: 0;
+}
+.vstep-progress-line {
+  position: absolute;
+  left: 23px;
+  top: 32px;
+  width: 2px;
+  background: #6862a7;
+  height: 0%;
+  z-index: 1;
+  transition: height 0.1s ease-out;
+  max-height: calc(100% - 88px);
+}
+.vstep-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 40px;
+  align-items: flex-start;
+  padding: 32px 0;
+  position: relative;
+}
+.vstep-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f7f7fa;
+  border: 2px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+.vstep-item.is-active .vstep-icon {
+  background: #6862a7;
+  border-color: #6862a7;
+  color: #ffffff;
+}
+.vstep-content {
+  padding-top: 0px;
+  display: flex;
+  flex-direction: column;
+}
+.vstep-outline-num {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(0,0,0,0.1);
+  line-height: 0.8;
+  margin-bottom: 4px;
+  margin-left: -2px;
+  padding-left: 4px;
+  transition: -webkit-text-stroke 0.4s ease;
+}
+.vstep-item.is-active .vstep-outline-num {
+  -webkit-text-stroke: 1.5px rgba(104,98,167,0.25);
+}
+.vstep-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 8px;
+}
+.vstep-desc {
+  font-size: 0.9375rem;
+  color: rgba(0,0,0,0.6);
+  line-height: 1.6;
+}
+/* ============================================
+   SECTION 9 — TESTIMONIAL SLIDER (FROM HOMEPAGE)
+   ============================================ */
+/* No custom CSS needed, uses global homepage styles (.stage--voices) */
+/* ============================================
+   SECTION 10 — FAQ MINIMAL ACCORDION
+   ============================================ */
+.faq-section {
+  background: #ffffff;
+  padding: 120px 0;
+}
+.faq-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.faq-header { text-align: center; margin-bottom: 64px; }
+.faq-header h2 { color: #111111; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 0.75rem; }
+.faq-header p { color: rgba(0,0,0,0.6); font-size: 1rem; }
+
+.faq-item {
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 28px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+.faq-trigger-q {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(0,0,0,0.7);
+  line-height: 1.4;
+  transition: color 0.25s;
+}
+.faq-item.is-open .faq-trigger-q { color: #111111; }
+.faq-trigger-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(104,98,167,0.3);
+  flex-shrink: 0;
+  transition: background 0.25s;
+}
+.faq-item.is-open .faq-trigger-dot { background: #6862a7; }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.faq-item.is-open .faq-answer { max-height: 200px; }
+.faq-answer-inner {
+  padding-bottom: 28px;
+  font-size: 0.9375rem;
+  color: rgba(0,0,0,0.6);
+  line-height: 1.7;
+}
+
+/* ============================================
+   RESPONSIVE OVERRIDES
+   ============================================ */
+@media (max-width: 768px) {
+  .quote-item__body { grid-template-columns: 1fr; gap: 1.5rem; }
+  .quote-item__answer { border-left: none; padding-left: 0; border-top: 1px solid rgba(104,98,167,0.2); padding-top: 1.5rem; }
+  .sticky-tabs-layout { grid-template-columns: 1fr; }
+  .sticky-tabs-nav { position: static; padding-right: 0; display: grid; grid-template-columns: repeat(3, 1fr); }
+  .feature-matrix-scroll { grid-template-columns: 1fr 1fr; }
+  .feature-matrix-scroll::before { display: none; }
+  .integration-pillars { grid-template-columns: 1fr; gap: 48px; }
+  .integration-pillars::before { display: none; }
+  .rollout-track { grid-template-columns: 1fr 1fr; }
+  .rollout-track::before, .rollout-track::after { display: none; }
+  .proof-stats { grid-template-columns: 1fr; }
+</style>
+</head>
+<body>
+<svg aria-hidden="true" style="display:none">
+<defs>
+<symbol id="icon-arrow-right" viewbox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></symbol>
+<symbol id="icon-play" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="1.5"></circle><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor"></path></symbol>
+<symbol id="icon-menu" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></symbol>
+<symbol id="icon-close" viewbox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></symbol>
+<symbol id="icon-plus" viewbox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></symbol>
+<symbol id="icon-check" viewbox="0 0 24 24"><path d="M5 12l4 4 10-10" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></symbol>
+<symbol id="icon-mail" viewbox="0 0 24 24"><rect fill="none" height="14" rx="2" stroke="currentColor" stroke-width="1.5" width="18" x="3" y="5"></rect><path d="M4 6.5l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-linkedin" viewbox="0 0 24 24"><rect fill="none" height="18" rx="2" stroke="currentColor" stroke-width="1.5" width="18" x="3" y="3"></rect><path d="M8 11v6M8 8v.01M12 17v-3.5a2 2 0 0 1 4 0V17" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></symbol>
+<symbol id="icon-x" viewbox="0 0 24 24"><path d="M5 4h3.2l4.1 5.7L17.2 4H19l-5.4 7.1L19.5 20h-3.2l-4.4-6.1L7 20H5l5.7-7.5L5 4z" fill="currentColor"></path></symbol>
+<symbol id="icon-youtube" viewbox="0 0 24 24"><rect fill="none" height="12" rx="3" stroke="currentColor" stroke-width="1.5" width="19" x="2.5" y="6"></rect><path d="M10.5 9.5v5l4.5-2.5-4.5-2.5z" fill="currentColor"></path></symbol>
+<symbol id="icon-chevron" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></symbol>
+<symbol id="icon-shield" viewbox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3z" fill="none" stroke="currentColor" stroke-width="1.5"></path><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></symbol>
+<symbol id="icon-route" viewbox="0 0 24 24"><circle cx="6" cy="6" fill="none" r="2.5" stroke="currentColor" stroke-width="1.5"></circle><circle cx="18" cy="18" fill="none" r="2.5" stroke="currentColor" stroke-width="1.5"></circle><path d="M8.5 7.5c4 0 3 9 7 9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></symbol>
+<symbol id="icon-gift" viewbox="0 0 24 24"><rect fill="none" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5" width="18" x="3" y="10"></rect><path d="M12 10v11M3 14h18M12 10c-2.5 0-4-1.5-4-3.5S10 4 12 6c2-2 4-.5 4 1.5S14.5 10 12 10z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></symbol>
+<symbol id="icon-video" viewbox="0 0 24 24"><rect fill="none" height="12" rx="2" stroke="currentColor" stroke-width="1.5" width="13" x="3" y="6"></rect><path d="M16 10l5-3v10l-5-3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></symbol>
+<symbol id="icon-eye" viewbox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" fill="none" stroke="currentColor" stroke-width="1.5"></path><circle cx="12" cy="12" fill="none" r="3" stroke="currentColor" stroke-width="1.5"></circle></symbol>
+<symbol id="icon-bolt" viewbox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></symbol>
+<symbol id="icon-droplet" viewbox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-13-7-13S5 10.7 5 15a7 7 0 0 0 7 7z" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-seeding" viewbox="0 0 24 24"><path d="M12 10a6 6 0 0 0-6-6H3v3a6 6 0 0 0 6 6h3m0-3a6 6 0 0 1 6-6h3v3a6 6 0 0 1-6 6h-3M12 14v8" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-pill" viewbox="0 0 24 24"><rect fill="none" height="18" rx="9" stroke="currentColor" stroke-width="1.5" transform="rotate(45 12 12)" width="18" x="3" y="3"></rect><path d="M9 9l6 6" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-cart" viewbox="0 0 24 24"><circle cx="9" cy="21" fill="currentColor" r="1"></circle><circle cx="20" cy="21" fill="currentColor" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-sparkles" viewbox="0 0 24 24"><path d="M12 3l1.912 4.913L19 10l-4.088 2.087L13 17l-1.912-4.913L7 10l4.088-2.087zM5 3l.7 1.8L7.5 5.5l-1.8.7L5 8l-.7-1.8-1.8-.7 1.8-.7zm14 13l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" fill="currentColor"></path></symbol>
+<symbol id="icon-brush" viewbox="0 0 24 24"><path d="M3 21v-4a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v4H3zM21 9V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4h18zM12 9v4" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-flask" viewbox="0 0 24 24"><path d="M9 3h6m-5 0v5.86a2 2 0 0 1-.5 1.28L4.35 17.5a2 2 0 0 0 1.5 3.5h12.3a2 2 0 0 0 1.5-3.5L14.5 10.14a2 2 0 0 1-.5-1.28V3" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-car" viewbox="0 0 24 24"><rect fill="none" height="8" rx="2" stroke="currentColor" stroke-width="1.5" width="20" x="2" y="9"></rect><path d="M5 9l2-4h10l2 4M5 17v3m14-3v3" fill="none" stroke="currentColor" stroke-width="1.5"></path><circle cx="7" cy="13" fill="currentColor" r="1"></circle><circle cx="17" cy="13" fill="currentColor" r="1"></circle></symbol>
+<symbol id="icon-lock" viewbox="0 0 24 24"><rect fill="none" height="11" rx="2" stroke="currentColor" stroke-width="1.5" width="18" x="3" y="11"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-search" viewbox="0 0 24 24"><circle cx="11" cy="11" fill="none" r="8" stroke="currentColor" stroke-width="1.5"></circle><path d="M21 21l-4.35-4.35" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-list" viewbox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></symbol>
+<symbol id="icon-map" viewbox="0 0 24 24"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3V6zm6-3v15m6-12v15" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-box" viewbox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"></path></symbol>
+<symbol id="icon-barcode" viewbox="0 0 24 24"><path d="M4 7V6a2 2 0 0 1 2-2h2M4 17v1a2 2 0 0 0 2 2h2m8-16h2a2 2 0 0 1 2 2v1m-2 13h2a2 2 0 0 0 2-2v-1M7 9v6M10 9v6M14 9v6M17 9v6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></symbol>
+<symbol id="icon-truck" viewbox="0 0 24 24"><rect fill="none" height="13" rx="2" stroke="currentColor" stroke-width="1.5" width="14" x="1" y="3"></rect><rect fill="none" height="8" rx="2" stroke="currentColor" stroke-width="1.5" width="8" x="15" y="8"></rect><circle cx="6" cy="18" fill="currentColor" r="2"></circle><circle cx="18" cy="18" fill="currentColor" r="2"></circle></symbol>
+<symbol id="icon-tag" viewbox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" fill="none" stroke="currentColor" stroke-width="1.5"></path><circle cx="6.5" cy="6.5" fill="currentColor" r="1.5"></circle></symbol>
+<symbol id="icon-alert" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="1.5"></circle><path d="M12 8v4m0 4h.01" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></symbol>
+<symbol id="icon-leaf" viewbox="0 0 24 24"><path d="M5 21c0-7.732 6.268-14 14-14M19 7a5 5 0 1 1-10 0 5 5 0 0 1 10 0z" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-alert-triangle" viewbox="0 0 24 24"><path d="M12 3l10 18H2L12 3zm0 6v6m0 3h.01" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></symbol>
+<symbol id="icon-trend" viewbox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8m0 0h-6m6 0v6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></symbol>
+<symbol id="icon-help" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="1.5"></circle><path d="M12 16v.01M12 13a2 2 0 0 0 .9-3.75 3 3 0 0 0-3.9 1.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></symbol>
+<symbol id="icon-book" viewbox="0 0 24 24"><path d="M3 19a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6v13m9-13v13m9-13v13" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-news" viewbox="0 0 24 24"><rect fill="none" height="16" rx="2" stroke="currentColor" stroke-width="1.5" width="18" x="3" y="4"></rect><path d="M7 8h10M7 12h10M7 16h6" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-database" viewbox="0 0 24 24"><ellipse cx="12" cy="5" fill="none" rx="9" ry="3" stroke="currentColor" stroke-width="1.5"></ellipse><path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-report" viewbox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="1.5"></path><path d="M14 2v6h6M16 13H8m8 4H8m2-8H8" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-calculator" viewbox="0 0 24 24"><rect fill="none" height="20" rx="2" stroke="currentColor" stroke-width="1.5" width="16" x="4" y="2"></rect><rect fill="none" height="4" rx="1" stroke="currentColor" stroke-width="1.5" width="10" x="7" y="5"></rect><path d="M7 13h2m3 0h2m3 0h-2m-8 4h2m3 0h2m3 0h-2" fill="currentColor"></path></symbol>
+<symbol id="icon-info" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="1.5"></circle><path d="M12 16v-4m0-4h.01" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></symbol>
+<symbol id="icon-users" viewbox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" fill="none" stroke="currentColor" stroke-width="1.5"></path><circle cx="9" cy="7" fill="none" r="4" stroke="currentColor" stroke-width="1.5"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-briefcase" viewbox="0 0 24 24"><rect fill="none" height="14" rx="2" stroke="currentColor" stroke-width="1.5" width="20" x="2" y="7"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-camera" viewbox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2v11z" fill="none" stroke="currentColor" stroke-width="1.5"></path><circle cx="12" cy="13" fill="none" r="4" stroke="currentColor" stroke-width="1.5"></circle></symbol>
+<symbol id="icon-fingerprint" viewbox="0 0 24 24"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4M12 10a2 2 0 0 1 2 2c0 1.02.1 2.51.26 4m0-4a2 2 0 0 1-2-2M8 21c.21-1.4.35-2.51.35-4 0-2.02.77-3.86 2.03-5.25M8 21c-.35-2.37-.35-4.13 0-5.25M6 18c.14-.62.21-1.35.21-2 0-2.39.96-4.56 2.51-6.13M3.6 19c.27-1.22.41-2.53.41-3.9 0-3.65 1.53-6.95 4-9.28M18 21c-.38-1.89-.38-3.49 0-4.79M16.5 21c.33-1.22.5-2.61.5-4-.02-2.34-.85-4.5-2.25-6.2M21.5 17c-.2-1.66-.36-2.9-.5-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></symbol>
+<symbol id="icon-globe" viewbox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="1.5"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
+<symbol id="icon-api" viewbox="0 0 24 24"><path d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></symbol>
+</defs>
+</svg>
+<div class="site-wrapper">
+<header class="site-header">
+<div class="container nav-row">
+<a aria-label="Smart Epsilon home" class="brand" href="index.html">
+<img alt="Smart Epsilon" height="47" src="assets/logo-D0kBFmz2.svg" width="170"/>
+</a>
+<nav aria-label="Primary" class="primary-nav">
+<!-- Solutions Dropdown -->
+<div class="nav-item" data-mega="">
+<a aria-controls="mega-solutions" aria-expanded="false" aria-haspopup="true" class="nav-link nav-link--mega" href="solution-anti-counterfeiting.html" id="nav-solutions-trigger">
+          Solutions
+          <svg aria-hidden="true" class="icon nav-chevron" height="14" width="14"><use href="#icon-chevron"></use></svg>
+</a>
+<div aria-labelledby="nav-solutions-trigger" class="dropdown-panel" hidden="" id="mega-solutions" role="region" style="display: flex; flex-direction: column; gap: 0.25rem; padding: 0.75rem; width: 320px;">
+<a class="mega-link" href="solution-anti-counterfeiting.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
+<span aria-hidden="true" class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" height="16" style="color: var(--accent);" width="16"><use href="#icon-route"></use></svg></span>
+<span class="mega-link-text" style="font-size: 0.875rem;"><strong>Track &amp; Trace</strong><span style="font-size: 11px; color: var(--ink-soft); display: block; margin-top: 2px;">Serialization &amp; real-time visibility</span></span>
+</a>
+<a class="mega-link" href="solution-anti-counterfeiting.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px; background: rgba(104,98,167,0.06);">
+<span aria-hidden="true" class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px; background: rgba(104,98,167,0.1);"><svg class="icon" height="16" style="color: var(--accent);" width="16"><use href="#icon-shield"></use></svg></span>
+<span class="mega-link-text" style="font-size: 0.875rem;"><strong>Anti-Counterfeiting Solution</strong><span style="font-size: 11px; color: var(--ink-soft); display: block; margin-top: 2px;">Overt, covert &amp; forensic protection</span></span>
+</a>
+<a class="mega-link" href="solution-anti-counterfeiting.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
+<span aria-hidden="true" class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" height="16" style="color: var(--accent);" width="16"><use href="#icon-gift"></use></svg></span>
+<span class="mega-link-text" style="font-size: 0.875rem;"><strong>Payment-linked Incentives</strong><span style="font-size: 11px; color: var(--ink-soft); display: block; margin-top: 2px;">Distributor &amp; retailer engagement</span></span>
+</a>
+<a class="mega-link" href="solution-anti-counterfeiting.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
+<span aria-hidden="true" class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" height="16" style="color: var(--accent);" width="16"><use href="#icon-video"></use></svg></span>
+<span class="mega-link-text" style="font-size: 0.875rem;"><strong>AI Video Intelligence</strong><span style="font-size: 11px; color: var(--ink-soft); display: block; margin-top: 2px;">CCTV into supply chain intelligence</span></span>
+</a>
+</div>
+</div>
+<!-- Industries Dropdown -->
+<div class="nav-item" data-mega="">
+<a aria-controls="mega-industries" aria-expanded="false" aria-haspopup="true" class="nav-link nav-link--mega" href="industry-template.html" id="nav-industries-trigger">
+          Industries
+          <svg aria-hidden="true" class="icon nav-chevron" height="14" width="14"><use href="#icon-chevron"></use></svg>
+</a>
+<div aria-labelledby="nav-industries-trigger" class="mega-panel" hidden="" id="mega-industries" role="region" style="width: min(800px, calc(100vw - 2 * var(--gutter)));">
+<div class="mega-panel__inner" style="grid-template-columns: 1fr;">
+<div class="mega-col" style="display: grid; grid-template-columns: repeat(2, 1fr); width: 100%; max-width: none; gap: 0.75rem 2rem; padding: 1.5rem;">
+<a class="mega-link" href="industry-template.html"><span class="mega-link-icon"><svg class="icon" height="20" style="color: var(--accent);" width="20"><use href="#icon-seeding"></use></svg></span><span class="mega-link-text"><strong>Agrochemicals</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Stop counterfeit pesticides killing crops and brands.</span></span></a>
+<a class="mega-link" href="industry-template.html"><span class="mega-link-icon"><svg class="icon" height="20" style="color: var(--accent);" width="20"><use href="#icon-droplet"></use></svg></span><span class="mega-link-text"><strong>Lubricants &amp; Auto</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">End grey-market diversion and fake oils.</span></span></a>
+<a class="mega-link" href="industry-template.html"><span class="mega-link-icon"><svg class="icon" height="20" style="color: var(--accent);" width="20"><use href="#icon-leaf"></use></svg></span><span class="mega-link-text"><strong>Seeds</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Guarantee germination, beat seed fraud.</span></span></a>
+<a class="mega-link" href="industry-template.html"><span class="mega-link-icon"><svg class="icon" height="20" style="color: var(--accent);" width="20"><use href="#icon-pill"></use></svg></span><span class="mega-link-text"><strong>Pharmaceuticals</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Meet incoming track-and-trace mandates.</span></span></a>
+<a class="mega-link" href="industry-template.html"><span class="mega-link-icon"><svg class="icon" height="20" style="color: var(--accent);" width="20"><use href="#icon-cart"></use></svg></span><span class="mega-link-text"><strong>CPG &amp; Packaged Foods</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Win shelf space with retailer loyalty.</span></span></a>
+<a class="mega-link" href="industry-template.html"><span class="mega-link-icon"><svg class="icon" height="20" style="color: var(--accent);" width="20"><use href="#icon-sparkles"></use></svg></span><span class="mega-link-text"><strong>Cosmetics</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Protect premium products at the consumer's hand.</span></span></a>
+</div>
+</div>
+</div>
+</div>
+<!-- Why dropdown -->
+<div class="nav-item" data-mega="">
+<a aria-controls="mega-why" aria-expanded="false" aria-haspopup="true" class="nav-link nav-link--mega" href="index.html#why" id="nav-why-trigger">
+          Why Smart Epsilon
+          <svg aria-hidden="true" class="icon nav-chevron" height="14" width="14"><use href="#icon-chevron"></use></svg>
+</a>
+<div aria-labelledby="nav-why-trigger" class="dropdown-panel" hidden="" id="mega-why" role="region" style="display: flex; flex-direction: column; gap: 0.25rem; padding: 0.75rem; width: 260px;">
+<a class="mega-link" href="index.html#problem" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;"><span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" height="16" style="color: var(--accent);" width="16"><use href="#icon-alert-triangle"></use></svg></span><span class="mega-link-text" style="font-size: 0.875rem;"><strong>The Problem We Solve</strong></span></a>
+<a class="mega-link" href="solution-anti-counterfeiting.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;"><span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" height="16" style="color: var(--accent);" width="16"><use href="#icon-bolt"></use></svg></span><span class="mega-link-text" style="font-size: 0.875rem;"><strong>Our Technology</strong></span></a>
+<a class="mega-link" href="case-study-template.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;"><span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" height="16" style="color: var(--accent);" width="16"><use href="#icon-trend"></use></svg></span><span class="mega-link-text" style="font-size: 0.875rem;"><strong>Customer Results</strong></span></a>
+<a class="mega-link" href="#cta" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;"><span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" height="16" style="color: var(--accent);" width="16"><use href="#icon-help"></use></svg></span><span class="mega-link-text" style="font-size: 0.875rem;"><strong>Implementation</strong></span></a>
+</div>
+</div>
+<!-- Resources dropdown -->
+<div class="nav-item" data-mega="">
+<a aria-controls="mega-resources" aria-expanded="false" aria-haspopup="true" class="nav-link nav-link--mega" href="#resources" id="nav-resources-trigger">
+          Resources
+          <svg aria-hidden="true" class="icon nav-chevron" height="14" width="14"><use href="#icon-chevron"></use></svg>
+</a>
+<div aria-labelledby="nav-resources-trigger" class="dropdown-panel" hidden="" id="mega-resources" role="region" style="display: flex; flex-direction: column; gap: 0.25rem; padding: 0.75rem; width: 260px;">
+<a class="mega-link" href="case-study-template.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;"><span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" height="16" style="color: var(--accent);" width="16"><use href="#icon-book"></use></svg></span><span class="mega-link-text" style="font-size: 0.875rem;"><strong>Case Studies</strong></span></a>
+<a class="mega-link" href="#blog" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;"><span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" height="16" style="color: var(--accent);" width="16"><use href="#icon-news"></use></svg></span><span class="mega-link-text" style="font-size: 0.875rem;"><strong>Blog &amp; Insights</strong></span></a>
+</div>
+</div>
+<!-- Company dropdown -->
+<div class="nav-item" data-mega="">
+<a aria-controls="mega-company" aria-expanded="false" aria-haspopup="true" class="nav-link nav-link--mega" href="index.html#company" id="nav-company-trigger">
+          Company
+          <svg aria-hidden="true" class="icon nav-chevron" height="14" width="14"><use href="#icon-chevron"></use></svg>
+</a>
+<div aria-labelledby="nav-company-trigger" class="dropdown-panel" hidden="" id="mega-company" role="region" style="display: flex; flex-direction: column; gap: 0.25rem; padding: 0.75rem; width: 260px;">
+<a class="mega-link" href="index.html#philosophy" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;"><span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" height="16" style="color: var(--accent);" width="16"><use href="#icon-info"></use></svg></span><span class="mega-link-text" style="font-size: 0.875rem;"><strong>About Us</strong></span></a>
+<a class="mega-link" href="#cta" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;"><span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" height="16" style="color: var(--accent);" width="16"><use href="#icon-mail"></use></svg></span><span class="mega-link-text" style="font-size: 0.875rem;"><strong>Contact</strong></span></a>
+</div>
+</div>
+</nav>
+<div class="nav-actions">
+<a class="btn btn-primary btn-sm nav-cta" href="#cta">Contact Us <svg class="icon" height="16" width="16"><use href="#icon-arrow-right"></use></svg></a>
+<button aria-controls="nav-drawer" aria-expanded="false" aria-label="Open menu" class="nav-toggle" type="button"><svg class="icon" height="20" width="20"><use href="#icon-menu"></use></svg></button>
+</div>
+</div>
+</header>
+<!-- ============================================
+         SECTION 1: HERO — SVG-BASED 28px GRID
+         Exact match to homepage grid: 28px cells
+         ============================================ -->
+
+<style>
+/* AGROCHEMICALS REDESIGN: Premium UI/UX Light Mode */
+:root {
+  --agro-surface: #ffffff;
+  --agro-surface-alt: #f7f7fa;
+  --agro-border: rgba(0,0,0,0.08);
+  --agro-dark: #111111;
+  --agro-text: #4a4a5a;
+  --agro-primary: #6862a7;
+  --agro-primary-light: rgba(104, 98, 167, 0.08);
+}
+
 .agro-section {
   padding: 120px 0;
   background: var(--agro-surface);
+  position: relative;
 }
 .agro-section.alt {
   background: var(--agro-surface-alt);
 }
-.agro-section-header {
+.agro-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.agro-header {
   text-align: center;
   max-width: 800px;
   margin: 0 auto 60px;
-  padding: 0 2rem;
 }
-.agro-section-header h2 {
-  font-size: clamp(2rem, 3.5vw, 3rem);
+.agro-header h2 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
   font-weight: 800;
-  color: var(--agro-darker);
-  margin-bottom: 16px;
+  color: var(--agro-dark);
   line-height: 1.1;
   letter-spacing: -0.02em;
+  margin-bottom: 24px;
 }
-.agro-section-header p {
+.agro-header p {
   font-size: 1.125rem;
   color: var(--agro-text);
   line-height: 1.6;
 }
 
-/* Masonry/Alternating Grid (Problems) */
+/* 1. Masonry Problems Grid */
 .agro-prob-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
 }
 .agro-prob-card {
   background: var(--agro-surface);
   border: 1px solid var(--agro-border);
   border-radius: 20px;
-  padding: 32px 40px;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 32px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.02);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 40px;
   position: relative;
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.agro-prob-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; bottom: 0; width: 4px;
-  background: #d32f2f;
-  transform: scaleY(0.3);
-  transform-origin: top;
-  transition: transform 0.4s ease;
-}
-.agro-prob-card:hover::before { transform: scaleY(1); }
 .agro-prob-card:hover {
-  transform: translateX(4px);
-  box-shadow: 0 12px 40px rgba(15,15,37,0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.04);
 }
 .agro-prob-num {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 900;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(211, 47, 47, 0.3);
+  -webkit-text-stroke: 1px rgba(104, 98, 167, 0.4);
+  margin-bottom: 24px;
   line-height: 1;
 }
-.agro-prob-content h3 {
-  font-size: 1.35rem;
+.agro-prob-card h3 {
+  font-size: 1.5rem;
   font-weight: 800;
-  margin-bottom: 12px;
-  color: var(--agro-darker);
-}
-.agro-prob-content p {
-  font-size: 1rem;
-  color: var(--agro-text);
-  line-height: 1.6;
-}
-
-/* Solutions Grid */
-.agro-sol-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-.agro-sol-card {
-  background: var(--agro-surface);
-  border: 1px solid var(--agro-border);
-  border-radius: 16px;
-  padding: 32px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.02);
-}
-.agro-sol-card:hover {
-  border-color: rgba(104, 98, 167, 0.4);
-  box-shadow: 0 12px 40px rgba(15, 15, 37, 0.08);
-  transform: translateY(-4px);
-}
-.agro-sol-num {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--agro-primary);
+  color: var(--agro-dark);
   margin-bottom: 16px;
 }
-.agro-sol-card p {
+.agro-prob-card p {
   font-size: 1.0625rem;
-  line-height: 1.6;
   color: var(--agro-text);
+  line-height: 1.6;
   margin: 0;
 }
 
-/* Stacked Cards */
+/* 2. Platform Capabilities Bento */
+.agro-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  grid-auto-rows: minmax(180px, auto);
+}
+.agro-bento-item {
+  background: var(--agro-surface);
+  border: 1px solid var(--agro-border);
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+.agro-bento-item:hover {
+  border-color: rgba(104, 98, 167, 0.3);
+  box-shadow: 0 16px 40px rgba(104, 98, 167, 0.08);
+}
+.agro-bento-item.large {
+  grid-column: span 2;
+  background: var(--agro-surface-alt);
+}
+.agro-bento-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--agro-primary-light);
+  color: var(--agro-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.agro-bento-item p {
+  font-size: 1.0625rem;
+  color: var(--agro-dark);
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 3. Stacked Implementation Cards */
 .agro-stack-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 2rem;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -202,22 +1158,21 @@
 
 .agro-stack-header {
   background: var(--agro-surface-alt);
-  color: var(--agro-darker);
-  padding: 24px 40px;
+  color: var(--agro-dark);
+  padding: 32px 48px;
   border-bottom: 1px solid var(--agro-border);
 }
 .agro-stack-header h3 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 800;
   margin: 0;
 }
 .agro-stack-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0;
 }
 .agro-stack-col {
-  padding: 40px;
+  padding: 48px;
 }
 .agro-stack-col:first-child {
   border-right: 1px solid var(--agro-border);
@@ -236,84 +1191,113 @@
 }
 .agro-stack-list li {
   position: relative;
-  padding-left: 24px;
-  margin-bottom: 16px;
-  font-size: 1rem;
+  padding-left: 28px;
+  margin-bottom: 20px;
+  font-size: 1.0625rem;
   line-height: 1.6;
   color: var(--agro-text);
 }
 .agro-stack-list li::before {
-  content: '•';
+  content: '→';
   position: absolute;
   left: 0; top: 0;
   color: var(--agro-primary);
-  font-size: 1.5rem;
-  line-height: 1.2;
+  font-weight: bold;
 }
 
-/* Impact Grid */
-.agro-impact-grid {
+/* 4. Enterprise Value UI/UX Redesign */
+.agro-value-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
 }
-.agro-impact-card {
-  background: var(--agro-surface);
-  padding: 32px;
+.agro-value-sticky {
+  position: sticky;
+  top: 120px;
+}
+.agro-value-sticky h2 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--agro-dark);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.agro-value-sticky p {
+  font-size: 1.25rem;
+  color: var(--agro-text);
+  line-height: 1.6;
+}
+.agro-value-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.agro-value-card {
+  background: var(--agro-surface-alt);
+  padding: 32px 40px;
   border-radius: 20px;
   border: 1px solid var(--agro-border);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  transition: transform 0.3s ease, background 0.3s ease;
 }
-.agro-impact-card h3 {
-  font-size: 1.25rem;
+.agro-value-card:hover {
+  background: var(--agro-surface);
+  transform: translateX(-8px);
+  box-shadow: 12px 12px 40px rgba(0,0,0,0.04);
+}
+.agro-value-card h3 {
+  font-size: 1.35rem;
   font-weight: 800;
-  color: var(--agro-darker);
+  color: var(--agro-dark);
   margin-bottom: 12px;
 }
-.agro-impact-card p {
-  font-size: 1rem;
+.agro-value-card p {
+  font-size: 1.0625rem;
   color: var(--agro-text);
   line-height: 1.6;
   margin: 0;
 }
 
-/* Compliance Sidebar */
+/* 5. Compliance Sidebar */
 .agro-comp-inner {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 60px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
 }
 .agro-comp-sidebar {
   position: sticky;
   top: 120px;
 }
 .agro-comp-sidebar h2 {
-  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
   font-weight: 800;
   margin-bottom: 16px;
-  color: var(--agro-darker);
+  color: var(--agro-dark);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 .agro-comp-list {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 40px;
 }
 .agro-comp-item {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   align-items: flex-start;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--agro-border);
+}
+.agro-comp-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 .agro-comp-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: rgba(104, 98, 167, 0.08);
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--agro-primary-light);
   color: var(--agro-primary);
   display: flex;
   align-items: center;
@@ -321,70 +1305,30 @@
   flex-shrink: 0;
 }
 .agro-comp-text h3 {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 800;
-  color: var(--agro-darker);
-  margin-bottom: 8px;
+  color: var(--agro-dark);
+  margin-bottom: 12px;
 }
 .agro-comp-text p {
-  font-size: 1rem;
+  font-size: 1.0625rem;
   color: var(--agro-text);
   line-height: 1.6;
   margin: 0;
 }
 
-/* FAQ (Light Mode) */
-.agro-faq-inner {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-.agro-faq-item {
-  border-bottom: 1px solid var(--agro-border);
-}
-.agro-faq-q {
-  padding: 32px 0;
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--agro-darker);
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.agro-faq-q::after {
-  content: '+';
-  font-size: 24px;
-  font-weight: 300;
-  transition: transform 0.3s ease;
-}
-.agro-faq-item.is-open .agro-faq-q::after {
-  transform: rotate(45deg);
-}
-.agro-faq-a {
-  padding-bottom: 32px;
-  font-size: 1rem;
-  color: var(--agro-text);
-  line-height: 1.6;
-  display: none;
-}
-.agro-faq-item.is-open .agro-faq-a {
-  display: block;
-}
-
+/* Responsive */
 @media (max-width: 992px) {
-  .agro-comp-inner { grid-template-columns: 1fr; }
-  .agro-comp-sidebar { position: static; }
-  .agro-stack-body { grid-template-columns: 1fr; }
+  .agro-bento-grid { grid-template-columns: 1fr 1fr; }
+  .agro-bento-item.large { grid-column: span 1; }
+  .agro-stack-body, .agro-value-wrapper, .agro-comp-inner { grid-template-columns: 1fr; gap: 40px; }
   .agro-stack-col:first-child { border-right: none; border-bottom: 1px solid var(--agro-border); }
+  .agro-value-sticky, .agro-comp-sidebar { position: static; }
 }
 @media (max-width: 768px) {
-  .agro-prob-card { grid-template-columns: 1fr; gap: 16px; }
-  .agro-prob-num { font-size: 2.5rem; }
+  .agro-bento-grid { grid-template-columns: 1fr; }
 }
 </style>
-
-
 <section class="stage stage--hero internal-hero" id="hero">
 <!-- SVG Interactive Grid will be injected by JS below -->
 <div aria-hidden="true" class="internal-hero-svg-grid" id="internal-hero-grid"></div>
@@ -440,308 +1384,330 @@
 </div>
 </div>
 </section>
+<!-- ============================================
+         SECTION 2: COST OF NOT KNOWING — CINEMATIC QUOTE WALL
+         Layout: Vertical stacked quotes, magazine-editorial
+         ============================================ -->
 
 <!-- 2. REAL SUPPLY CHAIN PROBLEMS -->
 <section class="agro-section alt">
-  <div class="agro-section-header">
-    <p class="eyebrow">Real-world risks</p>
-    <h2>Real Supply Chain Problems</h2>
-    <p>Agrochemical supply chains break in more ways than any one page can cover — here are the five that cost the most, most often.</p>
-  </div>
-  
-  <div class="agro-prob-grid">
-    <div class="agro-prob-card">
-      <div class="agro-prob-num">01</div>
-      <div class="agro-prob-content">
-        <h3>Spurious Product in the Channel</h3>
-        <p>"Your biggest ag retailer is quietly stocking a look-alike at 20% below your list price. Can you prove to a grower which bag is real?" Unregistered formulators and repackagers sell copies that look right on the shelf — a grower finds out only when the spray fails.</p>
-      </div>
-    </div>
-    
-    <div class="agro-prob-card">
-      <div class="agro-prob-num">02</div>
-      <div class="agro-prob-content">
-        <h3>Sell-In Doesn't Equal Sell-Out</h3>
-        <p>"Distributor orders looked strong all season. Why is next year's demand forecast already wrong?" What shipped and what actually moved through the dealer network to a grower are different numbers — and production plans get built on the wrong one.</p>
-      </div>
-    </div>
-    
-    <div class="agro-prob-card">
-      <div class="agro-prob-num">03</div>
-      <div class="agro-prob-content">
-        <h3>Regulatory Audit, No Notice</h3>
-        <p>"A State Lead Agency inspector wants batch-level RUP records and WPS documentation — this week." Reconstructing that from spreadsheets turns a routine inspection into a multi-day scramble.</p>
-      </div>
-    </div>
-    
-    <div class="agro-prob-card">
-      <div class="agro-prob-num">04</div>
-      <div class="agro-prob-content">
-        <h3>Misapplication Liability</h3>
-        <p>"A grower used the wrong dosage, and now there's a crop-failure claim with your name on it." The liability conversation starts with your brand, whether or not the product was ever the actual problem.</p>
-      </div>
-    </div>
-    
-    <div class="agro-prob-card">
-      <div class="agro-prob-num">05</div>
-      <div class="agro-prob-content">
-        <h3>Dealer Trust and Channel Loyalty</h3>
-        <p>"Your dealer's incentive payout has been stuck in review for six weeks. Why would they push your product this season?" Slow, disputed rebate programs cost the shelf space the payout was supposed to buy.</p>
-      </div>
-    </div>
-  </div>
+<div class="agro-container">
+<div class="agro-header">
+<p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Real-world risks</p>
+<h2>Real Supply Chain Problems</h2>
+<p>Agrochemical supply chains break in more ways than any one page can cover — here are the five that cost the most, most often.</p>
+</div>
+<div class="agro-prob-grid">
+<div class="agro-prob-card">
+<div class="agro-prob-num">01</div>
+<h3>Spurious Product in the Channel</h3>
+<p>"Your biggest ag retailer is quietly stocking a look-alike at 20% below your list price. Can you prove to a grower which bag is real?" Unregistered formulators and repackagers sell copies that look right on the shelf — a grower finds out only when the spray fails.</p>
+</div>
+<div class="agro-prob-card">
+<div class="agro-prob-num">02</div>
+<h3>Sell-In Doesn't Equal Sell-Out</h3>
+<p>"Distributor orders looked strong all season. Why is next year's demand forecast already wrong?" What shipped and what actually moved through the dealer network to a grower are different numbers — and production plans get built on the wrong one.</p>
+</div>
+<div class="agro-prob-card">
+<div class="agro-prob-num">03</div>
+<h3>Regulatory Audit, No Notice</h3>
+<p>"A State Lead Agency inspector wants batch-level RUP records and WPS documentation — this week." Reconstructing that from spreadsheets turns a routine inspection into a multi-day scramble.</p>
+</div>
+<div class="agro-prob-card">
+<div class="agro-prob-num">04</div>
+<h3>Misapplication Liability</h3>
+<p>"A grower used the wrong dosage, and now there's a crop-failure claim with your name on it." The liability conversation starts with your brand, whether or not the product was ever the actual problem.</p>
+</div>
+<div class="agro-prob-card">
+<div class="agro-prob-num">05</div>
+<h3>Dealer Trust and Channel Loyalty</h3>
+<p>"Your dealer's incentive payout has been stuck in review for six weeks. Why would they push your product this season?" Slow, disputed rebate programs cost the shelf space the payout was supposed to buy.</p>
+</div>
+</div>
+</div>
 </section>
-
-<!-- 3. SOLUTIONS -->
+<!-- 3. PLATFORM CAPABILITIES REDESIGN -->
 <section class="agro-section">
-  <div class="agro-section-header">
-    <p class="eyebrow">Platform Capabilities</p>
-    <h2>Solutions</h2>
-    <p>Ten specific problems Smart Epsilon solves for agrochemical manufacturers.</p>
-  </div>
-  
-  <div class="agro-sol-grid">
-    <div class="agro-sol-card">
-      <div class="agro-sol-num">01</div>
-      <p>Verify a crop protection product's authenticity before purchase — no device required for the first check.</p>
-    </div>
-    <div class="agro-sol-card">
-      <div class="agro-sol-num">02</div>
-      <p>Replace shipment-based demand estimates with real, scan-confirmed sell-through data.</p>
-    </div>
-    <div class="agro-sol-card">
-      <div class="agro-sol-num">03</div>
-      <p>Produce audit-ready batch records for a state or federal inspection in minutes, not days.</p>
-    </div>
-    <div class="agro-sol-card">
-      <div class="agro-sol-num">04</div>
-      <p>Deliver dosage, tank-mix compatibility, and safety guidance at the point of scan, in the applicator's language.</p>
-    </div>
-    <div class="agro-sol-card">
-      <div class="agro-sol-num">05</div>
-      <p>Calculate dealer incentive payouts automatically from verified sales — not self-reported invoice volume.</p>
-    </div>
-    <div class="agro-sol-card">
-      <div class="agro-sol-num">06</div>
-      <p>Detect counterfeit or diverted product entering regional distribution before it reaches a shelf.</p>
-    </div>
-    <div class="agro-sol-card">
-      <div class="agro-sol-num">07</div>
-      <p>Confirm loading and unloading accuracy at regional distribution centers in real time.</p>
-    </div>
-    <div class="agro-sol-card">
-      <div class="agro-sol-num">08</div>
-      <p>Monitor temperature compliance for cold-sensitive seed treatments in storage and transit.</p>
-    </div>
-    <div class="agro-sol-card">
-      <div class="agro-sol-num">09</div>
-      <p>Flag shrinkage or theft of high-value patented formulations as it happens, not at the next count.</p>
-    </div>
-    <div class="agro-sol-card">
-      <div class="agro-sol-num">10</div>
-      <p>Give every dealer real-time visibility into exactly what they've earned, and why.</p>
-    </div>
-  </div>
+<div class="agro-container">
+<div class="agro-header">
+<p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Platform Capabilities</p>
+<h2>Solutions</h2>
+<p>Ten specific problems Smart Epsilon solves for agrochemical manufacturers.</p>
+</div>
+<div class="agro-bento-grid">
+<div class="agro-bento-item large">
+<div class="agro-bento-icon"><svg fill="none" height="24" stroke="currentColor" stroke-width="2" width="24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+<p>Verify a crop protection product's authenticity before purchase — no device required for the first check.</p>
+</div>
+<div class="agro-bento-item">
+<div class="agro-bento-icon"><svg fill="none" height="24" stroke="currentColor" stroke-width="2" width="24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+<p>Replace shipment-based demand estimates with real, scan-confirmed sell-through data.</p>
+</div>
+<div class="agro-bento-item">
+<div class="agro-bento-icon"><svg fill="none" height="24" stroke="currentColor" stroke-width="2" width="24"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg></div>
+<p>Produce audit-ready batch records for a state or federal inspection in minutes, not days.</p>
+</div>
+<div class="agro-bento-item">
+<div class="agro-bento-icon"><svg fill="none" height="24" stroke="currentColor" stroke-width="2" width="24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+<p>Deliver dosage, tank-mix compatibility, and safety guidance at the point of scan, in the applicator's language.</p>
+</div>
+<div class="agro-bento-item large">
+<div class="agro-bento-icon"><svg fill="none" height="24" stroke="currentColor" stroke-width="2" width="24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+<p>Calculate dealer incentive payouts automatically from verified sales — not self-reported invoice volume.</p>
+</div>
+<div class="agro-bento-item">
+<div class="agro-bento-icon"><svg fill="none" height="24" stroke="currentColor" stroke-width="2" width="24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg></div>
+<p>Detect counterfeit or diverted product entering regional distribution before it reaches a shelf.</p>
+</div>
+<div class="agro-bento-item">
+<div class="agro-bento-icon"><svg fill="none" height="24" stroke="currentColor" stroke-width="2" width="24"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg></div>
+<p>Confirm loading and unloading accuracy at regional distribution centers in real time.</p>
+</div>
+<div class="agro-bento-item">
+<div class="agro-bento-icon"><svg fill="none" height="24" stroke="currentColor" stroke-width="2" width="24"><path d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path><path d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path></svg></div>
+<p>Monitor temperature compliance for cold-sensitive seed treatments in storage and transit.</p>
+</div>
+<div class="agro-bento-item">
+<div class="agro-bento-icon"><svg fill="none" height="24" stroke="currentColor" stroke-width="2" width="24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+<p>Flag shrinkage or theft of high-value patented formulations as it happens, not at the next count.</p>
+</div>
+<div class="agro-bento-item">
+<div class="agro-bento-icon"><svg fill="none" height="24" stroke="currentColor" stroke-width="2" width="24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg></div>
+<p>Give every dealer real-time visibility into exactly what they've earned, and why.</p>
+</div>
+</div>
+</div>
 </section>
-
 <!-- 4. HOW EACH SOLUTION APPLIES -->
-<section class="agro-section alt agro-stack-section">
-  <div class="agro-section-header">
-    <p class="eyebrow">Agrochemical Implementations</p>
-    <h2>How Each Solution Applies</h2>
-    <p>Horizontal stacked cards — left side: Agro-specific implementation. Right side: business impact.</p>
-  </div>
-  
-  <div class="agro-stack-container">
-    <!-- Card 1 -->
-    <div class="agro-stack-card">
-      <div class="agro-stack-header">
-        <h3>Card 1 — Track & Trace</h3>
-      </div>
-      <div class="agro-stack-body">
-        <div class="agro-stack-col">
-          <h4>Agro-specific implementation</h4>
-          <ul class="agro-stack-list">
-            <li>Serialization at the point of formulation, tied to each product's EPA registration number</li>
-            <li>Dispatch and receipt confirmed at every regional distribution center — not assumed from an invoice</li>
-            <li>Real, scan-verified sell-through data from the dealer network, replacing shipment-based estimates</li>
-          </ul>
-        </div>
-        <div class="agro-stack-col">
-          <h4>Business impact</h4>
-          <ul class="agro-stack-list">
-            <li>Demand forecasts built on what actually sold, not what was shipped</li>
-            <li>Audit-ready compliance records in minutes instead of a multi-day scramble</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Card 2 -->
-    <div class="agro-stack-card">
-      <div class="agro-stack-header">
-        <h3>Card 2 — Anti-Counterfeiting Solution</h3>
-      </div>
-      <div class="agro-stack-body">
-        <div class="agro-stack-col">
-          <h4>Agro-specific implementation</h4>
-          <ul class="agro-stack-list">
-            <li>Tamper-evident holographic label on every bag or container, verified in seconds before purchase</li>
-            <li>Geo-tagged clone detection flags a duplicate code the moment it's scanned somewhere it shouldn't be</li>
-            <li>Dosage, tank-mix compatibility, and safety guidance delivered at the point of scan, in the applicator's language</li>
-          </ul>
-        </div>
-        <div class="agro-stack-col">
-          <h4>Business impact</h4>
-          <ul class="agro-stack-list">
-            <li>Fewer efficacy complaints traced back to spurious product</li>
-            <li>Fewer misapplication-driven liability claims, backed by a timestamped record of what was communicated</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Card 3 -->
-    <div class="agro-stack-card">
-      <div class="agro-stack-header">
-        <h3>Card 3 — AI Video Intelligence</h3>
-      </div>
-      <div class="agro-stack-body">
-        <div class="agro-stack-col">
-          <h4>Agro-specific implementation</h4>
-          <ul class="agro-stack-list">
-            <li>Loading and unloading verification at regional distribution centers, confirming dispatch matches the manifest</li>
-            <li>Purpose-placed thermal monitoring for temperature-sensitive seed treatments in storage</li>
-            <li>Targeted coverage on high-value patented formulations to catch shrinkage as it happens</li>
-          </ul>
-        </div>
-        <div class="agro-stack-col">
-          <h4>Business impact</h4>
-          <ul class="agro-stack-list">
-            <li>Freight disputes resolved with visual proof, not guesswork</li>
-            <li>Temperature excursions caught before an entire batch of seed treatment is lost</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Card 4 -->
-    <div class="agro-stack-card">
-      <div class="agro-stack-header">
-        <h3>Card 4 — Payment Linked Incentives</h3>
-      </div>
-      <div class="agro-stack-body">
-        <div class="agro-stack-col">
-          <h4>Agro-specific implementation</h4>
-          <ul class="agro-stack-list">
-            <li>Dealer incentive payouts calculated automatically from verified, scan-confirmed sell-through — not invoice volume</li>
-            <li>Real-time dashboard shows every dealer exactly what they've earned, and why</li>
-          </ul>
-        </div>
-        <div class="agro-stack-col">
-          <h4>Business impact</h4>
-          <ul class="agro-stack-list">
-            <li>Faster, dispute-resistant payouts that reward dealers for real sell-through</li>
-            <li>Protected shelf space and loyalty at the next reorder</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<section class="agro-section alt">
+<div class="agro-container">
+<div class="agro-header">
+<p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Agrochemical Implementations</p>
+<h2>How Each Solution Applies</h2>
+<p>Horizontal stacked cards — left side: Agro-specific implementation. Right side: business impact.</p>
+</div>
+<div class="agro-stack-container">
+<div class="agro-stack-card">
+<div class="agro-stack-header">
+<h3>Track &amp; Trace</h3>
+</div>
+<div class="agro-stack-body">
+<div class="agro-stack-col">
+<h4>Agro-specific implementation</h4>
+<ul class="agro-stack-list">
+<li>Serialization at the point of formulation, tied to each product's EPA registration number</li>
+<li>Dispatch and receipt confirmed at every regional distribution center — not assumed from an invoice</li>
+<li>Real, scan-verified sell-through data from the dealer network, replacing shipment-based estimates</li>
+</ul>
+</div>
+<div class="agro-stack-col">
+<h4>Business impact</h4>
+<ul class="agro-stack-list">
+<li>Demand forecasts built on what actually sold, not what was shipped</li>
+<li>Audit-ready compliance records in minutes instead of a multi-day scramble</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="agro-stack-card">
+<div class="agro-stack-header">
+<h3>Anti-Counterfeiting Solution</h3>
+</div>
+<div class="agro-stack-body">
+<div class="agro-stack-col">
+<h4>Agro-specific implementation</h4>
+<ul class="agro-stack-list">
+<li>Tamper-evident holographic label on every bag or container, verified in seconds before purchase</li>
+<li>Geo-tagged clone detection flags a duplicate code the moment it's scanned somewhere it shouldn't be</li>
+<li>Dosage, tank-mix compatibility, and safety guidance delivered at the point of scan, in the applicator's language</li>
+</ul>
+</div>
+<div class="agro-stack-col">
+<h4>Business impact</h4>
+<ul class="agro-stack-list">
+<li>Fewer efficacy complaints traced back to spurious product</li>
+<li>Fewer misapplication-driven liability claims, backed by a timestamped record of what was communicated</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="agro-stack-card">
+<div class="agro-stack-header">
+<h3>AI Video Intelligence</h3>
+</div>
+<div class="agro-stack-body">
+<div class="agro-stack-col">
+<h4>Agro-specific implementation</h4>
+<ul class="agro-stack-list">
+<li>Loading and unloading verification at regional distribution centers, confirming dispatch matches the manifest</li>
+<li>Purpose-placed thermal monitoring for temperature-sensitive seed treatments in storage</li>
+<li>Targeted coverage on high-value patented formulations to catch shrinkage as it happens</li>
+</ul>
+</div>
+<div class="agro-stack-col">
+<h4>Business impact</h4>
+<ul class="agro-stack-list">
+<li>Freight disputes resolved with visual proof, not guesswork</li>
+<li>Temperature excursions caught before an entire batch of seed treatment is lost</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="agro-stack-card">
+<div class="agro-stack-header">
+<h3>Payment Linked Incentives</h3>
+</div>
+<div class="agro-stack-body">
+<div class="agro-stack-col">
+<h4>Agro-specific implementation</h4>
+<ul class="agro-stack-list">
+<li>Dealer incentive payouts calculated automatically from verified, scan-confirmed sell-through — not invoice volume</li>
+<li>Real-time dashboard shows every dealer exactly what they've earned, and why</li>
+</ul>
+</div>
+<div class="agro-stack-col">
+<h4>Business impact</h4>
+<ul class="agro-stack-list">
+<li>Faster, dispute-resistant payouts that reward dealers for real sell-through</li>
+<li>Protected shelf space and loyalty at the next reorder</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<!-- 5. BUSINESS IMPACT -->
+<!-- 5. ENTERPRISE VALUE REDESIGN -->
 <section class="agro-section">
-  <div class="agro-section-header">
-    <p class="eyebrow">Enterprise Value</p>
-    <h2>Business Impact</h2>
-    <p>What this adds up to across an agrochemical manufacturing operation.</p>
-  </div>
-  
-  <div class="agro-impact-grid">
-    <div class="agro-impact-card">
-      <h3>End-to-End Product Visibility</h3>
-      <p>From formulation to field, know where every unit is at every stage — not just inside your own four walls.</p>
-    </div>
-    <div class="agro-impact-card">
-      <h3>Protected Brand Trust</h3>
-      <p>Fewer efficacy complaints and liability disputes traced back to spurious product reaching the shelf.</p>
-    </div>
-    <div class="agro-impact-card">
-      <h3>Reduced Liability Exposure</h3>
-      <p>A timestamped, defensible record of exactly what dosage and safety guidance was communicated, if a misapplication claim ever surfaces.</p>
-    </div>
-    <div class="agro-impact-card">
-      <h3>Accurate Demand Planning</h3>
-      <p>Production and inventory decisions built on real, verified sell-through — not shipment estimates that turn out wrong by harvest.</p>
-    </div>
-    <div class="agro-impact-card">
-      <h3>Audit-Ready Compliance</h3>
-      <p>Batch-level FIFRA, RUP, and WPS records available in minutes during a state or federal inspection, not reconstructed under deadline pressure.</p>
-    </div>
-    <div class="agro-impact-card">
-      <h3>Stronger Dealer Relationships</h3>
-      <p>Faster, dispute-resistant incentive payouts that reward what a dealer actually sold — protecting shelf space at the next reorder.</p>
-    </div>
-    <div class="agro-impact-card">
-      <h3>Faster Dispute Resolution</h3>
-      <p>Visual and data-backed proof resolves freight, distributor, and dealer disagreements in minutes instead of open-ended back-and-forth.</p>
-    </div>
-    <div class="agro-impact-card">
-      <h3>Protected Cold-Chain Integrity</h3>
-      <p>Real-time temperature monitoring catches an excursion before an entire batch of seed treatment is lost.</p>
-    </div>
-  </div>
+<div class="agro-container">
+<div class="agro-value-wrapper">
+<div class="agro-value-sticky">
+<p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Enterprise Value</p>
+<h2>Business Impact</h2>
+<p>What this adds up to across an agrochemical manufacturing operation.</p>
+</div>
+<div class="agro-value-list">
+<div class="agro-value-card">
+<h3>End-to-End Product Visibility</h3>
+<p>From formulation to field, know where every unit is at every stage — not just inside your own four walls.</p>
+</div>
+<div class="agro-value-card">
+<h3>Protected Brand Trust</h3>
+<p>Fewer efficacy complaints and liability disputes traced back to spurious product reaching the shelf.</p>
+</div>
+<div class="agro-value-card">
+<h3>Reduced Liability Exposure</h3>
+<p>A timestamped, defensible record of exactly what dosage and safety guidance was communicated, if a misapplication claim ever surfaces.</p>
+</div>
+<div class="agro-value-card">
+<h3>Accurate Demand Planning</h3>
+<p>Production and inventory decisions built on real, verified sell-through — not shipment estimates that turn out wrong by harvest.</p>
+</div>
+<div class="agro-value-card">
+<h3>Audit-Ready Compliance</h3>
+<p>Batch-level FIFRA, RUP, and WPS records available in minutes during a state or federal inspection, not reconstructed under deadline pressure.</p>
+</div>
+<div class="agro-value-card">
+<h3>Stronger Dealer Relationships</h3>
+<p>Faster, dispute-resistant incentive payouts that reward what a dealer actually sold — protecting shelf space at the next reorder.</p>
+</div>
+<div class="agro-value-card">
+<h3>Faster Dispute Resolution</h3>
+<p>Visual and data-backed proof resolves freight, distributor, and dealer disagreements in minutes instead of open-ended back-and-forth.</p>
+</div>
+<div class="agro-value-card">
+<h3>Protected Cold-Chain Integrity</h3>
+<p>Real-time temperature monitoring catches an excursion before an entire batch of seed treatment is lost.</p>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- 6. COMPLIANCE & REGULATORY -->
 <section class="agro-section alt">
-  <div class="agro-comp-inner">
-    <div class="agro-comp-sidebar">
-      <p class="eyebrow">Regulatory Alignment</p>
-      <h2>Compliance & Regulatory Context</h2>
-      <p style="font-size: 1.125rem; color: var(--agro-text); line-height: 1.6;">FIFRA, EPA registration, and state pesticide law — handled, not hoped for.</p>
-    </div>
-    <div class="agro-comp-list">
-      <div class="agro-comp-item">
-        <div class="agro-comp-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-        <div class="agro-comp-text">
-          <h3>FIFRA / EPA registration alignment</h3>
-          <p>Serialization ties directly to each product's EPA registration number, the identifier regulators and state inspectors check first.</p>
-        </div>
-      </div>
-      <div class="agro-comp-item">
-        <div class="agro-comp-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-        <div class="agro-comp-text">
-          <h3>Restricted Use Pesticide (RUP) tracking</h3>
-          <p>Purchase and application records tied to certified-applicator data, supporting the recordkeeping FIFRA requires.</p>
-        </div>
-      </div>
-      <div class="agro-comp-item">
-        <div class="agro-comp-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-        <div class="agro-comp-text">
-          <h3>Worker Protection Standard (WPS) support</h3>
-          <p>Point-of-scan delivery of Restricted Entry Interval (REI), Pre-Harvest Interval (PHI), and safety guidance, in the applicator's preferred language.</p>
-        </div>
-      </div>
-      <div class="agro-comp-item">
-        <div class="agro-comp-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-        <div class="agro-comp-text">
-          <h3>State Lead Agency compliance</h3>
-          <p>Every state enforces pesticide law through its own Department of Agriculture, coordinated nationally via AAPCO; batch and dealer-level data support audit-readiness during inspection.</p>
-        </div>
-      </div>
-      <div class="agro-comp-item">
-        <div class="agro-comp-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-        <div class="agro-comp-text">
-          <h3>Maximum Residue Limit (MRL) traceability</h3>
-          <p>Batch-level data supports residue-testing queries and export-market compliance.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="agro-container">
+<div class="agro-comp-inner">
+<div class="agro-comp-sidebar">
+<p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Regulatory Alignment</p>
+<h2>Compliance &amp; Regulatory Context</h2>
+<p style="font-size: 1.125rem; color: var(--agro-text); line-height: 1.6;">FIFRA, EPA registration, and state pesticide law — handled, not hoped for.</p>
+</div>
+<div class="agro-comp-list">
+<div class="agro-comp-item">
+<div class="agro-comp-icon"><svg fill="none" height="24" stroke="currentColor" stroke-width="2" width="24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+<div class="agro-comp-text">
+<h3>FIFRA / EPA registration alignment</h3>
+<p>Serialization ties directly to each product's EPA registration number, the identifier regulators and state inspectors check first.</p>
+</div>
+</div>
+<div class="agro-comp-item">
+<div class="agro-comp-icon"><svg fill="none" height="24" stroke="currentColor" stroke-width="2" width="24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+<div class="agro-comp-text">
+<h3>Restricted Use Pesticide (RUP) tracking</h3>
+<p>Purchase and application records tied to certified-applicator data, supporting the recordkeeping FIFRA requires.</p>
+</div>
+</div>
+<div class="agro-comp-item">
+<div class="agro-comp-icon"><svg fill="none" height="24" stroke="currentColor" stroke-width="2" width="24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+<div class="agro-comp-text">
+<h3>Worker Protection Standard (WPS) support</h3>
+<p>Point-of-scan delivery of Restricted Entry Interval (REI), Pre-Harvest Interval (PHI), and safety guidance, in the applicator's preferred language.</p>
+</div>
+</div>
+<div class="agro-comp-item">
+<div class="agro-comp-icon"><svg fill="none" height="24" stroke="currentColor" stroke-width="2" width="24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+<div class="agro-comp-text">
+<h3>State Lead Agency compliance</h3>
+<p>Every state enforces pesticide law through its own Department of Agriculture, coordinated nationally via AAPCO; batch and dealer-level data support audit-readiness during inspection.</p>
+</div>
+</div>
+<div class="agro-comp-item">
+<div class="agro-comp-icon"><svg fill="none" height="24" stroke="currentColor" stroke-width="2" width="24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+<div class="agro-comp-text">
+<h3>Maximum Residue Limit (MRL) traceability</h3>
+<p>Batch-level data supports residue-testing queries and export-market compliance.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 
+<!-- ============================================
+         SECTION 3: THREE LAYERS — STICKY TAB REVEAL
+         Layout: Sticky left nav + morphing right content
+         ============================================ -->
+
+<!-- ============================================
+         SECTION 4: CROSS-FUNCTIONAL ALIGNMENT
+         Layout: Tabbed Screenshot Slider (Homepage match)
+         ============================================ -->
+
+<!-- ============================================
+         SECTION 5: WHAT IT ACTUALLY SOLVES — CAROUSEL SLIDER
+         Layout: Horizontal scrolling slider
+         ============================================ -->
+
+<!-- ============================================
+         SECTION 6: FITS YOUR STACK — 3 COLUMN CARDS
+         Layout: 3 columns with images
+         ============================================ -->
+
+<!-- ============================================
+         SECTION 7: WHY LAYERED BEATS SINGLE — COMPARISON TABLE
+         Layout: Light bg, high-contrast comparison table
+         ============================================ -->
+
+<!-- ============================================
+         SECTION 8: ROLLOUT PROCESS — VERTICAL STEP
+         Layout: Vertical list with left-aligned icons and progress line
+         ============================================ -->
+
+<!-- ============================================
+         SECTION 9: SOCIAL PROOF / TESTIMONIAL
+         Layout: Homepage slider
+         ============================================ -->
+<!-- VOICES -->
 <section aria-labelledby="voices-title" class="stage stage--voices" id="voices" style="background: #f7f7fa;">
 <div class="stage__inner">
 <header class="voices-head" data-reveal="" style="max-width: 800px; text-align: left; margin-bottom: 3rem;">
@@ -797,38 +1763,61 @@
 </div>
 </div>
 </section>
-<section class="agro-section alt">
-  <div class="agro-section-header">
-    <p class="eyebrow">Before you ask</p>
-    <h2>Frequently Asked Questions</h2>
-  </div>
-  <div class="agro-faq-inner">
-    <div class="agro-faq-item">
-      <div class="agro-faq-q">Does this support Restricted Use Pesticide (RUP) recordkeeping?</div>
-      <div class="agro-faq-a">Yes — purchase and application records for RUPs are tied to certified-applicator data at the point of scan, supporting FIFRA's recordkeeping requirements.</div>
-    </div>
-    <div class="agro-faq-item">
-      <div class="agro-faq-q">Can safety and application information reach our applicator network in multiple languages?</div>
-      <div class="agro-faq-a">Yes — dosage, tank-mix, and safety guidance can be delivered in the applicator's preferred language at the point of scan, supporting WPS accessibility requirements.</div>
-    </div>
-    <div class="agro-faq-item">
-      <div class="agro-faq-q">How does this integrate with our existing distributor and ERP systems?</div>
-      <div class="agro-faq-a">Smart Epsilon connects to SAP, Oracle, and other major ERPs without rip-and-replace, via GS1 EPCIS 2.0. Most agrochemical clients are live in about six weeks.</div>
-    </div>
-    <div class="agro-faq-item">
-      <div class="agro-faq-q">During a state inspection, can we produce batch-level records on demand?</div>
-      <div class="agro-faq-a">Yes — batch and dealer-level data is queryable in real time, tied to each product's EPA registration number, for audit-readiness during State Lead Agency inspection.</div>
-    </div>
-  </div>
-</section>
+<!-- ============================================
+         SECTION 10: FAQ — MINIMAL DARK ACCORDION
+         Layout: Dark bg, minimal borderless accordion with dot indicator
+         ============================================ -->
+<section class="faq-section">
+<div class="faq-inner">
+<div class="faq-header">
+<p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Before you ask</p>
+<h2>The questions we hear most.</h2>
+<p>Honest answers, no sales preamble.</p>
+</div>
+<div class="faq-list">
+<div class="faq-item" data-faq="">
+<button aria-expanded="false" class="faq-trigger">
+<div class="faq-trigger-q">Can holograms be copied?</div>
+<div class="faq-trigger-dot"></div>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner"><p>Yes — purchase and application records for RUPs are tied to certified-applicator data at the point of scan, supporting FIFRA's recordkeeping requirements.</p></div>
+</div>
+</div>
+<div class="faq-item" data-faq="">
+<button aria-expanded="false" class="faq-trigger">
+<div class="faq-trigger-q">Do we need new packaging or printing hardware?</div>
+<div class="faq-trigger-dot"></div>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner"><p>Yes — dosage, tank-mix, and safety guidance can be delivered in the applicator's preferred language at the point of scan, supporting WPS accessibility requirements.</p></div>
+</div>
+</div>
+<div class="faq-item" data-faq="">
+<button aria-expanded="false" class="faq-trigger">
+<div class="faq-trigger-q">What happens when a clone is detected?</div>
+<div class="faq-trigger-dot"></div>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner"><p>Smart Epsilon connects to SAP, Oracle, and other major ERPs without rip-and-replace, via GS1 EPCIS 2.0. Most agrochemical clients are live in about six weeks.</p></div>
+</div>
+</div>
+<div class="faq-item" data-faq="">
+<button aria-expanded="false" class="faq-trigger">
+<div class="faq-trigger-q">How fast can we integrate with our SAP or Oracle ERP?</div>
+<div class="faq-trigger-dot"></div>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner"><p>Yes — batch and dealer-level data is queryable in real time, tied to each product's EPA registration number, for audit-readiness during State Lead Agency inspection.</p></div>
+</div>
+</div>
 
-<script>
-  document.querySelectorAll('.agro-faq-q').forEach(item => {
-    item.addEventListener('click', () => {
-      item.parentElement.classList.toggle('is-open');
-    });
-  });
-</script>
+</div>
+</div>
+</section>
+<!-- ============================================
+         SECTION 11: FINAL CTA
+         ============================================ -->
 <section class="stage stage--cta" id="cta">
 <div aria-hidden="true" class="hero-map" id="hero-map"></div>
 <div class="cta-shell">
@@ -905,7 +1894,8 @@
 </aside>
 </div>
 </div>
-</section><footer class="site-footer" style="background: #090714; color: #f0f4ff; padding: 5rem 2rem 3.5rem; font-family: var(--font-body); position: relative; overflow: hidden; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+</section>
+<footer class="site-footer" style="background: #090714; color: #f0f4ff; padding: 5rem 2rem 3.5rem; font-family: var(--font-body); position: relative; overflow: hidden; border-top: 1px solid rgba(255, 255, 255, 0.05);">
 <div class="stage__inner" style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: end;">
 <div style="display: flex; flex-direction: column; gap: 2.5rem; width: 100%;">
 <div style="display: grid; grid-template-columns: 1.15fr 0.85fr 0.95fr 0.95fr; gap: 2.5rem; align-items: start; width: 100%;">
