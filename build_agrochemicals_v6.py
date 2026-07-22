@@ -548,15 +548,15 @@ middle_html = """
         <div class="agro-bento-content"><p>Verify a crop protection product’s authenticity before purchase, no device required for the first check.</p></div>
       </div>
       <div class="agro-bento-item">
-        <img class="agro-bento-img" src="assets/images/card-bg-3.jpg" alt="Demand Estimates">
+        <img class="agro-bento-img" src="assets/images/card-bg-6.jpg" alt="Demand Estimates">
         <div class="agro-bento-content"><p>Replace shipment-based demand estimates with real, scan-confirmed sell-through data.</p></div>
       </div>
       <div class="agro-bento-item">
-        <img class="agro-bento-img" src="assets/images/card-bg-4.jpg" alt="Audit Records">
+        <img class="agro-bento-img" src="assets/images/card-bg-2.jpg" alt="Audit Records">
         <div class="agro-bento-content"><p>Produce audit-ready batch records for a state or federal inspection in minutes, not days.</p></div>
       </div>
       <div class="agro-bento-item">
-        <img class="agro-bento-img" src="assets/images/card-bg-5.jpg" alt="Safety Guidance">
+        <img class="agro-bento-img" src="assets/images/card-bg-8.jpg" alt="Safety Guidance">
         <div class="agro-bento-content"><p>Deliver dosage, tank-mix compatibility, and safety guidance at the point of scan, in the applicator’s language.</p></div>
       </div>
       <div class="agro-bento-item">
@@ -568,11 +568,11 @@ middle_html = """
         <div class="agro-bento-content"><p>Detect counterfeit or diverted product entering regional distribution before it reaches a shelf.</p></div>
       </div>
       <div class="agro-bento-item">
-        <img class="agro-bento-img" src="assets/images/card-bg-8.jpg" alt="Loading Accuracy">
+        <img class="agro-bento-img" src="assets/images/card-bg-3.jpg" alt="Loading Accuracy">
         <div class="agro-bento-content"><p>Confirm loading and unloading accuracy at regional distribution centers in real time.</p></div>
       </div>
       <div class="agro-bento-item">
-        <img class="agro-bento-img" src="assets/images/card-bg-2.jpg" alt="Temperature Compliance">
+        <img class="agro-bento-img" src="assets/images/card-bg-4.jpg" alt="Temperature Compliance">
         <div class="agro-bento-content"><p>Monitor temperature compliance for cold-sensitive seed treatments in storage and transit.</p></div>
       </div>
       <div class="agro-bento-item">
@@ -580,7 +580,7 @@ middle_html = """
         <div class="agro-bento-content"><p>Flag shrinkage or theft of high-value patented formulations as it happens, not at the next count.</p></div>
       </div>
       <div class="agro-bento-item">
-        <img class="agro-bento-img" src="assets/images/card-bg-1.jpg" alt="Real-time Visibility">
+        <img class="agro-bento-img" src="assets/images/card-bg-2.jpg" alt="Real-time Visibility">
         <div class="agro-bento-content"><p>Give every dealer real-time visibility into exactly what they’ve earned, and why.</p></div>
       </div>
     </div>
@@ -774,35 +774,35 @@ middle_html = """
       </div>
       <div class="agro-comp-list">
         <div class="agro-comp-item">
-          <div class="agro-comp-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+          <div class="agro-comp-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></div>
           <div class="agro-comp-text">
             <h3>FIFRA / EPA registration alignment</h3>
             <p>Serialization ties directly to each product's EPA registration number, the identifier regulators and state inspectors check first.</p>
           </div>
         </div>
         <div class="agro-comp-item">
-          <div class="agro-comp-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+          <div class="agro-comp-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg></div>
           <div class="agro-comp-text">
             <h3>Restricted Use Pesticide (RUP) tracking</h3>
             <p>Purchase and application records tied to certified-applicator data, supporting the recordkeeping FIFRA requires.</p>
           </div>
         </div>
         <div class="agro-comp-item">
-          <div class="agro-comp-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+          <div class="agro-comp-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg></div>
           <div class="agro-comp-text">
             <h3>Worker Protection Standard (WPS) support</h3>
             <p>Point-of-scan delivery of Restricted Entry Interval (REI), Pre-Harvest Interval (PHI), and safety guidance, in the applicator's preferred language.</p>
           </div>
         </div>
         <div class="agro-comp-item">
-          <div class="agro-comp-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+          <div class="agro-comp-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path></svg></div>
           <div class="agro-comp-text">
             <h3>State Lead Agency compliance</h3>
             <p>Every state enforces pesticide law through its own Department of Agriculture, coordinated nationally via AAPCO; batch and dealer-level data support audit-readiness during inspection.</p>
           </div>
         </div>
         <div class="agro-comp-item">
-          <div class="agro-comp-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+          <div class="agro-comp-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg></div>
           <div class="agro-comp-text">
             <h3>Maximum Residue Limit (MRL) traceability</h3>
             <p>Batch-level data supports residue-testing queries and export-market compliance.</p>
