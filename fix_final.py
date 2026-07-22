@@ -1,66 +1,52 @@
-with open('/Users/cp/.gemini/antigravity/brain/675b45b3-1249-4cd2-a478-97874d96a273/scratch/build_anti_counterfeiting_page.py', 'r') as f:
-    content = f.read()
+import re
 
-# 1. Quote Fix (Removing literal quote marks from HTML in Sec 2)
-content = content.replace('"A customer was hurt by a counterfeit sold under your name. Whose liability is that?"', 'A customer was hurt by a counterfeit sold under your name. Whose liability is that?')
-# Remove any remaining stray quotes in the quote items just in case
-content = content.replace('<p class="quote-item__q">"', '<p class="quote-item__q">')
-content = content.replace('?"</p>', '?</p>')
-content = content.replace('."</p>', '.</p>')
-content = content.replace('"</p>', '</p>')
+files = [
+    '/Users/cp/Ronak/CP/CP Website/servicepages/solution-anti-counterfeiting.html',
+    '/Users/cp/Ronak/CP/CP Website/servicepages/industry-template.html'
+]
 
-# 2. ERP Image
-import glob, os
-erp_images = glob.glob('/Users/cp/Ronak/CP/CP Website/servicepages/assets/sec6_erp_v2*.jpg')
-if erp_images:
-    new_erp_img = os.path.basename(erp_images[0])
-    content = content.replace('src="assets/sec6_erp_1784700440246.jpg"', f'src="assets/{new_erp_img}"')
-    content = content.replace('src="assets/sec6_erp.jpg"', f'src="assets/{new_erp_img}"')
+for file_path in files:
+    with open(file_path, 'r') as f:
+        content = f.read()
 
-
-# 3. Section 8 (Rollout) Timeline Icon Dark Color
-content = content.replace('color: rgba(0,0,0,0.4);', 'color: #111111;')
-
-# 4. Section 5 & 6 Hover Effects
-sec5_hover_css = """  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-.bento-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(104, 98, 167, 0.4);
-  box-shadow: 0 12px 40px rgba(15, 15, 37, 0.1);
+    # 1. Fix .vstep-outline-num clipping issue for "02" and "04"
+    old_css = """.vstep-outline-num {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(0,0,0,0.1);
+  line-height: 0.8;
+  margin-bottom: 4px;
+  margin-left: -2px;
+  transition: -webkit-text-stroke 0.4s ease;
 }"""
-if '.bento-card:hover' not in content:
-    content = content.replace('  box-shadow: 0 4px 24px rgba(0,0,0,0.02);\n}', '  box-shadow: 0 4px 24px rgba(0,0,0,0.02);\n' + sec5_hover_css)
-
-
-sec6_css_update = """  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-.integration-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(104, 98, 167, 0.4);
-  box-shadow: 0 12px 40px rgba(15, 15, 37, 0.1);
-}
-.integration-card:hover .integration-img {
-  transform: scale(1.05);
+    new_css = """.vstep-outline-num {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(0,0,0,0.1);
+  line-height: 0.8;
+  margin-bottom: 4px;
+  margin-left: -2px;
+  padding-left: 4px;
+  transition: -webkit-text-stroke 0.4s ease;
 }"""
+    content = content.replace(old_css, new_css)
 
-content = content.replace("""  transition: all 0.3s ease;
-}
-.integration-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.06);
-}""", sec6_css_update)
+    # 2. Fix comparison table full row hover
+    old_hover = ".comparison-table tbody tr:hover td {"
+    if old_hover in content:
+        # Just replace the hover block
+        # We need to find the block
+        content = re.sub(
+            r'\.comparison-table tbody tr:hover td \{.*?\}',
+            '.comparison-table tbody tr:hover td { background: rgba(104,98,167,0.05); }\n.comparison-table tbody tr:hover td.cell-smart { background: rgba(104,98,167,0.12); }',
+            content, flags=re.DOTALL
+        )
 
-content = content.replace(""".integration-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}""", """.integration-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}""")
+    with open(file_path, 'w') as f:
+        f.write(content)
 
-with open('/Users/cp/.gemini/antigravity/brain/675b45b3-1249-4cd2-a478-97874d96a273/scratch/build_anti_counterfeiting_page.py', 'w') as f:
-    f.write(content)
+print("Fixed vstep numbers and table row hover.")
