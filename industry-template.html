@@ -1419,8 +1419,16 @@ document.addEventListener('DOMContentLoaded', () => {
         wrapper.appendChild(leftBtn);
         wrapper.appendChild(rightBtn);
 
-        leftBtn.addEventListener('click', () => carousel.scrollBy({ left: -350, behavior: 'smooth' }));
-        rightBtn.addEventListener('click', () => carousel.scrollBy({ left: 350, behavior: 'smooth' }));
+        let manualTimeout;
+        const manualScroll = (amount) => {
+            clearInterval(autoScroll);
+            clearTimeout(manualTimeout);
+            carousel.scrollBy({ left: amount, behavior: 'smooth' });
+            manualTimeout = setTimeout(startAutoScroll, 1500); // Resume auto scroll after 1.5s
+        };
+
+        leftBtn.addEventListener('click', () => manualScroll(-380));
+        rightBtn.addEventListener('click', () => manualScroll(380));
     });
 });
 </script>
