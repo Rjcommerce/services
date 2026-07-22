@@ -1912,7 +1912,7 @@
         rect.setAttribute('height', CELL_SIZE - 2);
         rect.setAttribute('rx', '4');
         rect.setAttribute('ry', '4');
-        rect.setAttribute('fill', 'rgba(30, 34, 59, 0.5)');
+        rect.setAttribute('fill', 'rgba(30, 34, 59, 0.3)');
         rect.style.transition = 'fill 0.2s ease';
         rect.style.cursor = 'pointer';
         
@@ -1920,7 +1920,7 @@
           this.setAttribute('fill', '#6862a7');
         });
         rect.addEventListener('mouseleave', function() {
-          this.setAttribute('fill', 'rgba(30, 34, 59, 0.5)');
+          this.setAttribute('fill', 'rgba(30, 34, 59, 0.3)');
         });
         
         svg.appendChild(rect);
