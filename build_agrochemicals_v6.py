@@ -26,10 +26,10 @@ if hero_section:
     eyebrow.string = 'AGROCHEMICALS'
     
     h1 = hero_section.find('h1')
-    if h1: h1.string = 'Every bag verified. Every dealer accountable. Every acre protected.'
+    if h1: h1.string = 'From bag to field, nothing goes unverified.'
     
     p = hero_section.find('p', class_='hero-lede')
-    if p: p.string = "Smart Epsilon gives agrochemical manufacturers plant-to-field visibility, verified authenticity, and dealer accountability — so spurious product, misapplication liability, and channel disputes get caught before they cost you a season's trust."
+    if p: p.string = "Smart Epsilon gives agrochemical manufacturers plant-to-field visibility, verified authenticity, and dealer accountability, so spurious product, misapplication liability, and channel disputes get caught before they cost you a season's trust."
     
     # Replace trust items cleanly to avoid duplication
     trust_items = hero_section.find_all('span', class_='features-pill-tag')
@@ -500,34 +500,34 @@ middle_html = """
     <div class="agro-header">
       <p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Real-world risks</p>
       <h2>Real Supply Chain Problems</h2>
-      <p>Agrochemical supply chains break in more ways than any one page can cover — here are the five that cost the most, most often.</p>
+      <p>Agrochemical supply chains break in more ways than any one page can cover. Here are the five that cost the most, most often.</p>
     </div>
     
     <div class="agro-carousel">
       <div class="agro-prob-card">
         <div class="agro-prob-num">01</div>
         <h3>Spurious Product in the Channel</h3>
-        <p>Your biggest ag retailer is quietly stocking a look-alike at 20% below your list price. Can you prove to a grower which bag is real? Unregistered formulators and repackagers sell copies that look right on the shelf — a grower finds out only when the spray fails.</p>
+        <p>“Your biggest ag retailer is quietly stocking a look-alike at 20% below your list price. Can you prove to a grower which bag is real?” Unregistered formulators and repackagers sell copies that look right on the shelf. A grower finds out only when the spray fails.</p>
       </div>
       <div class="agro-prob-card">
         <div class="agro-prob-num">02</div>
         <h3>Sell-In Doesn't Equal Sell-Out</h3>
-        <p>Distributor orders looked strong all season. Why is next year's demand forecast already wrong? What shipped and what actually moved through the dealer network to a grower are different numbers — and production plans get built on the wrong one.</p>
+        <p>“Distributor orders looked strong all season. Why is next year's demand forecast already wrong?” What shipped and what actually moved through the dealer network to a grower are different numbers, and production plans get built on the wrong one.</p>
       </div>
       <div class="agro-prob-card">
         <div class="agro-prob-num">03</div>
         <h3>Regulatory Audit, No Notice</h3>
-        <p>A State Lead Agency inspector wants batch-level RUP records and WPS documentation — this week. Reconstructing that from spreadsheets turns a routine inspection into a multi-day scramble.</p>
+        <p>“A State Lead Agency inspector wants batch-level RUP records and WPS documentation. This week.” Reconstructing that from spreadsheets turns a routine inspection into a multi-day scramble.</p>
       </div>
       <div class="agro-prob-card">
         <div class="agro-prob-num">04</div>
         <h3>Misapplication Liability</h3>
-        <p>A grower used the wrong dosage, and now there's a crop-failure claim with your name on it. The liability conversation starts with your brand, whether or not the product was ever the actual problem.</p>
+        <p>“A grower used the wrong dosage, and now there's a crop-failure claim with your name on it.” The liability conversation starts with your brand, whether or not the product was ever the actual problem.</p>
       </div>
       <div class="agro-prob-card">
         <div class="agro-prob-num">05</div>
         <h3>Dealer Trust and Channel Loyalty</h3>
-        <p>Your dealer's incentive payout has been stuck in review for six weeks. Why would they push your product this season? Slow, disputed rebate programs cost the shelf space the payout was supposed to buy.</p>
+        <p>“Your dealer's incentive payout has been stuck in review for six weeks. Why would they push your product this season?” Slow, disputed rebate programs cost the shelf space the payout was supposed to buy.</p>
       </div>
     </div>
   </div>
@@ -545,39 +545,43 @@ middle_html = """
     <div class="agro-carousel">
       <div class="agro-bento-item">
         <img class="agro-bento-img" src="assets/images/card-bg-1.jpg" alt="Authenticity">
-        <div class="agro-bento-content"><p>Verify a crop protection product's authenticity before purchase — no device required for the first check.</p></div>
+        <div class="agro-bento-content"><p>Verify a crop protection product’s authenticity before purchase, no device required for the first check.</p></div>
       </div>
       <div class="agro-bento-item">
-        <img class="agro-bento-img" src="assets/images/card-bg-3.jpg" alt="Confirm Loading">
+        <img class="agro-bento-img" src="assets/images/card-bg-3.jpg" alt="Demand Estimates">
+        <div class="agro-bento-content"><p>Replace shipment-based demand estimates with real, scan-confirmed sell-through data.</p></div>
+      </div>
+      <div class="agro-bento-item">
+        <img class="agro-bento-img" src="assets/images/card-bg-4.jpg" alt="Audit Records">
+        <div class="agro-bento-content"><p>Produce audit-ready batch records for a state or federal inspection in minutes, not days.</p></div>
+      </div>
+      <div class="agro-bento-item">
+        <img class="agro-bento-img" src="assets/images/card-bg-5.jpg" alt="Safety Guidance">
+        <div class="agro-bento-content"><p>Deliver dosage, tank-mix compatibility, and safety guidance at the point of scan, in the applicator’s language.</p></div>
+      </div>
+      <div class="agro-bento-item">
+        <img class="agro-bento-img" src="assets/images/card-bg-6.jpg" alt="Incentive Payouts">
+        <div class="agro-bento-content"><p>Calculate dealer incentive payouts automatically from verified sales, not self-reported invoice volume.</p></div>
+      </div>
+      <div class="agro-bento-item">
+        <img class="agro-bento-img" src="assets/images/card-bg-7.jpg" alt="Detect Diverted Product">
+        <div class="agro-bento-content"><p>Detect counterfeit or diverted product entering regional distribution before it reaches a shelf.</p></div>
+      </div>
+      <div class="agro-bento-item">
+        <img class="agro-bento-img" src="assets/images/card-bg-8.jpg" alt="Loading Accuracy">
         <div class="agro-bento-content"><p>Confirm loading and unloading accuracy at regional distribution centers in real time.</p></div>
       </div>
       <div class="agro-bento-item">
-        <img class="agro-bento-img" src="assets/images/card-bg-4.jpg" alt="Temperature">
+        <img class="agro-bento-img" src="assets/images/card-bg-2.jpg" alt="Temperature Compliance">
         <div class="agro-bento-content"><p>Monitor temperature compliance for cold-sensitive seed treatments in storage and transit.</p></div>
       </div>
       <div class="agro-bento-item">
-        <img class="agro-bento-img" src="assets/images/card-bg-5.jpg" alt="Shrinkage">
+        <img class="agro-bento-img" src="assets/images/card-bg-5.jpg" alt="Flag Shrinkage">
         <div class="agro-bento-content"><p>Flag shrinkage or theft of high-value patented formulations as it happens, not at the next count.</p></div>
       </div>
       <div class="agro-bento-item">
-        <img class="agro-bento-img" src="assets/images/card-bg-6.jpg" alt="Dashboard">
-        <div class="agro-bento-content"><p>Give every dealer real-time visibility into exactly what they've earned, and why.</p></div>
-      </div>
-      <div class="agro-bento-item">
-        <img class="agro-bento-img" src="assets/images/card-bg-7.jpg" alt="Distribution Map">
-        <div class="agro-bento-content"><p>Ensure safe distribution of Restricted Use Pesticides strictly through authorized channels.</p></div>
-      </div>
-      <div class="agro-bento-item">
-        <img class="agro-bento-img" src="assets/images/card-bg-8.jpg" alt="Holographic Seal">
-        <div class="agro-bento-content"><p>Verify tamper-evident digital seals and lock down brand reputation against spurious products.</p></div>
-      </div>
-      <div class="agro-bento-item">
-        <img class="agro-bento-img" src="assets/images/card-bg-1.jpg" alt="Grower Tech">
-        <div class="agro-bento-content"><p>Give growers the confidence they are spraying genuine formulation on their acres.</p></div>
-      </div>
-      <div class="agro-bento-item">
-        <img class="agro-bento-img" src="assets/images/card-bg-2.jpg" alt="Smart Analytics">
-        <div class="agro-bento-content"><p>Deliver automated inventory reconciliation and streamline complex channel rebates.</p></div>
+        <img class="agro-bento-img" src="assets/images/card-bg-1.jpg" alt="Real-time Visibility">
+        <div class="agro-bento-content"><p>Give every dealer real-time visibility into exactly what they’ve earned, and why.</p></div>
       </div>
     </div>
   </div>
@@ -601,8 +605,8 @@ middle_html = """
           <div class="agro-stack-col">
             <h4>Agro-specific implementation</h4>
             <ul class="agro-stack-list">
-              <li>Serialization at the point of formulation, tied to each product's EPA registration number</li>
-              <li>Dispatch and receipt confirmed at every regional distribution center — not assumed from an invoice</li>
+              <li>Serialization at the point of formulation, tied to each product’s EPA registration number</li>
+              <li>Dispatch and receipt confirmed at every regional distribution center, not assumed from an invoice</li>
               <li>Real, scan-verified sell-through data from the dealer network, replacing shipment-based estimates</li>
             </ul>
           </div>
@@ -625,8 +629,8 @@ middle_html = """
             <h4>Agro-specific implementation</h4>
             <ul class="agro-stack-list">
               <li>Tamper-evident holographic label on every bag or container, verified in seconds before purchase</li>
-              <li>Geo-tagged clone detection flags a duplicate code the moment it's scanned somewhere it shouldn't be</li>
-              <li>Dosage, tank-mix compatibility, and safety guidance delivered at the point of scan, in the applicator's language</li>
+              <li>Geo-tagged clone detection flags a duplicate code the moment it’s scanned somewhere it shouldn’t be</li>
+              <li>Dosage, tank-mix compatibility, and safety guidance delivered at the point of scan, in the applicator’s language</li>
             </ul>
           </div>
           <div class="agro-stack-col">
@@ -670,8 +674,8 @@ middle_html = """
           <div class="agro-stack-col">
             <h4>Agro-specific implementation</h4>
             <ul class="agro-stack-list">
-              <li>Dealer incentive payouts calculated automatically from verified, scan-confirmed sell-through — not invoice volume</li>
-              <li>Real-time dashboard shows every dealer exactly what they've earned, and why</li>
+              <li>Dealer incentive payouts calculated automatically from verified, scan-confirmed sell-through, not invoice volume</li>
+              <li>Real-time dashboard shows every dealer exactly what they’ve earned, and why</li>
             </ul>
           </div>
           <div class="agro-stack-col">
@@ -702,7 +706,7 @@ middle_html = """
           <div class="agro-value-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg></div>
           <div>
             <h3>End-to-End Product Visibility</h3>
-            <p>From formulation to field, know where every unit is at every stage — not just inside your own four walls.</p>
+            <p>From formulation to field, know where every unit is at every stage, not just inside your own four walls.</p>
           </div>
         </div>
         <div class="agro-value-card">
@@ -723,7 +727,7 @@ middle_html = """
           <div class="agro-value-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg></div>
           <div>
             <h3>Accurate Demand Planning</h3>
-            <p>Production and inventory decisions built on real, verified sell-through — not shipment estimates that turn out wrong by harvest.</p>
+            <p>Production and inventory decisions built on real, verified sell-through, not shipment estimates that turn out wrong by harvest.</p>
           </div>
         </div>
         <div class="agro-value-card">
@@ -737,7 +741,7 @@ middle_html = """
           <div class="agro-value-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg></div>
           <div>
             <h3>Stronger Dealer Relationships</h3>
-            <p>Faster, dispute-resistant incentive payouts that reward what a dealer actually sold — protecting shelf space at the next reorder.</p>
+            <p>Faster, dispute-resistant incentive payouts that reward what a dealer actually sold, protecting shelf space at the next reorder.</p>
           </div>
         </div>
         <div class="agro-value-card">
@@ -766,7 +770,7 @@ middle_html = """
       <div class="agro-comp-sidebar">
         <p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">Regulatory Alignment</p>
         <h2>Compliance & Regulatory Context</h2>
-        <p style="font-size: 1.125rem; color: var(--agro-text); line-height: 1.6;">FIFRA, EPA registration, and state pesticide law — handled, not hoped for.</p>
+        <p style="font-size: 1.125rem; color: var(--agro-text); line-height: 1.6;">FIFRA, EPA registration, and state pesticide law: handled, not hoped for.</p>
       </div>
       <div class="agro-comp-list">
         <div class="agro-comp-item">
@@ -851,10 +855,10 @@ if faq_section:
         "During a state inspection, can we produce batch-level records on demand?"
     ]
     ans = [
-        "Yes — purchase and application records for RUPs are tied to certified-applicator data at the point of scan, supporting FIFRA's recordkeeping requirements.",
-        "Yes — dosage, tank-mix, and safety guidance can be delivered in the applicator's preferred language at the point of scan, supporting WPS accessibility requirements.",
+        "Yes. Purchase and application records for RUPs are tied to certified-applicator data at the point of scan, supporting FIFRA's recordkeeping requirements.",
+        "Yes. Dosage, tank-mix, and safety guidance can be delivered in the applicator's preferred language at the point of scan, supporting WPS accessibility requirements.",
         "Smart Epsilon connects to SAP, Oracle, and other major ERPs without rip-and-replace, via GS1 EPCIS 2.0. Most agrochemical clients are live in about six weeks.",
-        "Yes — batch and dealer-level data is queryable in real time, tied to each product's EPA registration number, for audit-readiness during State Lead Agency inspection."
+        "Yes. Batch and dealer-level data is queryable in real time, tied to each product's EPA registration number, for audit-readiness during State Lead Agency inspection."
     ]
     
     # Keep only 4 FAQ items
