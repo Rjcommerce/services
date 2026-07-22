@@ -125,7 +125,18 @@
   color: #111111;
   line-height: 1.4;
   position: relative;
-  /* Quote marks removed per feedback */
+  padding-left: 1.5rem;
+}
+.quote-item__q::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -4px;
+  font-size: 3rem;
+  color: #6862a7;
+  font-style: normal;
+  line-height: 1;
+  font-family: Georgia, serif;
 }
 .quote-item__answer {
   font-size: 0.9375rem;
@@ -341,65 +352,77 @@
 }
 
 /* ============================================
-   SECTION 4 — EVALUATION CARDS
+   SECTION 4 — INSIDE THE PLATFORM LAYOUT
    ============================================ */
-.evaluation-section {
+.features-section {
   background: #ffffff;
   padding: 120px 0;
+  overflow: visible;
 }
-.evaluation-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+.features-capsule-tablist {
+  display: inline-flex;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 100px;
+  padding: 6px;
+  gap: 4px;
+  margin-bottom: 3.5rem;
 }
-.eval-header {
-  margin-bottom: 64px;
+.features-capsule-tab {
+  background: transparent;
+  border: none;
+  border-radius: 100px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
 }
-.eval-header h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); color: #111111; font-weight: 800; margin: 0 0 1rem; }
-.eval-header p { color: rgba(0,0,0,0.6); font-size: 1.0625rem; line-height: 1.6; margin: 0; max-width: 600px; }
-
-.eval-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-.eval-card {
-  background: #f7f7fa;
-  border-radius: 16px;
-  padding: 40px;
-  border: 1px solid rgba(0,0,0,0.06);
-  display: flex;
-  flex-direction: column;
-}
-.eval-card-role {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #6862a7;
-  margin-bottom: 16px;
-}
-.eval-card-q {
-  font-size: 1.125rem;
-  font-weight: 800;
+.features-capsule-tab.is-active {
+  background: #ffffff;
   color: #111111;
-  line-height: 1.4;
-  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
-.eval-card-a {
-  font-size: 0.9375rem;
-  color: rgba(0,0,0,0.6);
-  line-height: 1.7;
-  margin-top: auto;
-  padding-top: 24px;
-  border-top: 1px solid rgba(0,0,0,0.08);
+.features-screenshot {
+  position: absolute;
+  inset: 8px;
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  object-fit: cover;
+  border-radius: 18px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.features-screenshot.is-active {
+  opacity: 1;
+  z-index: 2;
+}
+.features-slide-content {
+  display: none;
+}
+.features-slide-content.is-active {
+  display: block;
+}
+.features-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(104,98,167,0.06);
+  color: #6862a7;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
 }
 @media (max-width: 768px) {
-  .eval-grid { grid-template-columns: 1fr; }
+  .features-capsule-tablist { flex-direction: column; border-radius: 20px; }
+  .features-capsule-tab { width: 100%; justify-content: center; }
 }
 /* ============================================
-   SECTION 5 — BENTO GRID (WHAT IT SOLVES)
+   SECTION 5 — SLIDER CAROUSEL (WHAT IT SOLVES)
    ============================================ */
 .bento-section {
   background: #f7f7fa;
@@ -414,12 +437,24 @@
 .bento-header h2 { color: #111111; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; }
 .bento-header p { color: rgba(0,0,0,0.6); font-size: 1.0625rem; line-height: 1.6; }
 
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+.bento-slider {
+  display: flex;
   gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 32px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(104,98,167,0.3) transparent;
 }
+.bento-slider::-webkit-scrollbar { height: 8px; }
+.bento-slider::-webkit-scrollbar-track { background: transparent; }
+.bento-slider::-webkit-scrollbar-thumb { background: rgba(104,98,167,0.3); border-radius: 4px; }
+
 .bento-card {
+  flex: 0 0 calc(33.333% - 16px);
+  min-width: 300px;
+  scroll-snap-align: start;
   background: #ffffff;
   border: 1px solid rgba(0,0,0,0.06);
   border-radius: 20px;
@@ -427,11 +462,8 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
   box-shadow: 0 4px 24px rgba(0,0,0,0.02);
 }
-.bento-card--large { grid-column: span 3; }
-.bento-card--small { grid-column: span 2; }
 
 .bento-icon {
   width: 56px;
@@ -471,7 +503,10 @@
 }
 
 @media (max-width: 992px) {
-  .bento-card--large, .bento-card--small { grid-column: span 6; }
+  .bento-card { flex: 0 0 calc(50% - 12px); }
+}
+@media (max-width: 600px) {
+  .bento-card { flex: 0 0 90%; }
 }
 /* ============================================
    SECTION 6 — 3 COLUMN IMAGE CARDS
@@ -1142,47 +1177,98 @@
     </section>
 
     <!-- ============================================
-         SECTION 4: EVALUATION Q&A — STATIC CARDS
-         Layout: 2x2 Grid of Stakeholder Cards
+         SECTION 4: CROSS-FUNCTIONAL ALIGNMENT
+         Layout: Tabbed Screenshot Slider (Homepage match)
          ============================================ -->
-    <section class="evaluation-section">
-      <div class="evaluation-inner">
-        <div class="eval-header">
+    <section class="stage features-section" id="platform-walkthrough">
+      <div class="stage__inner" style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+        
+        <!-- Section Header -->
+        <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
           <p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">However you're evaluating this</p>
-          <h2>Cross-functional alignment</h2>
-          <p>Different stakeholders have different definitions of success. Smart Epsilon addresses them all.</p>
+          <h2 style="font-size: clamp(2.25rem, 5vw, 3.25rem); line-height: 1.1; margin: 0 0 1rem; color: #111111; font-weight: 800;">Cross-functional alignment.</h2>
+          <p style="font-size: 1.1rem; line-height: 1.6; color: rgba(0,0,0,0.6); margin: 0; font-weight: 500;">Different stakeholders have different definitions of success. Smart Epsilon addresses them all.</p>
         </div>
 
-        <div class="eval-grid">
-          <div class="eval-card">
-            <span class="eval-card-role">CFO &amp; Finance</span>
-            <div class="eval-card-q">"Can we measure the ROI of this system?"</div>
-            <div class="eval-card-a">By rejecting unjustified warranty claims, uncovering grey-market diversion, and reclaiming retail space from counterfeits, the system pays for itself in hard ROI within the first year.</div>
-          </div>
-          
-          <div class="eval-card">
-            <span class="eval-card-role">Brand Protection &amp; Legal</span>
-            <div class="eval-card-q">"Will this hold up in a court of law during a dispute?"</div>
-            <div class="eval-card-a">Yes. The forensic AI watermark creates a non-repudiable audit trail. Our authentication logs provide legally admissible proof of product origin and authenticity.</div>
-          </div>
-
-          <div class="eval-card">
-            <span class="eval-card-role">Operations &amp; Supply Chain</span>
-            <div class="eval-card-q">"Will this slow down our production line?"</div>
-            <div class="eval-card-a">No. Our system integrates directly with standard continuous inkjet printers and warehouse hardware running at full line speed. No custom machinery is required.</div>
-          </div>
-
-          <div class="eval-card">
-            <span class="eval-card-role">Marketing &amp; Product</span>
-            <div class="eval-card-q">"Does this affect our packaging design?"</div>
-            <div class="eval-card-a">The Nano-OVD label can be customized to match brand aesthetics, and the forensic AI watermark is invisible to the naked eye. Your packaging looks exactly as intended.</div>
+        <!-- Centered Capsule Tablist -->
+        <div style="display: flex; justify-content: center; width: 100%;">
+          <div class="features-capsule-tablist" role="tablist" aria-label="Stakeholders">
+            <button class="features-capsule-tab is-active" type="button" role="tab" aria-selected="true" data-stake-index="0">
+              <svg class="icon" width="16" height="16"><use href="#icon-report"/></svg>
+              <span>CFO &amp; Finance</span>
+            </button>
+            <button class="features-capsule-tab" type="button" role="tab" aria-selected="false" data-stake-index="1">
+              <svg class="icon" width="16" height="16"><use href="#icon-shield"/></svg>
+              <span>Legal</span>
+            </button>
+            <button class="features-capsule-tab" type="button" role="tab" aria-selected="false" data-stake-index="2">
+              <svg class="icon" width="16" height="16"><use href="#icon-box"/></svg>
+              <span>Operations</span>
+            </button>
+            <button class="features-capsule-tab" type="button" role="tab" aria-selected="false" data-stake-index="3">
+              <svg class="icon" width="16" height="16"><use href="#icon-globe"/></svg>
+              <span>Marketing</span>
+            </button>
           </div>
         </div>
+
+        <!-- Screenshot Mockup with Overlay Card Below -->
+        <div style="position: relative; width: 100%;">
+          <!-- Mockup Display Frame -->
+          <div class="features-mockup-wrapper" style="width: 100%; border-radius: 24px; padding: 8px; background: #ffffff; border: 1px solid rgba(17, 28, 46, 0.08); box-shadow: 0 30px 80px rgba(11, 10, 26, 0.12); aspect-ratio: 16 / 9; overflow: hidden; position: relative;">
+            <img class="features-screenshot is-active" src="assets/sec4_finance.jpg" alt="Finance Dashboard" data-stake-img="0" />
+            <img class="features-screenshot" src="assets/sec4_legal.jpg" alt="Legal Dashboard" data-stake-img="1" />
+            <img class="features-screenshot" src="assets/sec4_ops.jpg" alt="Operations Dashboard" data-stake-img="2" />
+            <img class="features-screenshot" src="assets/sec4_marketing.jpg" alt="Marketing Dashboard" data-stake-img="3" />
+          </div>
+
+          <!-- Overlay Description Box -->
+          <div class="features-overlay-box" style="background: #ffffff; border-radius: 24px; padding: 2.2rem 2.5rem; width: 92%; max-width: 800px; margin: -60px auto 0; position: relative; z-index: 10; box-shadow: 0 20px 50px rgba(11, 10, 26, 0.12); border: 1px solid rgba(17, 28, 46, 0.06); text-align: center;">
+            
+            <div class="features-slide-content is-active" data-stake-content="0">
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: #111111; margin-bottom: 0.5rem;">"Can we measure the ROI of this system?"</h3>
+              <p style="font-size: 1rem; line-height: 1.6; color: rgba(0,0,0,0.6); font-weight: 500; margin-bottom: 1.5rem;">By rejecting unjustified warranty claims, uncovering grey-market diversion, and reclaiming retail space from counterfeits, the system pays for itself in hard ROI within the first year.</p>
+              <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <span class="features-pill-tag">ROI Tracking</span>
+                <span class="features-pill-tag">Financial Dashboards</span>
+              </div>
+            </div>
+
+            <div class="features-slide-content" data-stake-content="1">
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: #111111; margin-bottom: 0.5rem;">"Will this hold up in a court of law during a dispute?"</h3>
+              <p style="font-size: 1rem; line-height: 1.6; color: rgba(0,0,0,0.6); font-weight: 500; margin-bottom: 1.5rem;">Yes. The forensic AI watermark creates a non-repudiable audit trail. Our authentication logs provide legally admissible proof of product origin and authenticity.</p>
+              <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <span class="features-pill-tag">Legally Admissible</span>
+                <span class="features-pill-tag">Audit Trail</span>
+              </div>
+            </div>
+
+            <div class="features-slide-content" data-stake-content="2">
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: #111111; margin-bottom: 0.5rem;">"Will this slow down our production line?"</h3>
+              <p style="font-size: 1rem; line-height: 1.6; color: rgba(0,0,0,0.6); font-weight: 500; margin-bottom: 1.5rem;">No. Our system integrates directly with standard continuous inkjet printers and warehouse hardware running at full line speed. No custom machinery is required.</p>
+              <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <span class="features-pill-tag">Zero Downtime</span>
+                <span class="features-pill-tag">Line Speed</span>
+              </div>
+            </div>
+            
+            <div class="features-slide-content" data-stake-content="3">
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: #111111; margin-bottom: 0.5rem;">"Does this affect our packaging design?"</h3>
+              <p style="font-size: 1rem; line-height: 1.6; color: rgba(0,0,0,0.6); font-weight: 500; margin-bottom: 1.5rem;">The Nano-OVD label can be customized to match brand aesthetics, and the forensic AI watermark is invisible to the naked eye. Your packaging looks exactly as intended.</p>
+              <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <span class="features-pill-tag">Brand Aesthetics</span>
+                <span class="features-pill-tag">Invisible Watermarks</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
     <!-- ============================================
-         SECTION 5: WHAT IT ACTUALLY SOLVES — BENTO GRID
-         Layout: Asymmetrical cards
+         SECTION 5: WHAT IT ACTUALLY SOLVES — CAROUSEL SLIDER
+         Layout: Horizontal scrolling slider
          ============================================ -->
     <section class="bento-section">
       <div class="bento-inner">
@@ -1192,41 +1278,41 @@
           <p>Counterfeiting creates a ripple effect of operational headaches. We address the root cause.</p>
         </div>
         
-        <div class="bento-grid">
-          <!-- Card 1 (Large) -->
-          <div class="bento-card bento-card--large">
+        <div class="bento-slider">
+          <!-- Card 1 -->
+          <div class="bento-card">
             <div class="bento-icon"><svg class="icon" width="24" height="24"><use href="#icon-users"/></svg></div>
             <h3 class="bento-title">Unjustified Warranty Claims</h3>
             <p class="bento-desc">Customers return broken products expecting a replacement, but the item isn't yours. Without proof, your service center absorbs the cost.</p>
-            <div class="bento-impact"><svg class="icon" width="16" height="16"><use href="#icon-check"/></svg> Fakes rejected at the service desk instantly.</div>
+            <div class="bento-impact"><svg class="icon" width="16" height="16"><use href="#icon-check"/></svg> Fakes rejected instantly.</div>
           </div>
           
-          <!-- Card 2 (Large) -->
-          <div class="bento-card bento-card--large">
+          <!-- Card 2 -->
+          <div class="bento-card">
             <div class="bento-icon"><svg class="icon" width="24" height="24"><use href="#icon-globe"/></svg></div>
             <h3 class="bento-title">Cross-Border Grey Markets</h3>
             <p class="bento-desc">Legitimate distributors in low-margin regions are selling inventory into high-margin regions, undercutting your official pricing.</p>
-            <div class="bento-impact"><svg class="icon" width="16" height="16"><use href="#icon-check"/></svg> Identify the exact distributor leaking stock.</div>
+            <div class="bento-impact"><svg class="icon" width="16" height="16"><use href="#icon-check"/></svg> Identify leaking distributors.</div>
           </div>
           
-          <!-- Card 3 (Small) -->
-          <div class="bento-card bento-card--small">
+          <!-- Card 3 -->
+          <div class="bento-card">
             <div class="bento-icon"><svg class="icon" width="24" height="24"><use href="#icon-box"/></svg></div>
             <h3 class="bento-title">Invisible Stockouts</h3>
             <p class="bento-desc">Fakes fill retail shelves, preventing your real product from moving. Sales drop, but inventory systems show shelves are stocked.</p>
             <div class="bento-impact"><svg class="icon" width="16" height="16"><use href="#icon-check"/></svg> Reclaim lost retail shelf space.</div>
           </div>
 
-          <!-- Card 4 (Small) -->
-          <div class="bento-card bento-card--small">
+          <!-- Card 4 -->
+          <div class="bento-card">
             <div class="bento-icon"><svg class="icon" width="24" height="24"><use href="#icon-report"/></svg></div>
             <h3 class="bento-title">Manual Compliance</h3>
             <p class="bento-desc">Global track-and-trace mandates require heavy manual reporting that slows down production lines.</p>
             <div class="bento-impact"><svg class="icon" width="16" height="16"><use href="#icon-check"/></svg> Automated regulatory compliance.</div>
           </div>
 
-          <!-- Card 5 (Small) -->
-          <div class="bento-card bento-card--small">
+          <!-- Card 5 -->
+          <div class="bento-card">
             <div class="bento-icon"><svg class="icon" width="24" height="24"><use href="#icon-alert-triangle"/></svg></div>
             <h3 class="bento-title">Reputation Damage</h3>
             <p class="bento-desc">A consumer buys a substandard fake on a marketplace and leaves a 1-star review on your official product page.</p>
@@ -1251,7 +1337,7 @@
           
           <!-- Card 1 -->
           <div class="int-card">
-            <img src="assets/node-architecture.jpg" alt="Software Data Architecture" class="int-card-img" loading="lazy" />
+            <img src="assets/sec6_erp.jpg" alt="Software Data Architecture" class="int-card-img" loading="lazy" />
             <div class="int-card-body">
               <h3 class="int-card-title">ERP &amp; Core Systems</h3>
               <p class="int-card-desc">Native APIs pull product master data directly from SAP, Oracle, Microsoft Dynamics, or your custom ERP. Batch numbers and SKUs sync automatically.</p>
@@ -1261,7 +1347,7 @@
 
           <!-- Card 2 -->
           <div class="int-card">
-            <img src="assets/warehouse-ar-BZTWCRGZ.webp" alt="Warehouse Operations" class="int-card-img" loading="lazy" />
+            <img src="assets/sec6_warehouse.jpg" alt="Warehouse Operations" class="int-card-img" loading="lazy" />
             <div class="int-card-body">
               <h3 class="int-card-title">Warehouse Hardware</h3>
               <p class="int-card-desc">Integrates with Zebra, Honeywell, and Datalogic scanners. Your forklift operators and line workers use the exact same scanners they used yesterday.</p>
@@ -1271,7 +1357,7 @@
 
           <!-- Card 3 -->
           <div class="int-card">
-            <img src="assets/client_factory.jpg" alt="Production Line Printing" class="int-card-img" loading="lazy" />
+            <img src="assets/sec6_print.jpg" alt="Production Line Printing" class="int-card-img" loading="lazy" />
             <div class="int-card-body">
               <h3 class="int-card-title">Print &amp; Packaging</h3>
               <p class="int-card-desc">Compatible with Domino, Videojet, Markem-Imaje, and industrial continuous inkjet printers. We send the serialized codes, your line prints them at full speed.</p>
