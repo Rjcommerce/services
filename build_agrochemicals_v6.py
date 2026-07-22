@@ -117,6 +117,8 @@ new_css = """
   display: flex;
   overflow-x: auto;
   gap: 24px;
+  padding-top: 20px;
+  margin-top: -20px;
   padding-bottom: 40px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
