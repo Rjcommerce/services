@@ -9,70 +9,949 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/dist/tabler-icons.min.css" />
   <link rel="modulepreload" crossorigin href="assets/gsap-CzGW6FVa.js">
   <link rel="stylesheet" crossorigin href="assets/index-C_I5fQ9O.css">
-  
   <link rel="stylesheet" href="assets/css/smart-epsilon-theme.css">
 
+<style>
+/* ============================================
+   INTERNAL HERO GRID — EXACT 28px SVG MATCH
+   ============================================ */
+.stage.stage--hero.internal-hero {
+  background: #0b1220 !important;
+  color: #ffffff !important;
+  position: relative !important;
+  overflow: hidden !important;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+}
+.internal-hero-svg-grid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: auto;
+}
+.internal-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
 
+/* ============================================
+   SECTION 2 — CINEMATIC QUOTE WALL
+   ============================================ */
+.quote-wall-section {
+  background: #0b1220;
+  padding: 120px 0;
+  overflow: hidden;
+}
+.quote-wall-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.quote-wall-header {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  margin-bottom: 80px;
+}
+.quote-wall-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6862a7;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  padding: 0 8px;
+  border-left: 2px solid #6862a7;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.quote-wall-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  max-width: 720px;
+  margin: 0;
+}
+.quote-wall-subtitle {
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,0.5);
+  margin: 1rem 0 0;
+  line-height: 1.6;
+}
 
+.quote-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 0;
+  padding: 52px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  overflow: hidden;
+}
+.quote-item:last-child {
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.quote-item__num {
+  font-size: 11px;
+  font-weight: 800;
+  color: rgba(104, 98, 167, 0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.quote-item__body {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: start;
+}
+.quote-item__q {
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.4;
+  font-style: italic;
+  position: relative;
+  padding-left: 1.5rem;
+}
+.quote-item__q::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -4px;
+  font-size: 3rem;
+  color: #6862a7;
+  font-style: normal;
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+.quote-item__answer {
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+  padding-top: 2px;
+  border-left: 1px solid rgba(104,98,167,0.2);
+  padding-left: 2rem;
+}
+.quote-item__answer em {
+  font-style: normal;
+  color: rgba(255,255,255,0.8);
+}
+.quote-item-bar {
+  position: absolute;
+  bottom: 0;
+  left: 60px;
+  height: 1px;
+  background: #6862a7;
+  width: 0;
+  transition: width 0.6s ease;
+}
+.quote-item:hover .quote-item-bar,
+.quote-item.is-visible .quote-item-bar {
+  width: calc(100% - 60px);
+}
 
-<style id="internal-hero-solid-style">
-  /* 100% PURE SOLID OPAQUE DARK NAVY HERO GRID (ZERO TRANSPARENCY) */
-  html body .stage.stage--hero.internal-hero {
-    background: #0b1220 !important;
-    background-color: #0b1220 !important;
-    color: #ffffff !important;
-    position: relative !important;
-    overflow: hidden !important;
-  }
-  html body .stage.stage--hero.internal-hero .problem-grid-bg {
-    position: absolute !important;
-    inset: -20px !important;
-    display: grid !important;
-    grid-template-columns: repeat(18, 1fr) !important;
-    grid-template-rows: repeat(8, 1fr) !important;
-    gap: 4px !important;
-    padding: 8px !important;
-    background: #0b1220 !important; /* Color 1: 100% Solid Dark Navy Base Surface */
-    background-color: #0b1220 !important;
-    opacity: 1 !important; /* ZERO TRANSPARENCY */
-    pointer-events: auto !important;
-    z-index: 1 !important;
-  }
-  html body .stage.stage--hero.internal-hero .problem-grid-cell {
-    background: #1e223b !important; /* Color 2: 100% Solid Box Grid Tile #1e223b */
-    background-color: #1e223b !important;
-    border: none !important;
-    border-radius: 6px !important;
-    position: relative !important;
-    opacity: 1 !important; /* ZERO TRANSPARENCY */
-    transition: background 0.2s ease, transform 0.2s ease !important;
-    cursor: pointer !important;
-  }
-  html body .stage.stage--hero.internal-hero .problem-grid-cell .cell-dot {
-    display: none !important;
-  }
-  html body .stage.stage--hero.internal-hero .problem-grid-cell:hover,
-  html body .stage.stage--hero.internal-hero .problem-grid-cell.active {
-    background: #6862a7 !important; /* Color 3: 100% Solid Brand Purple Hover #6862a7 */
-    background-color: #6862a7 !important;
-    opacity: 1 !important; /* ZERO TRANSPARENCY */
-    transform: scale(1.08) !important;
-    z-index: 5 !important;
-  }
-  html body .stage.stage--hero.internal-hero h1,
-  html body .stage.stage--hero.internal-hero p,
-  html body .stage.stage--hero.internal-hero .eyebrow {
-    position: relative !important;
-    z-index: 2 !important;
-  }
-  html body .stage.stage--hero.internal-hero h1 {
-    color: #ffffff !important;
-  }
-  html body .stage.stage--hero.internal-hero p.card-body {
-    color: #ffffff !important;
-  }
+/* ============================================
+   SECTION 3 — STICKY TAB REVEAL
+   ============================================ */
+.sticky-tabs-section {
+  background: #f7f7fa;
+  padding: 0;
+  position: relative;
+}
+.sticky-tabs-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 2rem 64px;
+}
+.sticky-tabs-header .eyebrow {
+  color: #6862a7;
+  margin-bottom: 0.75rem;
+}
+.sticky-tabs-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 700px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 100px;
+  gap: 0;
+}
+.sticky-tabs-nav {
+  position: sticky;
+  top: 80px;
+  height: fit-content;
+  padding-right: 40px;
+  padding-top: 16px;
+}
+.sticky-tab-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 16px 20px 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  position: relative;
+  transition: all 0.3s ease;
+}
+.sticky-tab-btn:first-child {
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+.sticky-tab-btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #6862a7;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  transform-origin: top;
+  left: -2px;
+}
+.sticky-tab-btn.is-active::before {
+  transform: scaleY(1);
+}
+.sticky-tab-btn.is-active .stb-icon {
+  background: #6862a7;
+  color: white;
+}
+.sticky-tab-btn.is-active .stb-label {
+  color: #111111;
+}
+.stb-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(104,98,167,0.08);
+  color: #6862a7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+.stb-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+.stb-layer {
+  font-size: 10px;
+  font-weight: 800;
+  color: #6862a7;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.stb-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(0,0,0,0.5);
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.sticky-tabs-content {
+  position: relative;
+}
+.sticky-tab-panel {
+  display: none;
+  grid-template-rows: auto 1fr;
+  gap: 0;
+  animation: fadeSlideUp 0.4s ease;
+}
+.sticky-tab-panel.is-active {
+  display: grid;
+}
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.stp-image-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  height: 380px;
+  margin-bottom: 32px;
+  position: relative;
+}
+.stp-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.stp-image-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(104,98,167,0.9);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  backdrop-filter: blur(8px);
+}
+.stp-body {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.stp-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 0.75rem;
+  margin-top: 0;
+}
+.stp-desc {
+  font-size: 1rem;
+  color: rgba(0,0,0,0.6);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.stp-features {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.stp-feature {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #6862a7;
+  background: rgba(104,98,167,0.08);
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+.stp-feature svg {
+  color: #6862a7;
+}
+
+/* ============================================
+   SECTION 4 — EVALUATION Q&A (ACCORDION REVEAL)
+   ============================================ */
+.evaluation-section {
+  background: #0b1220;
+  padding: 120px 0;
+}
+.evaluation-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.eval-header {
+  margin-bottom: 64px;
+}
+.eval-header .eyebrow { color: #6862a7; margin-bottom: 0.75rem; }
+.eval-header h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); color: #ffffff; font-weight: 800; margin: 0 0 1rem; }
+.eval-header p { color: rgba(255,255,255,0.5); font-size: 1rem; line-height: 1.6; margin: 0; }
+
+.eval-item {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  position: relative;
+  overflow: hidden;
+}
+.eval-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.eval-trigger {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 32px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+.eval-trigger-q {
+  flex: 1;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.4;
+  font-style: italic;
+  transition: color 0.25s;
+}
+.eval-item.is-open .eval-trigger-q { color: #ffffff; }
+.eval-trigger-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.4);
+  transition: all 0.3s;
+}
+.eval-item.is-open .eval-trigger-icon {
+  background: #6862a7;
+  border-color: #6862a7;
+  color: #ffffff;
+  transform: rotate(45deg);
+}
+.eval-answer-wrap {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.eval-item.is-open .eval-answer-wrap {
+  max-height: 300px;
+}
+.eval-answer {
+  padding-bottom: 32px;
+  padding-left: 0;
+}
+.eval-answer-q {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #6862a7;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.eval-answer-body {
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+}
+.eval-purple-bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  background: #6862a7;
+  width: 0;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.eval-item.is-open .eval-purple-bar { width: 100%; }
+
+/* ============================================
+   SECTION 5 — FEATURE MATRIX (CIRCUIT BOARD)
+   ============================================ */
+.feature-matrix-section {
+  background: #f7f7fa;
+  padding: 120px 0;
+  overflow: hidden;
+}
+.feature-matrix-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-bottom: 64px;
+}
+.feature-matrix-scroll {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: relative;
+  gap: 0;
+}
+.feature-matrix-scroll::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: calc(2rem + 50%/5);
+  right: calc(2rem + 50%/5);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #6862a7, #6862a7, transparent);
+  z-index: 0;
+}
+.fmatrix-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+.fmatrix-dot {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #6862a7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6862a7;
+  margin-bottom: 24px;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 0 rgba(104,98,167,0);
+}
+.fmatrix-col:hover .fmatrix-dot {
+  background: #6862a7;
+  color: white;
+  box-shadow: 0 0 0 8px rgba(104,98,167,0.12);
+}
+.fmatrix-col:hover .fmatrix-feature-name { color: #6862a7; }
+.fmatrix-feature-name {
+  font-size: 14px;
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+.fmatrix-problem {
+  font-size: 12px;
+  color: rgba(0,0,0,0.45);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.fmatrix-impact {
+  font-size: 12px;
+  font-weight: 700;
+  color: #6862a7;
+  background: rgba(104,98,167,0.08);
+  padding: 4px 10px;
+  border-radius: 100px;
+  display: inline-block;
+}
+
+/* ============================================
+   SECTION 6 — STACK INTEGRATION (PILLAR WALL)
+   ============================================ */
+.integration-section {
+  background: #0b1220;
+  padding: 120px 0;
+}
+.integration-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.integration-header { text-align: center; margin-bottom: 72px; }
+.integration-header h2 { color: #ffffff; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; }
+.integration-header p { color: rgba(255,255,255,0.5); font-size: 1rem; line-height: 1.6; max-width: 560px; margin: 0 auto; }
+.integration-pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  position: relative;
+}
+.integration-pillars::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 16%;
+  right: 16%;
+  height: 1px;
+  background: rgba(104,98,167,0.3);
+  transform: translateY(-50%);
+}
+.ipillar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+.ipillar-icon-ring {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: rgba(104,98,167,0.08);
+  border: 1px solid rgba(104,98,167,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6862a7;
+  margin-bottom: 28px;
+  position: relative;
+  transition: all 0.4s ease;
+}
+.ipillar-icon-ring::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, #6862a7, transparent) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.ipillar:hover .ipillar-icon-ring {
+  background: rgba(104,98,167,0.15);
+  transform: translateY(-4px);
+}
+.ipillar:hover .ipillar-icon-ring::before { opacity: 1; }
+.ipillar-name {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+.ipillar-desc {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+}
+.ipillar-badge {
+  margin-top: 16px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6862a7;
+  border: 1px solid rgba(104,98,167,0.25);
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+/* ============================================
+   SECTION 7 — COMPARISON TABLE
+   ============================================ */
+.comparison-section {
+  background: #f7f7fa;
+  padding: 120px 0;
+}
+.comparison-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.comparison-header { margin-bottom: 56px; }
+.comparison-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.06);
+}
+.comparison-table thead th {
+  padding: 20px 28px;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: left;
+}
+.comparison-table thead th:first-child {
+  background: #ffffff;
+  color: rgba(0,0,0,0.35);
+  width: 35%;
+}
+.comparison-table thead .col-smart {
+  background: #6862a7;
+  color: #ffffff;
+}
+.comparison-table thead .col-single {
+  background: #111111;
+  color: rgba(255,255,255,0.5);
+}
+.comparison-table tbody tr td {
+  padding: 18px 28px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  font-size: 14.5px;
+  line-height: 1.5;
+  background: #ffffff;
+}
+.comparison-table tbody tr td:first-child {
+  font-weight: 700;
+  color: rgba(0,0,0,0.55);
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: #f7f7fa;
+}
+.comparison-table tbody tr td.cell-smart {
+  color: #111111;
+  font-weight: 600;
+  background: rgba(104,98,167,0.03);
+}
+.comparison-table tbody tr td.cell-smart::before {
+  content: '✓ ';
+  color: #6862a7;
+  font-weight: 800;
+}
+.comparison-table tbody tr td.cell-single {
+  color: rgba(0,0,0,0.35);
+}
+.comparison-table tbody tr:last-child td:first-child { border-radius: 0 0 0 16px; }
+.comparison-table tbody tr:last-child td:last-child { border-radius: 0 0 16px 0; }
+
+/* ============================================
+   SECTION 8 — ROLLOUT TIMELINE
+   ============================================ */
+.rollout-section {
+  background: #0b1220;
+  padding: 120px 0;
+}
+.rollout-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.rollout-header { margin-bottom: 72px; }
+.rollout-header h2 { color: #ffffff; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; }
+.rollout-header p { color: rgba(255,255,255,0.5); font-size: 1rem; max-width: 640px; line-height: 1.7; }
+
+.rollout-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+}
+.rollout-track::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(104,98,167,0.2);
+}
+.rollout-track::after {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 0;
+  height: 1px;
+  background: #6862a7;
+  width: 0;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.rollout-track.is-animated::after { width: 100%; }
+
+.rollout-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 0 12px;
+}
+.rollout-step-dot {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #1e223b;
+  border: 2px solid rgba(104,98,167,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6862a7;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.rollout-step:hover .rollout-step-dot {
+  background: #6862a7;
+  color: #ffffff;
+  border-color: #6862a7;
+  transform: scale(1.1);
+}
+.rollout-step-name {
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+.rollout-step-desc {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.5;
+}
+
+/* ============================================
+   SECTION 9 — SOCIAL PROOF / TESTIMONIAL
+   ============================================ */
+.proof-section {
+  background: #f7f7fa;
+  padding: 120px 0;
+}
+.proof-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+.proof-quote-mark {
+  font-size: 8rem;
+  line-height: 0.6;
+  color: #6862a7;
+  font-family: Georgia, serif;
+  margin-bottom: 2rem;
+  display: block;
+  opacity: 0.3;
+}
+.proof-quote-text {
+  font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+  font-weight: 600;
+  color: #111111;
+  line-height: 1.55;
+  font-style: italic;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+}
+.proof-attribution {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 72px;
+}
+.proof-attr-line {
+  width: 40px;
+  height: 1px;
+  background: #6862a7;
+}
+.proof-attr-name {
+  font-size: 14px;
+  font-weight: 800;
+  color: #111111;
+}
+.proof-attr-role {
+  font-size: 13px;
+  color: rgba(0,0,0,0.45);
+  margin-top: 2px;
+}
+.proof-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.proof-stat {
+  background: #ffffff;
+  padding: 40px 24px;
+  text-align: center;
+}
+.proof-stat-num {
+  font-size: 3.25rem;
+  font-weight: 800;
+  color: #6862a7;
+  line-height: 1;
+  margin-bottom: 10px;
+  display: block;
+}
+.proof-stat-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 4px;
+}
+.proof-stat-desc {
+  font-size: 12.5px;
+  color: rgba(0,0,0,0.45);
+  line-height: 1.4;
+}
+
+/* ============================================
+   SECTION 10 — FAQ MINIMAL ACCORDION
+   ============================================ */
+.faq-section {
+  background: #0b1220;
+  padding: 120px 0;
+}
+.faq-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.faq-header { text-align: center; margin-bottom: 64px; }
+.faq-header h2 { color: #ffffff; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 0.75rem; }
+.faq-header p { color: rgba(255,255,255,0.45); font-size: 1rem; }
+
+.faq-item {
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  overflow: hidden;
+}
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 28px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+.faq-trigger-q {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.4;
+  transition: color 0.25s;
+}
+.faq-item.is-open .faq-trigger-q { color: #ffffff; }
+.faq-trigger-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(104,98,167,0.3);
+  flex-shrink: 0;
+  transition: background 0.25s;
+}
+.faq-item.is-open .faq-trigger-dot { background: #6862a7; }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.faq-item.is-open .faq-answer { max-height: 200px; }
+.faq-answer-inner {
+  padding-bottom: 28px;
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+}
+
+/* ============================================
+   RESPONSIVE OVERRIDES
+   ============================================ */
+@media (max-width: 768px) {
+  .quote-item__body { grid-template-columns: 1fr; gap: 1.5rem; }
+  .quote-item__answer { border-left: none; padding-left: 0; border-top: 1px solid rgba(104,98,167,0.2); padding-top: 1.5rem; }
+  .sticky-tabs-layout { grid-template-columns: 1fr; }
+  .sticky-tabs-nav { position: static; padding-right: 0; display: grid; grid-template-columns: repeat(3, 1fr); }
+  .feature-matrix-scroll { grid-template-columns: 1fr 1fr; }
+  .feature-matrix-scroll::before { display: none; }
+  .integration-pillars { grid-template-columns: 1fr; gap: 48px; }
+  .integration-pillars::before { display: none; }
+  .rollout-track { grid-template-columns: 1fr 1fr; }
+  .rollout-track::before, .rollout-track::after { display: none; }
+  .proof-stats { grid-template-columns: 1fr; }
 </style>
-
 </head>
 <body>
   <svg style="display:none" aria-hidden="true">
@@ -124,7 +1003,9 @@
     <symbol id="icon-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
     <symbol id="icon-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
     <symbol id="icon-camera" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2v11z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="13" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
-    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 8l9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="icon-fingerprint" viewBox="0 0 24 24"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4M12 10a2 2 0 0 1 2 2c0 1.02.1 2.51.26 4m0-4a2 2 0 0 1-2-2M8 21c.21-1.4.35-2.51.35-4 0-2.02.77-3.86 2.03-5.25M8 21c-.35-2.37-.35-4.13 0-5.25M6 18c.14-.62.21-1.35.21-2 0-2.39.96-4.56 2.51-6.13M3.6 19c.27-1.22.41-2.53.41-3.9 0-3.65 1.53-6.95 4-9.28M18 21c-.38-1.89-.38-3.49 0-4.79M16.5 21c.33-1.22.5-2.61.5-4-.02-2.34-.85-4.5-2.25-6.2M21.5 17c-.2-1.66-.36-2.9-.5-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="icon-api" viewBox="0 0 24 24"><path d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
   </defs>
 </svg>
   <div class="site-wrapper">
@@ -146,15 +1027,15 @@
             <span class="mega-link-icon" aria-hidden="true" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-route"/></svg></span>
             <span class="mega-link-text" style="font-size: 0.875rem;"><strong>Track &amp; Trace</strong><span style="font-size: 11px; color: var(--ink-soft); display: block; margin-top: 2px;">Serialization &amp; real-time visibility</span></span>
           </a>
-          <a class="mega-link" href="solution-anti-counterfeiting.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
-            <span class="mega-link-icon" aria-hidden="true" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-shield"/></svg></span>
+          <a class="mega-link" href="solution-anti-counterfeiting.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px; background: rgba(104,98,167,0.06);">
+            <span class="mega-link-icon" aria-hidden="true" style="width: 30px; height: 30px; border-radius: 8px; background: rgba(104,98,167,0.1);"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-shield"/></svg></span>
             <span class="mega-link-text" style="font-size: 0.875rem;"><strong>Anti-Counterfeiting Solution</strong><span style="font-size: 11px; color: var(--ink-soft); display: block; margin-top: 2px;">Overt, covert &amp; forensic protection</span></span>
           </a>
-          <a class="mega-link" href="solution-anti-counterfeiting.html" data-product-select="2" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
+          <a class="mega-link" href="solution-anti-counterfeiting.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
             <span class="mega-link-icon" aria-hidden="true" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-gift"/></svg></span>
             <span class="mega-link-text" style="font-size: 0.875rem;"><strong>Payment-linked Incentives</strong><span style="font-size: 11px; color: var(--ink-soft); display: block; margin-top: 2px;">Distributor &amp; retailer engagement</span></span>
           </a>
-          <a class="mega-link" href="solution-anti-counterfeiting.html" data-product-select="3" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
+          <a class="mega-link" href="solution-anti-counterfeiting.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
             <span class="mega-link-icon" aria-hidden="true" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-video"/></svg></span>
             <span class="mega-link-text" style="font-size: 0.875rem;"><strong>AI Video Intelligence</strong><span style="font-size: 11px; color: var(--ink-soft); display: block; margin-top: 2px;">CCTV into supply chain intelligence</span></span>
           </a>
@@ -170,46 +1051,12 @@
         <div class="mega-panel" id="mega-industries" role="region" aria-labelledby="nav-industries-trigger" hidden style="width: min(800px, calc(100vw - 2 * var(--gutter)));">
           <div class="mega-panel__inner" style="grid-template-columns: 1fr;">
             <div class="mega-col" style="display: grid; grid-template-columns: repeat(2, 1fr); width: 100%; max-width: none; gap: 0.75rem 2rem; padding: 1.5rem;">
-              <a class="mega-link" href="industry-template.html">
-                <span class="mega-link-icon"><svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-seeding"/></svg></span>
-                <span class="mega-link-text"><strong>Agrochemicals</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Stop counterfeit pesticides killing crops and brands.</span></span>
-              </a>
-              <a class="mega-link" href="industry-template.html">
-                <span class="mega-link-icon"><svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-droplet"/></svg></span>
-                <span class="mega-link-text"><strong>Lubricants &amp; Auto</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">End grey-market diversion and fake oils.</span></span>
-              </a>
-              <a class="mega-link" href="industry-template.html">
-                <span class="mega-link-icon"><svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-leaf"/></svg></span>
-                <span class="mega-link-text"><strong>Seeds</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Guarantee germination, beat seed fraud.</span></span>
-              </a>
-              <a class="mega-link" href="industry-template.html">
-                <span class="mega-link-icon"><svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-pill"/></svg></span>
-                <span class="mega-link-text"><strong>Pharmaceuticals</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Meet incoming track-and-trace mandates.</span></span>
-              </a>
-              <a class="mega-link" href="industry-template.html">
-                <span class="mega-link-icon"><svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-cart"/></svg></span>
-                <span class="mega-link-text"><strong>CPG &amp; Packaged Foods</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Win shelf space with retailer loyalty.</span></span>
-              </a>
-              <a class="mega-link" href="industry-template.html">
-                <span class="mega-link-icon"><svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-sparkles"/></svg></span>
-                <span class="mega-link-text"><strong>Cosmetics</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Protect premium products at the consumer's hand.</span></span>
-              </a>
-              <a class="mega-link" href="industry-template.html">
-                <span class="mega-link-icon"><svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-brush"/></svg></span>
-                <span class="mega-link-text"><strong>Paints &amp; Construction</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Close distributor gaps and duplicates.</span></span>
-              </a>
-              <a class="mega-link" href="industry-template.html">
-                <span class="mega-link-icon"><svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-seeding"/></svg></span>
-                <span class="mega-link-text"><strong>Fertilizers</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Prevent subsidy fraud and diversion.</span></span>
-              </a>
-              <a class="mega-link" href="industry-template.html">
-                <span class="mega-link-icon"><svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-car"/></svg></span>
-                <span class="mega-link-text"><strong>Tyres &amp; Auto Components</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Fight counterfeits that are a safety risk.</span></span>
-              </a>
-              <a class="mega-link" href="industry-template.html">
-                <span class="mega-link-icon"><svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-flask"/></svg></span>
-                <span class="mega-link-text"><strong>Industrial Chemicals</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Track cylinders, stop refill fraud.</span></span>
-              </a>
+              <a class="mega-link" href="industry-template.html"><span class="mega-link-icon"><svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-seeding"/></svg></span><span class="mega-link-text"><strong>Agrochemicals</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Stop counterfeit pesticides killing crops and brands.</span></span></a>
+              <a class="mega-link" href="industry-template.html"><span class="mega-link-icon"><svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-droplet"/></svg></span><span class="mega-link-text"><strong>Lubricants &amp; Auto</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">End grey-market diversion and fake oils.</span></span></a>
+              <a class="mega-link" href="industry-template.html"><span class="mega-link-icon"><svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-leaf"/></svg></span><span class="mega-link-text"><strong>Seeds</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Guarantee germination, beat seed fraud.</span></span></a>
+              <a class="mega-link" href="industry-template.html"><span class="mega-link-icon"><svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-pill"/></svg></span><span class="mega-link-text"><strong>Pharmaceuticals</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Meet incoming track-and-trace mandates.</span></span></a>
+              <a class="mega-link" href="industry-template.html"><span class="mega-link-icon"><svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-cart"/></svg></span><span class="mega-link-text"><strong>CPG &amp; Packaged Foods</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Win shelf space with retailer loyalty.</span></span></a>
+              <a class="mega-link" href="industry-template.html"><span class="mega-link-icon"><svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-sparkles"/></svg></span><span class="mega-link-text"><strong>Cosmetics</strong><span style="font-size:11px; color: var(--ink-soft); display: block; margin-top: 2px;">Protect premium products at the consumer's hand.</span></span></a>
             </div>
           </div>
         </div>
@@ -222,22 +1069,10 @@
           <svg class="icon nav-chevron" width="14" height="14" aria-hidden="true"><use href="#icon-chevron"/></svg>
         </a>
         <div class="dropdown-panel" id="mega-why" role="region" aria-labelledby="nav-why-trigger" hidden style="display: flex; flex-direction: column; gap: 0.25rem; padding: 0.75rem; width: 260px;">
-          <a class="mega-link" href="#problem" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
-            <span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-alert-triangle"/></svg></span>
-            <span class="mega-link-text" style="font-size: 0.875rem;"><strong>The Problem We Solve</strong></span>
-          </a>
-          <a class="mega-link" href="solution-anti-counterfeiting.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
-            <span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-bolt"/></svg></span>
-            <span class="mega-link-text" style="font-size: 0.875rem;"><strong>Our Technology</strong></span>
-          </a>
-          <a class="mega-link" href="case-study-template.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
-            <span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-trend"/></svg></span>
-            <span class="mega-link-text" style="font-size: 0.875rem;"><strong>Customer Results</strong></span>
-          </a>
-          <a class="mega-link" href="#cta" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
-            <span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-help"/></svg></span>
-            <span class="mega-link-text" style="font-size: 0.875rem;"><strong>Implementation</strong></span>
-          </a>
+          <a class="mega-link" href="index.html#problem" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;"><span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-alert-triangle"/></svg></span><span class="mega-link-text" style="font-size: 0.875rem;"><strong>The Problem We Solve</strong></span></a>
+          <a class="mega-link" href="solution-anti-counterfeiting.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;"><span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-bolt"/></svg></span><span class="mega-link-text" style="font-size: 0.875rem;"><strong>Our Technology</strong></span></a>
+          <a class="mega-link" href="case-study-template.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;"><span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-trend"/></svg></span><span class="mega-link-text" style="font-size: 0.875rem;"><strong>Customer Results</strong></span></a>
+          <a class="mega-link" href="#cta" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;"><span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-help"/></svg></span><span class="mega-link-text" style="font-size: 0.875rem;"><strong>Implementation</strong></span></a>
         </div>
       </div>
 
@@ -248,26 +1083,8 @@
           <svg class="icon nav-chevron" width="14" height="14" aria-hidden="true"><use href="#icon-chevron"/></svg>
         </a>
         <div class="dropdown-panel" id="mega-resources" role="region" aria-labelledby="nav-resources-trigger" hidden style="display: flex; flex-direction: column; gap: 0.25rem; padding: 0.75rem; width: 260px;">
-          <a class="mega-link" href="case-study-template.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
-            <span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-book"/></svg></span>
-            <span class="mega-link-text" style="font-size: 0.875rem;"><strong>Case Studies</strong></span>
-          </a>
-          <a class="mega-link" href="#blog" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
-            <span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-news"/></svg></span>
-            <span class="mega-link-text" style="font-size: 0.875rem;"><strong>Blog &amp; Insights</strong></span>
-          </a>
-          <a class="mega-link" href="#glossary" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
-            <span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-database"/></svg></span>
-            <span class="mega-link-text" style="font-size: 0.875rem;"><strong>Knowledge Hub</strong></span>
-          </a>
-          <a class="mega-link" href="#whitepapers" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
-            <span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-report"/></svg></span>
-            <span class="mega-link-text" style="font-size: 0.875rem;"><strong>Whitepapers</strong></span>
-          </a>
-          <a class="mega-link" href="#roi-calculator" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
-            <span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-calculator"/></svg></span>
-            <span class="mega-link-text" style="font-size: 0.875rem;"><strong>ROI Calculator</strong></span>
-          </a>
+          <a class="mega-link" href="case-study-template.html" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;"><span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-book"/></svg></span><span class="mega-link-text" style="font-size: 0.875rem;"><strong>Case Studies</strong></span></a>
+          <a class="mega-link" href="#blog" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;"><span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-news"/></svg></span><span class="mega-link-text" style="font-size: 0.875rem;"><strong>Blog &amp; Insights</strong></span></a>
         </div>
       </div>
 
@@ -278,26 +1095,8 @@
           <svg class="icon nav-chevron" width="14" height="14" aria-hidden="true"><use href="#icon-chevron"/></svg>
         </a>
         <div class="dropdown-panel" id="mega-company" role="region" aria-labelledby="nav-company-trigger" hidden style="display: flex; flex-direction: column; gap: 0.25rem; padding: 0.75rem; width: 260px;">
-          <a class="mega-link" href="index.html#philosophy" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
-            <span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-info"/></svg></span>
-            <span class="mega-link-text" style="font-size: 0.875rem;"><strong>About Us</strong></span>
-          </a>
-          <a class="mega-link" href="#team" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
-            <span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-users"/></svg></span>
-            <span class="mega-link-text" style="font-size: 0.875rem;"><strong>Our Team</strong></span>
-          </a>
-          <a class="mega-link" href="#careers" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
-            <span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-briefcase"/></svg></span>
-            <span class="mega-link-text" style="font-size: 0.875rem;"><strong>Careers</strong></span>
-          </a>
-          <a class="mega-link" href="#press" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
-            <span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-camera"/></svg></span>
-            <span class="mega-link-text" style="font-size: 0.875rem;"><strong>Press &amp; Media</strong></span>
-          </a>
-          <a class="mega-link" href="#cta" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;">
-            <span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-mail"/></svg></span>
-            <span class="mega-link-text" style="font-size: 0.875rem;"><strong>Contact</strong></span>
-          </a>
+          <a class="mega-link" href="index.html#philosophy" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;"><span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-info"/></svg></span><span class="mega-link-text" style="font-size: 0.875rem;"><strong>About Us</strong></span></a>
+          <a class="mega-link" href="#cta" style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 8px;"><span class="mega-link-icon" style="width: 30px; height: 30px; border-radius: 8px;"><svg class="icon" width="16" height="16" style="color: var(--accent);"><use href="#icon-mail"/></svg></span><span class="mega-link-text" style="font-size: 0.875rem;"><strong>Contact</strong></span></a>
         </div>
       </div>
     </nav>
@@ -308,572 +1107,605 @@
   </div>
 </header>
 
-    <!-- DARK HERO SECTION WITH GRADIENT & GRID EFFECT -->
-    <section class="stage stage--hero internal-hero">
-<div class="problem-grid-bg" aria-hidden="true">
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-  <div class="problem-grid-cell"></div>
-</div>
+    <!-- ============================================
+         SECTION 1: HERO — SVG-BASED 28px GRID
+         Exact match to homepage grid: 28px cells
+         ============================================ -->
+    <section class="stage stage--hero internal-hero" id="hero">
+      <!-- SVG Interactive Grid will be injected by JS below -->
+      <div id="internal-hero-grid" aria-hidden="true" class="internal-hero-svg-grid"></div>
 
+      <div class="internal-hero-content">
+        <div class="stage__inner container">
+          <div class="grid-2col" style="align-items: center; grid-template-columns: 1.05fr 0.95fr; gap: 48px;">
+            <div>
+              <p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Anti-Counterfeiting Solution</p>
+              <h1 class="page-title" style="color: #ffffff; font-size: clamp(2.4rem, 4.5vw, 3.8rem); line-height: 1.15; font-weight: 800; margin-bottom: 1.25rem;">Give counterfeiters three problems, not one.</h1>
+              <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem;">Smart Epsilon protects every unit with overt, covert, and forensic verification working together — so a fake doesn't just need to look right, it needs to beat three independent layers at once.</p>
 
-      
+              <div class="trust-chips-row" style="margin-bottom: 2.5rem;">
+                <span class="features-pill-tag" style="background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.15);"><svg class="icon" width="14" height="14" style="color: #6862a7;"><use href="#icon-check"/></svg> Verified in seconds</span>
+                <span class="features-pill-tag" style="background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.15);"><svg class="icon" width="14" height="14" style="color: #6862a7;"><use href="#icon-check"/></svg> No device required for first check</span>
+                <span class="features-pill-tag" style="background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.15);"><svg class="icon" width="14" height="14" style="color: #6862a7;"><use href="#icon-check"/></svg> Live in ~6 weeks</span>
+              </div>
 
-      
+              <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+                <span data-magnetic><a href="#cta" class="btn btn-primary" style="padding: 14px 28px;">See It Work On Your SKU <svg class="icon" width="16" height="16"><use href="#icon-arrow-right"/></svg></a></span>
+                <a href="#three-layers" class="btn btn-secondary" style="padding: 14px 24px; background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.18);">Explore Three Layers ↓</a>
+              </div>
+            </div>
 
-      <div class="stage__inner container" style="position: relative; z-index: 2;">
-        <div class="grid-2col" style="align-items: center; grid-template-columns: 1.05fr 0.95fr; gap: 48px;">
+            <!-- Hero Verification Portal Visual -->
+            <div class="light-card" style="border-color: rgba(255, 255, 255, 0.15); background: #ffffff; box-shadow: 0 32px 64px rgba(0,0,0,0.55);">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 1px solid var(--se-line); padding-bottom: 14px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="width: 10px; height: 10px; border-radius: 50%; background: #6862a7; display: inline-block;"></span>
+                  <span style="font-weight: 700; font-size: 13px; color: var(--se-ink); letter-spacing: 0.05em;">SMART EPSILON VERIFICATION PORTAL</span>
+                </div>
+                <span class="features-pill-tag" style="background: rgba(104,98,167,0.1); color: #6862a7; font-weight: 700;">LIVE SCAN RESULT</span>
+              </div>
+
+              <div style="background: rgba(104,98,167,0.04); border-radius: var(--radius-md); padding: 24px; text-align: center; border: 1px solid rgba(104, 98, 167, 0.12); margin-bottom: 20px;">
+                <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(104, 98, 167, 0.10); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto; border: 2px solid rgba(104,98,167,0.2);">
+                  <svg class="icon" width="32" height="32" style="color: #6862a7;"><use href="#icon-shield"/></svg>
+                </div>
+                <div style="font-size: 20px; font-weight: 800; color: var(--se-ink); margin-bottom: 4px;">AUTHENTIC PRODUCT</div>
+                <div style="font-size: 12px; color: var(--se-muted);">Batch #AG-88492 · Serial ID: SE-99201-X</div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+                <div style="display: flex; justify-content: space-between; padding: 11px 14px; background: #f9f9fb; border-radius: var(--radius-sm); border: 1px solid rgba(0,0,0,0.06);">
+                  <span style="color: var(--se-ink); font-weight: 600; display: inline-flex; align-items: center; gap: 6px;"><svg class="icon" width="14" height="14" style="color: #6862a7;"><use href="#icon-tag"/></svg> Overt — Nano-OVD Label</span>
+                  <span style="color: #6862a7; font-weight: 800;">✓ Pass</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 11px 14px; background: #f9f9fb; border-radius: var(--radius-sm); border: 1px solid rgba(0,0,0,0.06);">
+                  <span style="color: var(--se-ink); font-weight: 600; display: inline-flex; align-items: center; gap: 6px;"><svg class="icon" width="14" height="14" style="color: #6862a7;"><use href="#icon-map"/></svg> Covert — Geo-Clone Flags</span>
+                  <span style="color: #6862a7; font-weight: 800;">✓ Pass</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 11px 14px; background: #f9f9fb; border-radius: var(--radius-sm); border: 1px solid rgba(0,0,0,0.06);">
+                  <span style="color: var(--se-ink); font-weight: 600; display: inline-flex; align-items: center; gap: 6px;"><svg class="icon" width="14" height="14" style="color: #6862a7;"><use href="#icon-fingerprint"/></svg> Forensic — AI Watermark</span>
+                  <span style="color: #6862a7; font-weight: 800;">✓ Pass</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: COST OF NOT KNOWING — CINEMATIC QUOTE WALL
+         Layout: Vertical stacked quotes, magazine-editorial
+         ============================================ -->
+    <section class="quote-wall-section" aria-label="Cost of not knowing">
+      <div class="quote-wall-inner">
+        <div class="quote-wall-header">
+          <span class="quote-wall-eyebrow">Real-world risks</span>
           <div>
-            <p class="eyebrow" style="color: var(--se-purple); margin-bottom: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">Anti-Counterfeiting Solution</p>
-            <h1 class="page-title" style="color: #ffffff; font-size: clamp(2.4rem, 4.5vw, 3.8rem); line-height: 1.15; font-weight: 800; margin-bottom: 1.25rem;">Give counterfeiters three problems, not one.</h1>
-            <p class="page-subtitle" style="color: rgba(255, 255, 255, 0.85); font-size: 1.125rem; line-height: 1.6; margin-bottom: 2rem;">Smart Epsilon protects every unit with overt, covert, and forensic verification working together — so a fake doesn't just need to look right, it needs to beat three independent layers at once.</p>
-
-            <div class="trust-chips-row" style="margin-bottom: 2.5rem;">
-              <span class="features-pill-tag" style="background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.15);"><svg class="icon" width="14" height="14" style="color: #6862a7;"><use href="#icon-check"/></svg> Verified in seconds</span>
-              <span class="features-pill-tag" style="background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.15);"><svg class="icon" width="14" height="14" style="color: #6862a7;"><use href="#icon-check"/></svg> No device required for first check</span>
-              <span class="features-pill-tag" style="background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.15);"><svg class="icon" width="14" height="14" style="color: #6862a7;"><use href="#icon-check"/></svg> Live in ~6 weeks</span>
-            </div>
-
-            <div style="display: flex; gap: 16px; align-items: center;">
-              <span data-magnetic><a href="#cta" class="btn btn-primary" style="padding: 14px 28px;">See It Work On Your SKU <svg class="icon" width="16" height="16"><use href="#icon-arrow-right"/></svg></a></span>
-              <a href="#three-layers" class="btn btn-secondary" style="padding: 14px 24px; background: rgba(255,255,255,0.1); color: #ffffff; border: 1px solid rgba(255,255,255,0.2);">Explore Three Layers ↓</a>
-            </div>
+            <h2 class="quote-wall-title">The Cost of Not Knowing</h2>
+            <p class="quote-wall-subtitle">These aren't customer complaints. They're the moments a single fake becomes a legal, financial, or reputational event.</p>
           </div>
+        </div>
 
-          <!-- Hero High-Contrast Portal Visual Card -->
-          <div class="light-card" style="border-color: rgba(255, 255, 255, 0.2); background: #ffffff; box-shadow: 0 25px 50px rgba(0,0,0,0.5);">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 1px solid var(--se-line); padding-bottom: 14px;">
-              <div style="display: flex; align-items: center; gap: 10px;">
-                <span style="width: 10px; height: 10px; border-radius: 50%; background: #6862a7; display: inline-block;"></span>
-                <span style="font-weight: 700; font-size: 14px; color: var(--se-ink);">SMART EPSILON VERIFICATION PORTAL</span>
-              </div>
-              <span class="features-pill-tag" style="background: rgba(104,98,167,0.1); color: #6862a7; font-weight: 700;">LIVE SCAN RESULT</span>
-            </div>
-
-            <div style="background: var(--se-surface-tint); border-radius: var(--radius-md); padding: 24px; text-align: center; border: 1px solid rgba(104, 98, 167, 0.2); margin-bottom: 20px;">
-              <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(104, 98, 167, 0.12); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto;">
-                <svg class="icon" width="36" height="36" style="color: #6862a7;"><use href="#icon-shield"/></svg>
-              </div>
-              <div style="font-size: 22px; font-weight: 800; color: var(--se-ink); margin-bottom: 4px;">AUTHENTIC PRODUCT</div>
-              <div style="font-size: 13px; color: var(--se-muted);">Batch #AG-88492 · Serial ID: SE-99201-X</div>
-            </div>
-
-            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13.5px;">
-              <div style="display: flex; justify-content: space-between; padding: 12px 16px; background: var(--se-surface-soft); border-radius: var(--radius-sm); border: 1px solid var(--se-line);">
-                <span style="color: var(--se-ink); font-weight: 600; display: inline-flex; align-items: center; gap: 6px;"><svg class="icon" width="16" height="16" style="color: var(--se-purple);"><use href="#icon-tag"/></svg> Overt Layer (Nano-OVD Label)</span>
-                <span style="color: #6862a7; font-weight: 700;">✓ Pass (Eye Verified)</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; padding: 12px 16px; background: var(--se-surface-soft); border-radius: var(--radius-sm); border: 1px solid var(--se-line);">
-                <span style="color: var(--se-ink); font-weight: 600; display: inline-flex; align-items: center; gap: 6px;"><svg class="icon" width="16" height="16" style="color: var(--se-purple);"><use href="#icon-map"/></svg> Covert Layer (Geo-Clone Flags)</span>
-                <span style="color: #6862a7; font-weight: 700;">✓ Pass (Unique Scan Location)</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; padding: 12px 16px; background: var(--se-surface-soft); border-radius: var(--radius-sm); border: 1px solid var(--se-line);">
-                <span style="color: var(--se-ink); font-weight: 600; display: inline-flex; align-items: center; gap: 6px;"><svg class="icon" width="16" height="16" style="color: var(--se-purple);"><use href="#icon-search"/></svg> Forensic Layer (AI Watermark)</span>
-                <span style="color: #6862a7; font-weight: 700;">✓ Pass (Signature Matched)</span>
-              </div>
-            </div>
+        <div class="quote-item" data-quote>
+          <div class="quote-item__num">01</div>
+          <div class="quote-item__body">
+            <div class="quote-item__q">"A customer was hurt by a counterfeit sold under your name. Whose liability is that?"</div>
+            <div class="quote-item__answer">Courts and headlines don't distinguish between <em>"our product"</em> and <em>"a fake wearing our label"</em> as fast as your legal team needs them to — the lawsuit names your brand first.</div>
           </div>
+          <div class="quote-item-bar"></div>
+        </div>
+
+        <div class="quote-item" data-quote>
+          <div class="quote-item__num">02</div>
+          <div class="quote-item__body">
+            <div class="quote-item__q">"Customs just seized a shipment. Is it yours, or a copy good enough to fool your own team?"</div>
+            <div class="quote-item__answer">Without a way to verify at the point of seizure, a legitimate shipment can be held for <em>weeks</em> while a real counterfeit slips through somewhere else.</div>
+          </div>
+          <div class="quote-item-bar"></div>
+        </div>
+
+        <div class="quote-item" data-quote>
+          <div class="quote-item__num">03</div>
+          <div class="quote-item__body">
+            <div class="quote-item__q">"A viral post shows your product failing — except it's not your product."</div>
+            <div class="quote-item__answer">By the time your team identifies it as counterfeit, the damage to trust has already spread further than any correction will reach.</div>
+          </div>
+          <div class="quote-item-bar"></div>
+        </div>
+
+        <div class="quote-item" data-quote>
+          <div class="quote-item__num">04</div>
+          <div class="quote-item__body">
+            <div class="quote-item__q">"Your biggest distributor is quietly buying from someone else, because fakes come in 20% cheaper."</div>
+            <div class="quote-item__answer">When a knockoff undercuts your price convincingly enough, the channel itself starts <em>choosing fake over loyalty</em>.</div>
+          </div>
+          <div class="quote-item-bar"></div>
         </div>
       </div>
     </section>
 
-    <!-- THE COST OF NOT KNOWING -->
-    <section class="stage" data-reveal>
-      <div class="stage__inner container">
-        <div style="text-align: center; max-width: 720px; margin: 0 auto 48px auto;">
-          <p class="eyebrow" style="color: var(--accent); margin-bottom: 0.75rem;">Real-world risks</p>
-          <h2 class="section-title">The Cost of Not Knowing</h2>
-          <p class="card-body">These aren't customer complaints. They're the moments a single fake becomes a legal, financial, or reputational event.</p>
-        </div>
-
-        <div class="grid-2col">
-          <div class="light-card">
-            <div class="card-quote">"A customer was hurt by a counterfeit sold under your name. Whose liability is that?"</div>
-            <div class="card-body">Courts and headlines don't distinguish between "our product" and "a fake wearing our label" as fast as your legal team needs them to — the lawsuit names your brand first.</div>
-          </div>
-
-          <div class="light-card">
-            <div class="card-quote">"Customs just seized a shipment. Is it yours, or a copy good enough to fool your own team?"</div>
-            <div class="card-body">Without a way to verify at the point of seizure, a legitimate shipment can be held for weeks while a real counterfeit slips through somewhere else.</div>
-          </div>
-
-          <div class="light-card">
-            <div class="card-quote">"A viral post shows your product failing — except it's not your product."</div>
-            <div class="card-body">By the time your team identifies it as counterfeit, the damage to trust has already spread further than any correction will reach.</div>
-          </div>
-
-          <div class="light-card">
-            <div class="card-quote">"Your biggest distributor is quietly buying from someone else, because fakes come in 20% cheaper."</div>
-            <div class="card-body">When a knockoff undercuts your price convincingly enough, the channel itself starts choosing fake over loyalty.</div>
-          </div>
-        </div>
+    <!-- ============================================
+         SECTION 3: THREE LAYERS — STICKY TAB REVEAL
+         Layout: Sticky left nav + morphing right content
+         ============================================ -->
+    <section id="three-layers" class="sticky-tabs-section">
+      <div class="sticky-tabs-header">
+        <p class="eyebrow">Three Layers — One Framework, No Gaps</p>
+        <h2 class="section-title" style="max-width: 680px; margin-bottom: 0.75rem;">Most anti-counterfeiting stops at one method.</h2>
+        <p class="card-body" style="max-width: 600px; margin: 0;">A single method is exactly what a counterfeiter needs to learn to copy. We give them three problems at once.</p>
       </div>
-    </section>
 
-    <!-- 3 LAYERS TAB MODULE WITH REAL VISUAL IMAGES -->
-    <section id="three-layers" class="stage bg-soft" data-reveal>
-      <div class="stage__inner container">
-        <div style="max-width: 720px; margin-bottom: 40px;">
-          <p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem;">Three Layers — One Framework, No Gaps</p>
-          <h2 class="section-title">Most anti-counterfeiting stops at one method. A single method is exactly what a counterfeiter needs to learn to copy.</h2>
-        </div>
-
-        <div class="tabs-header-nav">
-          <button class="tab-trigger-btn active" data-tab="tab-overt">
-            <svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-shield"/></svg>
-            <span>Layer 1 — Overt: Holographic Label</span>
+      <div class="sticky-tabs-layout">
+        <!-- Left sticky nav -->
+        <div class="sticky-tabs-nav">
+          <button class="sticky-tab-btn is-active" data-stab="tab-overt" id="stab-overt" aria-controls="panel-overt" aria-selected="true">
+            <div class="stb-icon">
+              <svg class="icon" width="20" height="20"><use href="#icon-shield"/></svg>
+            </div>
+            <div class="stb-text">
+              <span class="stb-layer">Layer 1</span>
+              <span class="stb-label">Overt — Holographic Label</span>
+            </div>
           </button>
-          <button class="tab-trigger-btn" data-tab="tab-covert">
-            <svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-map"/></svg>
-            <span>Layer 2 — Covert: Geo-Tagged Clone Detection</span>
+          <button class="sticky-tab-btn" data-stab="tab-covert" id="stab-covert" aria-controls="panel-covert" aria-selected="false">
+            <div class="stb-icon">
+              <svg class="icon" width="20" height="20"><use href="#icon-map"/></svg>
+            </div>
+            <div class="stb-text">
+              <span class="stb-layer">Layer 2</span>
+              <span class="stb-label">Covert — Geo-Clone Detection</span>
+            </div>
           </button>
-          <button class="tab-trigger-btn" data-tab="tab-forensic">
-            <svg class="icon" width="20" height="20" style="color: var(--accent);"><use href="#icon-search"/></svg>
-            <span>Layer 3 — Forensic: AI Watermark</span>
+          <button class="sticky-tab-btn" data-stab="tab-forensic" id="stab-forensic" aria-controls="panel-forensic" aria-selected="false">
+            <div class="stb-icon">
+              <svg class="icon" width="20" height="20"><use href="#icon-fingerprint"/></svg>
+            </div>
+            <div class="stb-text">
+              <span class="stb-layer">Layer 3</span>
+              <span class="stb-label">Forensic — AI Watermark</span>
+            </div>
           </button>
-        </div>
-
-        <!-- Tab 1: Overt with Image -->
-        <div class="tab-panel-item active" id="tab-overt">
-          <div class="light-card">
-            <p class="eyebrow" style="color: var(--accent); margin-bottom: 0.75rem;">Overt Verification</p>
-            <h3 style="font-size: 24px; font-weight: 800; color: var(--se-ink); margin-bottom: 14px;">Holographic Security Label</h3>
-            <p class="card-body" style="margin-bottom: 24px;">Overt protection can take many accepted forms — holograms, color-shifting inks, tamper-evident seals. Smart Epsilon uses a tamper-evident, nano-OVD holographic label anyone can verify with the naked eye, no device required, before a single scan happens.</p>
-            <div style="display: flex; gap: 16px; font-size: 14px; color: #6862a7; font-weight: 700;">
-              <span><svg class="icon" width="16" height="16" style="color:#6862a7;"><use href="#icon-check"/></svg> Instant naked-eye validation</span>
-              <span><svg class="icon" width="16" height="16" style="color:#6862a7;"><use href="#icon-check"/></svg> Tamper-evident seal</span>
-            </div>
-          </div>
-          <div class="light-card" style="padding: 12px; overflow: hidden; background: #ffffff;">
-            <img src="assets/images/overt_hologram.jpg" alt="Nano-OVD Holographic Security Label" style="width: 100%; height: 280px; object-fit: cover; border-radius: var(--radius-md);" />
-            <div style="padding: 12px 8px 4px 8px; font-size: 13px; color: var(--se-muted); text-align: center; font-weight: 600;">Point-of-sale visual check before scanning happens.</div>
+          <div style="padding-top: 32px; font-size: 13px; color: rgba(0,0,0,0.4); line-height: 1.6;">
+            QR-based consumer verification sits on top of all three — a fast, familiar way for anyone to confirm authenticity in seconds.
           </div>
         </div>
 
-        <!-- Tab 2: Covert with Image -->
-        <div class="tab-panel-item" id="tab-covert">
-          <div class="light-card">
-            <p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem;">Covert Detection</p>
-            <h3 style="font-size: 24px; font-weight: 800; color: var(--se-ink); margin-bottom: 14px;">Geo-Tagged Clone Detection</h3>
-            <p class="card-body" style="margin-bottom: 24px;">Covert protection can take many accepted forms — UV inks, embedded watermarks, encrypted codes. Smart Epsilon uses geo-tagged clone detection — every genuine scan is logged by location, and the moment the same code is scanned somewhere it shouldn't be, it's flagged automatically.</p>
-            <div style="display: flex; gap: 16px; font-size: 14px; color: #6862a7; font-weight: 700;">
-              <span><svg class="icon" width="16" height="16" style="color:#6862a7;"><use href="#icon-check"/></svg> Real-time duplicate scan alert</span>
-              <span><svg class="icon" width="16" height="16" style="color:#6862a7;"><use href="#icon-check"/></svg> Geolocation &amp; timestamp log</span>
+        <!-- Right content panels -->
+        <div class="sticky-tabs-content">
+          <!-- Panel: Overt -->
+          <div class="sticky-tab-panel is-active" id="panel-overt" role="tabpanel" aria-labelledby="stab-overt">
+            <div class="stp-image-wrap">
+              <img src="assets/images/overt_hologram.jpg" alt="Nano-OVD Holographic Security Label on product packaging" loading="lazy" />
+              <span class="stp-image-badge">Tamper-Evident / Nano-OVD</span>
+            </div>
+            <div class="stp-body">
+              <h3 class="stp-title">Holographic Security Label</h3>
+              <p class="stp-desc">Overt protection can take many accepted forms — holograms, color-shifting inks, tamper-evident seals. Smart Epsilon uses a tamper-evident, nano-OVD holographic label anyone can verify with the naked eye, no device required, before a single scan happens.</p>
+              <div class="stp-features">
+                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> Instant naked-eye validation</span>
+                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> Tamper-evident seal</span>
+                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> No device required</span>
+              </div>
             </div>
           </div>
-          <div class="light-card" style="padding: 12px; overflow: hidden; background: #ffffff;">
-            <img src="assets/images/covert_map.jpg" alt="Geo-Tagged Clone Detection Interface" style="width: 100%; height: 280px; object-fit: cover; border-radius: var(--radius-md);" />
-            <div style="padding: 12px 8px 4px 8px; font-size: 13px; color: var(--se-muted); text-align: center; font-weight: 600;">Live global geolocation tracking &amp; instant duplicate flags.</div>
-          </div>
-        </div>
 
-        <!-- Tab 3: Forensic with Image -->
-        <div class="tab-panel-item" id="tab-forensic">
-          <div class="light-card">
-            <p class="eyebrow" style="color: var(--accent); margin-bottom: 0.75rem;">Forensic Authentication</p>
-            <h3 style="font-size: 24px; font-weight: 800; color: var(--se-ink); margin-bottom: 14px;">AI Watermark Authentication</h3>
-            <p class="card-body" style="margin-bottom: 24px;">An invisible marker embedded at the point of print, readable only by Smart Epsilon's verification system — the layer a counterfeiter doesn't even know to look for.</p>
-            <div style="display: flex; gap: 16px; font-size: 14px; color: #6862a7; font-weight: 700;">
-              <span><svg class="icon" width="16" height="16" style="color:#6862a7;"><use href="#icon-check"/></svg> Micro-pattern print signature</span>
-              <span><svg class="icon" width="16" height="16" style="color:#6862a7;"><use href="#icon-check"/></svg> AI texture scanner</span>
+          <!-- Panel: Covert -->
+          <div class="sticky-tab-panel" id="panel-covert" role="tabpanel" aria-labelledby="stab-covert">
+            <div class="stp-image-wrap">
+              <img src="assets/images/covert_map.jpg" alt="Geo-tagged clone detection dashboard showing duplicate scan alert" loading="lazy" />
+              <span class="stp-image-badge">Live Geo-Flagging</span>
+            </div>
+            <div class="stp-body">
+              <h3 class="stp-title">Geo-Tagged Clone Detection</h3>
+              <p class="stp-desc">Every genuine scan is logged by location, and the moment the same code is scanned somewhere it shouldn't be, it's flagged automatically — not weeks later in a report, but the moment it happens.</p>
+              <div class="stp-features">
+                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> Real-time duplicate alert</span>
+                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> Geolocation &amp; timestamp log</span>
+                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> Instant brand protection team notification</span>
+              </div>
             </div>
           </div>
-          <div class="light-card" style="padding: 12px; overflow: hidden; background: #ffffff;">
-            <img src="assets/images/forensic_watermark.jpg" alt="AI Watermark Micro-Texture Scanning" style="width: 100%; height: 280px; object-fit: cover; border-radius: var(--radius-md);" />
-            <div style="padding: 12px 8px 4px 8px; font-size: 13px; color: var(--se-muted); text-align: center; font-weight: 600;">Micro-pattern watermark isolated under optical magnification.</div>
+
+          <!-- Panel: Forensic -->
+          <div class="sticky-tab-panel" id="panel-forensic" role="tabpanel" aria-labelledby="stab-forensic">
+            <div class="stp-image-wrap">
+              <img src="assets/images/forensic_watermark.jpg" alt="AI forensic watermark micro-pattern on packaging under magnification" loading="lazy" />
+              <span class="stp-image-badge">Invisible Layer</span>
+            </div>
+            <div class="stp-body">
+              <h3 class="stp-title">AI Watermark Authentication</h3>
+              <p class="stp-desc">An invisible marker embedded at the point of print, readable only by Smart Epsilon's verification system — the layer a counterfeiter doesn't even know to look for. Even if every visible layer were somehow compromised, this holds.</p>
+              <div class="stp-features">
+                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> Micro-pattern print signature</span>
+                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> AI texture scanner</span>
+                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> Impossible to copy without access</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    
-    <!-- SOLUTION REDESIGNED SECTION 1: HORIZONTAL TECH FLOW PIPELINE (NON-CARD) -->
-    <section class="stage bg-soft" data-reveal>
-      <div class="stage__inner container">
-        <div style="text-align: center; max-width: 720px; margin: 0 auto 48px auto;">
-          <p class="eyebrow" style="color: var(--accent); margin-bottom: 0.75rem;">Integration Architecture</p>
-          <h2 class="section-title">Zero-Downtime Packaging Line Flow</h2>
-          <p class="card-body">Continuous serialization and ERP data synchronization operating in real time along your packaging line.</p>
+    <!-- ============================================
+         SECTION 4: EVALUATION Q&A — ACCORDION REVEAL
+         Layout: Dark bg, numbered Q&A expandable accordion
+         ============================================ -->
+    <section class="evaluation-section">
+      <div class="evaluation-inner">
+        <div class="eval-header">
+          <p class="eyebrow">However you're evaluating this</p>
+          <h2>The question changes depending on who's asking. The answer doesn't.</h2>
+          <p>Whether it's your legal team, compliance officer, or VP of operations — here's how Smart Epsilon answers each perspective.</p>
         </div>
 
-        <div class="horizontal-flow-pipeline">
-          <div class="flow-step-item">
-            <div style="font-size: 12px; font-weight: 800; color: #6862a7; text-transform: uppercase; margin-bottom: 8px;">Stage 01</div>
-            <div style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">600 BPM Serial Printing</div>
-            <p style="font-size: 13.5px; color: rgba(255,255,255,0.75); line-height: 1.5; margin: 0;">Millisecond unique barcode printing on Inkjet, TIJ, and Laser coders without line slowdown.</p>
+        <div class="eval-list">
+          <div class="eval-item" data-eval>
+            <button class="eval-trigger" aria-expanded="false">
+              <div class="eval-trigger-q">"Can a consumer actually tell the difference without our help?"</div>
+              <div class="eval-trigger-icon">
+                <svg class="icon" width="14" height="14"><use href="#icon-plus"/></svg>
+              </div>
+            </button>
+            <div class="eval-answer-wrap" role="region">
+              <div class="eval-answer">
+                <div class="eval-answer-q">The answer</div>
+                <div class="eval-answer-body">Yes — the holographic label is visible before any scan; the QR confirms it in seconds after. No app needed, no training needed. A consumer checking a product in a pharmacy aisle can do it with their phone camera in seconds.</div>
+              </div>
+            </div>
+            <div class="eval-purple-bar"></div>
           </div>
 
-          <div class="flow-step-item">
-            <div style="font-size: 12px; font-weight: 800; color: var(--se-purple); text-transform: uppercase; margin-bottom: 8px;">Stage 02</div>
-            <div style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">Optical Vision Scan</div>
-            <p style="font-size: 13.5px; color: rgba(255,255,255,0.75); line-height: 1.5; margin: 0;">High-resolution camera verification triggering instant air-blast rejection for defective labels.</p>
+          <div class="eval-item" data-eval>
+            <button class="eval-trigger" aria-expanded="false">
+              <div class="eval-trigger-q">"What stops someone from photographing and reusing a genuine code?"</div>
+              <div class="eval-trigger-icon">
+                <svg class="icon" width="14" height="14"><use href="#icon-plus"/></svg>
+              </div>
+            </button>
+            <div class="eval-answer-wrap" role="region">
+              <div class="eval-answer">
+                <div class="eval-answer-q">The answer</div>
+                <div class="eval-answer-body">Geo-tagged detection catches a code being scanned somewhere it shouldn't be, the moment it happens — not weeks later in a report. A copied QR code will show up as a duplicate scan at a different geolocation and timestamp, triggering an immediate alert.</div>
+              </div>
+            </div>
+            <div class="eval-purple-bar"></div>
           </div>
 
-          <div class="flow-step-item">
-            <div style="font-size: 12px; font-weight: 800; color: #6862a7; text-transform: uppercase; margin-bottom: 8px;">Stage 03</div>
-            <div style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">Parent-Child Hierarchy</div>
-            <p style="font-size: 13.5px; color: rgba(255,255,255,0.75); line-height: 1.5; margin: 0;">Automated bottle-to-case and case-to-pallet aggregation with GS1 EPCIS standards.</p>
-          </div>
-
-          <div class="flow-step-item">
-            <div style="font-size: 12px; font-weight: 800; color: var(--se-purple); text-transform: uppercase; margin-bottom: 8px;">Stage 04</div>
-            <div style="font-size: 18px; font-weight: 800; margin-bottom: 8px;">SAP / Oracle REST Sync</div>
-            <p style="font-size: 13.5px; color: rgba(255,255,255,0.75); line-height: 1.5; margin: 0;">Bi-directional API connector logging serial activations to enterprise ERP in real time.</p>
+          <div class="eval-item" data-eval>
+            <button class="eval-trigger" aria-expanded="false">
+              <div class="eval-trigger-q">"Could a sophisticated counterfeiter eventually copy the label itself?"</div>
+              <div class="eval-trigger-icon">
+                <svg class="icon" width="14" height="14"><use href="#icon-plus"/></svg>
+              </div>
+            </button>
+            <div class="eval-answer-wrap" role="region">
+              <div class="eval-answer">
+                <div class="eval-answer-q">The answer</div>
+                <div class="eval-answer-body">That's exactly why there are three layers, not one — forensic authentication doesn't rely on anything visible enough to copy. Even if the overt label were convincingly replicated, the invisible watermark and geo-detection layers remain independently operational.</div>
+              </div>
+            </div>
+            <div class="eval-purple-bar"></div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ============================================
+         SECTION 5: WHAT IT ACTUALLY SOLVES — CIRCUIT BOARD
+         Layout: Light bg, horizontal feature matrix with connecting nodes
+         ============================================ -->
+    <section class="feature-matrix-section">
+      <div class="feature-matrix-header">
+        <p class="eyebrow" style="color: #6862a7;">What it actually solves</p>
+        <h2 class="section-title" style="max-width: 640px;">Five problems. One platform. Each connected.</h2>
+        <p class="card-body" style="max-width: 560px; margin-top: 0.75rem;">Every feature exists because a real gap existed. Here's the exact problem each one closes.</p>
+      </div>
 
-    <!-- SOLUTION REDESIGNED SECTION 2: ROI METRIC BANNER BAR (NON-CARD) -->
-    <section class="stage" data-reveal>
-      <div class="stage__inner container">
-        <div class="roi-metric-banner-bar">
-          <div style="border-right: 1px solid rgba(255,255,255,0.1); padding-right: 24px;">
-            <div style="font-size: 48px; font-weight: 800; color: #6862a7; line-height: 1; margin-bottom: 8px;" class="counter-num" data-target="100" data-suffix="%">0%</div>
-            <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">Clone Interception</div>
-            <div style="font-size: 13px; color: rgba(255,255,255,0.7);">Duplicate scans flagged before retail</div>
+      <div class="feature-matrix-scroll">
+        <div class="fmatrix-col" data-reveal>
+          <div class="fmatrix-dot">
+            <svg class="icon" width="28" height="28"><use href="#icon-tag"/></svg>
+          </div>
+          <div class="fmatrix-feature-name">Three-Layer Verification</div>
+          <div class="fmatrix-problem">Single-method authentication gives a counterfeiter one thing to study and copy.</div>
+          <div class="fmatrix-impact">3× harder to beat</div>
+        </div>
+
+        <div class="fmatrix-col" data-reveal>
+          <div class="fmatrix-dot">
+            <svg class="icon" width="28" height="28"><use href="#icon-shield"/></svg>
+          </div>
+          <div class="fmatrix-feature-name">Holographic Security Label</div>
+          <div class="fmatrix-problem">Consumers and retailers have no way to check authenticity before scanning anything.</div>
+          <div class="fmatrix-impact">Instant no-device check</div>
+        </div>
+
+        <div class="fmatrix-col" data-reveal>
+          <div class="fmatrix-dot">
+            <svg class="icon" width="28" height="28"><use href="#icon-map"/></svg>
+          </div>
+          <div class="fmatrix-feature-name">Geo-Tagged Clone Detection</div>
+          <div class="fmatrix-problem">Duplicate codes go undetected until a customer complains, weeks later.</div>
+          <div class="fmatrix-impact">Real-time flagging</div>
+        </div>
+
+        <div class="fmatrix-col" data-reveal>
+          <div class="fmatrix-dot">
+            <svg class="icon" width="28" height="28"><use href="#icon-fingerprint"/></svg>
+          </div>
+          <div class="fmatrix-feature-name">AI Watermark Authentication</div>
+          <div class="fmatrix-problem">Even confirmed-genuine packaging can be photographed and reused without a deeper check.</div>
+          <div class="fmatrix-impact">Forensic-grade layer</div>
+        </div>
+
+        <div class="fmatrix-col" data-reveal>
+          <div class="fmatrix-dot">
+            <svg class="icon" width="28" height="28"><use href="#icon-search"/></svg>
+          </div>
+          <div class="fmatrix-feature-name">Consumer QR Verification</div>
+          <div class="fmatrix-problem">Verifying authenticity feels technical or requires a specialized app.</div>
+          <div class="fmatrix-impact">Any phone, no app</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 6: FITS YOUR STACK — INTEGRATION PILLARS
+         Layout: Dark bg, 3 floating icon pillars with connecting line
+         ============================================ -->
+    <section class="integration-section">
+      <div class="integration-inner">
+        <div class="integration-header">
+          <p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem;">Fits the stack you already run</p>
+          <h2>No rip-and-replace. No parallel system.</h2>
+          <p>Works with the tools your teams use every day, speaks the standards your regulators already expect.</p>
+        </div>
+
+        <div class="integration-pillars">
+          <div class="ipillar">
+            <div class="ipillar-icon-ring">
+              <svg class="icon" width="32" height="32"><use href="#icon-barcode"/></svg>
+            </div>
+            <div class="ipillar-name">GS1 EPCIS 2.0 Native</div>
+            <div class="ipillar-desc">Speaks the open standard your partners and regulators already expect. No custom integration project every time.</div>
+            <span class="ipillar-badge">Open Standard</span>
           </div>
 
-          <div style="border-right: 1px solid rgba(255,255,255,0.1); padding-right: 24px;">
-            <div style="font-size: 48px; font-weight: 800; color: var(--se-purple); line-height: 1; margin-bottom: 8px;" class="counter-num" data-target="6" data-suffix=" Wks">0 Wks</div>
-            <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">Turnkey Setup</div>
-            <div style="font-size: 13px; color: rgba(255,255,255,0.7);">From scoping to live line activation</div>
+          <div class="ipillar">
+            <div class="ipillar-icon-ring">
+              <svg class="icon" width="32" height="32"><use href="#icon-database"/></svg>
+            </div>
+            <div class="ipillar-name">Works with SAP, Oracle, any ERP</div>
+            <div class="ipillar-desc">Integrates with your existing ERP via native connectors — it feeds your ERP rather than replacing it.</div>
+            <span class="ipillar-badge">ERP-First Design</span>
           </div>
 
-          <div style="border-right: 1px solid rgba(255,255,255,0.1); padding-right: 24px;">
-            <div style="font-size: 48px; font-weight: 800; color: #6862a7; line-height: 1; margin-bottom: 8px;" class="counter-num" data-target="0" data-suffix="ms">0ms</div>
-            <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">OEE Penalty</div>
-            <div style="font-size: 13px; color: rgba(255,255,255,0.7);">Zero speed reduction on bottling line</div>
+          <div class="ipillar">
+            <div class="ipillar-icon-ring">
+              <svg class="icon" width="32" height="32"><use href="#icon-api"/></svg>
+            </div>
+            <div class="ipillar-name">API-First Architecture</div>
+            <div class="ipillar-desc">Built to integrate, not to be worked around. REST APIs with webhooks, batch endpoints, and real-time event streams.</div>
+            <span class="ipillar-badge">REST / Webhooks</span>
           </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- ============================================
+         SECTION 7: WHY LAYERED BEATS SINGLE — COMPARISON TABLE
+         Layout: Light bg, high-contrast comparison table
+         ============================================ -->
+    <section class="comparison-section">
+      <div class="comparison-inner">
+        <div class="comparison-header">
+          <p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem;">Why layered beats single-method</p>
+          <h2 class="section-title" style="margin-bottom: 0.75rem;">The problem with one method is one point of failure.</h2>
+          <p class="card-body" style="margin: 0;">A counterfeiter only needs to reverse-engineer one thing. Three layers means they have to beat all three simultaneously.</p>
+        </div>
+
+        <table class="comparison-table" role="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col" class="col-smart">Smart Epsilon</th>
+              <th scope="col" class="col-single">Single-Layer Protection</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Built for</td>
+              <td class="cell-smart">Overt + covert + forensic, working together</td>
+              <td class="cell-single">One method — one point of failure</td>
+            </tr>
+            <tr>
+              <td>What a counterfeiter has to beat</td>
+              <td class="cell-smart">All three layers, one of which is invisible</td>
+              <td class="cell-single">Whatever the one visible method is</td>
+            </tr>
+            <tr>
+              <td>Consumer verification</td>
+              <td class="cell-smart">Any smartphone, no app required, result in seconds</td>
+              <td class="cell-single">Often requires app download or field team</td>
+            </tr>
+            <tr>
+              <td>Time to go live</td>
+              <td class="cell-smart">Live in ~6 weeks</td>
+              <td class="cell-single">Often requires new hardware or packaging redesign</td>
+            </tr>
+            <tr>
+              <td>Real-time alerting</td>
+              <td class="cell-smart">Instant clone alerts the moment a duplicate scan occurs</td>
+              <td class="cell-single">Typically monthly reports — damage already done</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 8: ROLLOUT PROCESS — NUMBERED TIMELINE
+         Layout: Dark bg, horizontal timeline with animated SVG connector
+         ============================================ -->
+    <section class="rollout-section">
+      <div class="rollout-inner">
+        <div class="rollout-header">
+          <p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem;">One rollout process</p>
+          <h2>Sized to what you're actually deploying.</h2>
+          <p>A single line on one SKU moves fast. A multi-site, multi-ERP rollout takes longer. The sequence below is what stays constant either way.</p>
+        </div>
+
+        <div class="rollout-track" id="rollout-track">
+          <div class="rollout-step" data-reveal>
+            <div class="rollout-step-dot">01</div>
+            <div class="rollout-step-name">Discovery</div>
+            <div class="rollout-step-desc">Map your current stages, systems, and data gaps — this sets the real timeline.</div>
+          </div>
+          <div class="rollout-step" data-reveal>
+            <div class="rollout-step-dot">02</div>
+            <div class="rollout-step-name">Scoping</div>
+            <div class="rollout-step-desc">Agree on lines, SKUs, integration points, and a realistic date in writing.</div>
+          </div>
+          <div class="rollout-step" data-reveal>
+            <div class="rollout-step-dot">03</div>
+            <div class="rollout-step-name">POC</div>
+            <div class="rollout-step-desc">Prove the model end-to-end on one line before committing further.</div>
+          </div>
+          <div class="rollout-step" data-reveal>
+            <div class="rollout-step-dot">04</div>
+            <div class="rollout-step-name">Pilot Batch</div>
+            <div class="rollout-step-desc">Run a real batch through the full five-stage journey.</div>
+          </div>
+          <div class="rollout-step" data-reveal>
+            <div class="rollout-step-dot">05</div>
+            <div class="rollout-step-name">Training</div>
+            <div class="rollout-step-desc">Get plant, warehouse, and field teams trained in under a week.</div>
+          </div>
+          <div class="rollout-step" data-reveal>
+            <div class="rollout-step-dot">06</div>
+            <div class="rollout-step-name">Full Rollout</div>
+            <div class="rollout-step-desc">Scale across remaining lines, sites, and partners at your pace.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 9: PROOF — FULL-BLEED TESTIMONIAL + STATS
+         Layout: Light bg, oversized quote + stat mosaic grid
+         ============================================ -->
+    <section class="proof-section">
+      <div class="proof-inner">
+        <span class="proof-quote-mark">&ldquo;</span>
+        <p class="proof-quote-text">Within two quarters, Smart Epsilon's anti-counterfeiting solution significantly reduced counterfeit-related complaints. Our field team can now identify cloned products before they reach customers.</p>
+        <div class="proof-attribution">
+          <div class="proof-attr-line"></div>
           <div>
-            <div style="font-size: 48px; font-weight: 800; color: var(--se-purple); line-height: 1; margin-bottom: 8px;" class="counter-num" data-target="18" data-prefix="$" data-suffix="M">$0M</div>
-            <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px;">Equity Saved</div>
-            <div style="font-size: 13px; color: rgba(255,255,255,0.7);">Mitigated liability and clone revenue loss</div>
+            <div class="proof-attr-name">Head of Brand Protection</div>
+            <div class="proof-attr-role">Agrochemicals Major — Global Operations</div>
+          </div>
+          <div class="proof-attr-line"></div>
+        </div>
+
+        <div class="proof-stats">
+          <div class="proof-stat">
+            <span class="proof-stat-num counter-num" data-target="320" data-suffix="M+">0</span>
+            <div class="proof-stat-label">Units Serialized</div>
+            <div class="proof-stat-desc">To date, across clients worldwide</div>
+          </div>
+          <div class="proof-stat">
+            <span class="proof-stat-num counter-num" data-target="95" data-suffix="%">0%</span>
+            <div class="proof-stat-label">Scan Compliance</div>
+            <div class="proof-stat-desc">Across the network, on average</div>
+          </div>
+          <div class="proof-stat">
+            <span class="proof-stat-num counter-num" data-target="6" data-suffix=" wks">0 wks</span>
+            <div class="proof-stat-label">Live in ~6 Weeks</div>
+            <div class="proof-stat-desc">Average time from scoping to full deployment</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- EXACT HOMEPAGE CUSTOMER VOICES SECTION -->
-    <section class="stage stage--voices" id="voices" aria-labelledby="voices-title">
-    <div class="stage__inner">
-      <header class="voices-head" style="max-width: 800px; text-align: left; margin-bottom: 3rem;" data-reveal>
-        <p class="eyebrow" style="color: var(--accent); margin-bottom: 0.75rem;">Customer voices</p>
-        <h2 id="voices-title" style="font-size: clamp(2.25rem, 5vw, 3.25rem); line-height: 1.1; margin: 0 0 1rem; color: var(--ink);">Real results from the teams using Smart Epsilon.</h2>
-        <p style="font-size: 1.1rem; line-height: 1.6; color: var(--ink-soft); margin: 0; font-weight: 500;">See what supply chain and brand protection leaders<br />experienced after implementing the platform.</p>
-      </header>
+    <!-- ============================================
+         SECTION 10: FAQ — MINIMAL DARK ACCORDION
+         Layout: Dark bg, minimal borderless accordion with dot indicator
+         ============================================ -->
+    <section class="faq-section">
+      <div class="faq-inner">
+        <div class="faq-header">
+          <p class="eyebrow" style="color: #6862a7; margin-bottom: 0.75rem;">Before you ask</p>
+          <h2>The questions we hear most.</h2>
+          <p>Honest answers, no sales preamble.</p>
+        </div>
 
-      <div
-        class="voices-slider"
-        data-voices-slider
-        data-voices-visible="2"
-        data-reveal
-        role="region"
-        aria-roledescription="carousel"
-        aria-label="Customer testimonials"
-      >
-        <div class="voices-slider__viewport">
-          <div class="voices-slider__track" aria-live="polite" aria-atomic="true">
-            <blockquote
-              class="voice is-active"
-              style="--voice-accent: #8fb0ff"
-              role="group"
-              aria-roledescription="slide"
-              aria-label="1 of 3"
-              data-voice-slide
-            >
-              <span class="voice__mark" aria-hidden="true">&ldquo;</span>
-              <p class="voice__quote">Within a quarter, we could see exactly what&rsquo;s moving through our channel in real time. Smart Epsilon resolved our stockout concerns almost completely.</p>
-              <footer class="voice__meta">
-                <cite class="voice__name">VP, Supply Chain</cite>
-                <span class="voice__role">National Lubricants Major</span>
-              </footer>
-            </blockquote>
+        <div class="faq-list">
+          <div class="faq-item" data-faq>
+            <button class="faq-trigger" aria-expanded="false">
+              <div class="faq-trigger-q">Can holograms be copied?</div>
+              <div class="faq-trigger-dot"></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">Basic holograms can be replicated with enough effort — that's exactly why ours is one of three layers, not the whole defense. Even if the overt layer were ever convincingly copied, covert geo-detection and forensic watermarking still catch it independently.</div>
+            </div>
+          </div>
 
-            <blockquote
-              class="voice is-active"
-              style="--voice-accent: #5be0c8"
-              role="group"
-              aria-roledescription="slide"
-              aria-label="2 of 3"
-              data-voice-slide
-            >
-              <span class="voice__mark" aria-hidden="true">&ldquo;</span>
-              <p class="voice__quote">Within two quarters, Smart Epsilon’s anti-counterfeiting solution significantly reduced counterfeit-related complaints. Our field team can now identify cloned products before they reach customers.</p>
-              <footer class="voice__meta">
-                <cite class="voice__name">Head of Brand Protection</cite>
-                <span class="voice__role">Agrochemicals Major</span>
-              </footer>
-            </blockquote>
+          <div class="faq-item" data-faq>
+            <button class="faq-trigger" aria-expanded="false">
+              <div class="faq-trigger-q">Do we need new packaging or printing hardware?</div>
+              <div class="faq-trigger-dot"></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">No — the label integrates into existing packaging workflows, and the watermark embeds at the point of print without new equipment or line slowdowns. We add an identity, not a step.</div>
+            </div>
+          </div>
 
-            <blockquote
-              class="voice"
-              style="--voice-accent: #ffc978"
-              role="group"
-              aria-roledescription="slide"
-              aria-label="3 of 3"
-              data-voice-slide
-              aria-hidden="true"
-            >
-              <span class="voice__mark" aria-hidden="true">&ldquo;</span>
-              <p class="voice__quote">Smart Epsilon integrated with our existing SAP setup without replacing any systems. We went live within weeks, and field adoption was faster than expected.</p>
-              <footer class="voice__meta">
-                <cite class="voice__name">Director, Operations</cite>
-                <span class="voice__role">CPG and Packaged Foods</span>
-              </footer>
-            </blockquote>
+          <div class="faq-item" data-faq>
+            <button class="faq-trigger" aria-expanded="false">
+              <div class="faq-trigger-q">What happens when a clone is detected?</div>
+              <div class="faq-trigger-dot"></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">An alert fires immediately to your brand protection team with the exact GPS location and timestamp — not a monthly report. Your team can act within hours of a clone appearing in the channel.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" data-faq>
+            <button class="faq-trigger" aria-expanded="false">
+              <div class="faq-trigger-q">How fast can we integrate with our SAP or Oracle ERP?</div>
+              <div class="faq-trigger-dot"></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">Integration takes ~2 weeks using native REST APIs and GS1 EPCIS connectors. No changes are required to your existing production line database schema or SAP S/4HANA core.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" data-faq>
+            <button class="faq-trigger" aria-expanded="false">
+              <div class="faq-trigger-q">Can regional field reps use their personal smartphones for verification?</div>
+              <div class="faq-trigger-dot"></div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">Yes. The Smart Epsilon inspection app runs natively on both iOS and Android smartphones, with offline scan caching for remote field and warehouse areas where connectivity is unreliable.</div>
+            </div>
           </div>
         </div>
-
-        <div class="voices-slider__controls">
-          <button type="button" class="voices-slider__arrow" data-voice-prev aria-label="Previous testimonials">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-              <path d="M11.5 3.5L6 9l5.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-
-          <div class="voices-slider__dots" role="tablist" aria-label="Choose testimonial pair" data-voice-dots></div>
-
-          <button type="button" class="voices-slider__arrow" data-voice-next aria-label="Next testimonials">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-              <path d="M6.5 3.5L12 9l-5.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        </div>
-
-        <div class="voices-slider__progress" aria-hidden="true">
-          <span class="voices-slider__progress-bar" data-voice-progress></span>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-    <!-- EXPANDED EXECUTIVE FAQ ACCORDION -->
-    
-<section class="stage bg-soft" data-reveal>
-  <div class="stage__inner container" style="max-width: 900px;">
-    <div style="text-align: center; margin-bottom: 40px;">
-      <p class="eyebrow" style="color: var(--accent); margin-bottom: 0.75rem;">Before you ask</p>
-      <h2 class="section-title">Frequently Asked Questions</h2>
-    </div>
-
-    <div class="accordion-wrapper-list">
-      <div class="accordion-card active">
-        <div class="accordion-card-header">
-          <span>Can holograms be copied?</span>
-          <svg class="icon accordion-icon" width="20" height="20" style="transition: transform 0.3s;"><use href="#icon-chevron"/></svg>
-        </div>
-        <div class="accordion-card-body">
-          Basic holograms can be replicated with enough effort — that's exactly why ours is one of three layers, not the whole defense. Even if the overt layer were ever convincingly copied, covert geo-detection and forensic watermarking still catch it.
-        </div>
-      </div>
-
-      <div class="accordion-card">
-        <div class="accordion-card-header">
-          <span>Do we need new packaging or printing hardware?</span>
-          <svg class="icon accordion-icon" width="20" height="20" style="transition: transform 0.3s;"><use href="#icon-chevron"/></svg>
-        </div>
-        <div class="accordion-card-body">
-          No — the label integrates into existing packaging workflows, and the watermark embeds at the point of print without new equipment or line slowdowns.
-        </div>
-      </div>
-
-      <div class="accordion-card">
-        <div class="accordion-card-header">
-          <span>What happens when a clone is detected?</span>
-          <svg class="icon accordion-icon" width="20" height="20" style="transition: transform 0.3s;"><use href="#icon-chevron"/></svg>
-        </div>
-        <div class="accordion-card-body">
-          An alert fires immediately to your brand protection team with the exact GPS location and timestamp — not a monthly report.
-        </div>
-      </div>
-
-      <div class="accordion-card">
-        <div class="accordion-card-header">
-          <span>How fast can we integrate Smart Epsilon with our SAP or Oracle ERP?</span>
-          <svg class="icon accordion-icon" width="20" height="20" style="transition: transform 0.3s;"><use href="#icon-chevron"/></svg>
-        </div>
-        <div class="accordion-card-body">
-          Integration takes ~2 weeks using native REST APIs and GS1 EPCIS connectors. No changes are required to your existing production line database schema or SAP S/4HANA core.
-        </div>
-      </div>
-
-      <div class="accordion-card">
-        <div class="accordion-card-header">
-          <span>What is the cost structure per serialized unit?</span>
-          <svg class="icon accordion-icon" width="20" height="20" style="transition: transform 0.3s;"><use href="#icon-chevron"/></svg>
-        </div>
-        <div class="accordion-card-body">
-          Tiered volume pricing starting at fractions of a cent per unit with zero upfront capital equipment expenditure.
-        </div>
-      </div>
-
-      <div class="accordion-card">
-        <div class="accordion-card-header">
-          <span>Can regional field sales reps use their personal smartphones for inspection?</span>
-          <svg class="icon accordion-icon" width="20" height="20" style="transition: transform 0.3s;"><use href="#icon-chevron"/></svg>
-        </div>
-        <div class="accordion-card-body">
-          Yes, the Smart Epsilon inspection app runs natively on both iOS and Android smartphones, featuring offline scan caching for remote field and warehouse areas.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
+    <!-- ============================================
+         SECTION 11: FINAL CTA
+         ============================================ -->
     <section class="stage stage--cta" id="cta">
     <div class="hero-map" id="hero-map" aria-hidden="true"></div>
     <div class="cta-shell">
       <header class="cta-intro" data-reveal>
         <p class="eyebrow">Book a demo</p>
         <h2 class="cta-intro__title">
-          Ready to see<br />your chain <span class="t-accent">live?</span>
+          See Anti-Counterfeiting<br />on <span class="t-accent">your actual SKUs.</span>
         </h2>
-        <p class="cta-intro__lede">Explore the platform with your real business challenges in mind.</p>
+        <p class="cta-intro__lede">Not a demo environment. Your products, your packaging, your channel — in 30 minutes.</p>
       </header>
 
       <div class="cta-board" data-reveal>
@@ -903,14 +1735,14 @@
             </div>
             <div class="cta-form__actions">
               <span data-magnetic><button class="btn btn-primary cta-form__submit" type="submit">Book a demo <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-arrow-right"/></svg></button></span>
-              <p class="cta-form__note">We’ll reply within one business day.</p>
+              <p class="cta-form__note">We'll reply within one business day.</p>
             </div>
           </form>
           <div class="form-success" hidden>
             <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#icon-check"/></svg>
             <div>
               <p class="form-success__title">Request received</p>
-              <p class="form-success__text">Thanks — we’ll be in touch within one business day.</p>
+              <p class="form-success__text">Thanks — we'll be in touch within one business day.</p>
             </div>
           </div>
         </div>
@@ -946,15 +1778,11 @@
       </div>
     </div>
   </section>
+
     <footer class="site-footer" style="background: #090714; color: #f0f4ff; padding: 5rem 2rem 3.5rem; font-family: var(--font-body); position: relative; overflow: hidden; border-top: 1px solid rgba(255, 255, 255, 0.05);">
   <div class="stage__inner" style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: end;">
-    
-    <!-- Left Section: Contact card, links columns, and bottom border line -->
     <div style="display: flex; flex-direction: column; gap: 2.5rem; width: 100%;">
-      
-      <!-- Columns Grid -->
       <div style="display: grid; grid-template-columns: 1.15fr 0.85fr 0.95fr 0.95fr; gap: 2.5rem; align-items: start; width: 100%;">
-        <!-- Column 1: Contact details Card -->
         <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 2rem 1.75rem; display: flex; flex-direction: column; gap: 1.5rem; min-height: 180px; justify-content: space-between;">
           <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.825rem; color: rgba(240, 244, 255, 0.75);">
             <a href="mailto:connect@smartepsilon.com" style="display: flex; align-items: center; gap: 8px; color: inherit; text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#8b7fd4';" onmouseleave="this.style.color='inherit';">
@@ -971,63 +1799,42 @@
             </div>
           </div>
           <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <a href="https://www.linkedin.com/company/smartepsilon" target="_blank" rel="noopener" aria-label="LinkedIn" style="width: 32px; height: 32px; border-radius: 6px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; color: #f0f4ff; transition: all 0.3s;" onmouseenter="this.style.background='var(--accent)';" onmouseleave="this.style.background='rgba(255, 255, 255, 0.05)';">
-              <svg width="14" height="14" fill="currentColor"><use href="#icon-linkedin"/></svg>
-            </a>
-            <a href="https://x.com/smartepsilon" target="_blank" rel="noopener" aria-label="X" style="width: 32px; height: 32px; border-radius: 6px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; color: #f0f4ff; transition: all 0.3s;" onmouseenter="this.style.background='var(--accent)';" onmouseleave="this.style.background='rgba(255, 255, 255, 0.05)';">
-              <svg width="14" height="14" fill="currentColor"><use href="#icon-x"/></svg>
-            </a>
-
-            <a href="https://www.instagram.com/smartepsilon" target="_blank" rel="noopener" aria-label="Instagram" style="width: 32px; height: 32px; border-radius: 6px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; color: #f0f4ff; transition: all 0.3s;" onmouseenter="this.style.background='var(--accent)';" onmouseleave="this.style.background='rgba(255, 255, 255, 0.05)';">
-              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01"/></svg>
-            </a>
-            <a href="https://www.youtube.com/@smartepsilon" target="_blank" rel="noopener" aria-label="YouTube" style="width: 32px; height: 32px; border-radius: 6px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; color: #f0f4ff; transition: all 0.3s;" onmouseenter="this.style.background='var(--accent)';" onmouseleave="this.style.background='rgba(255, 255, 255, 0.05)';">
-              <svg width="14" height="14" fill="currentColor"><use href="#icon-youtube"/></svg>
-            </a>
+            <a href="https://www.linkedin.com/company/smartepsilon" target="_blank" rel="noopener" aria-label="LinkedIn" style="width: 32px; height: 32px; border-radius: 6px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; color: #f0f4ff; transition: all 0.3s;" onmouseenter="this.style.background='var(--accent)';" onmouseleave="this.style.background='rgba(255, 255, 255, 0.05)';"><svg width="14" height="14" fill="currentColor"><use href="#icon-linkedin"/></svg></a>
+            <a href="https://x.com/smartepsilon" target="_blank" rel="noopener" aria-label="X" style="width: 32px; height: 32px; border-radius: 6px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; color: #f0f4ff; transition: all 0.3s;" onmouseenter="this.style.background='var(--accent)';" onmouseleave="this.style.background='rgba(255, 255, 255, 0.05)';"><svg width="14" height="14" fill="currentColor"><use href="#icon-x"/></svg></a>
           </div>
         </div>
 
-        <!-- Solutions Links -->
         <div style="display: flex; flex-direction: column; gap: 14px;">
           <h4 style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(240, 244, 255, 0.4); margin: 0 0 0.5rem;">Solutions</h4>
           <a href="solution-anti-counterfeiting.html" style="font-size: 0.875rem; color: rgba(240, 244, 255, 0.65); text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#ffffff';" onmouseleave="this.style.color='rgba(240, 244, 255, 0.65)';">Track &amp; Trace</a>
           <a href="solution-anti-counterfeiting.html" style="font-size: 0.875rem; color: rgba(240, 244, 255, 0.65); text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#ffffff';" onmouseleave="this.style.color='rgba(240, 244, 255, 0.65)';">Anti-Counterfeiting</a>
-          <a href="solution-anti-counterfeiting.html" data-product-select="2" style="font-size: 0.875rem; color: rgba(240, 244, 255, 0.65); text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#ffffff';" onmouseleave="this.style.color='rgba(240, 244, 255, 0.65)';">Payment-linked Incentives</a>
-          <a href="solution-anti-counterfeiting.html" data-product-select="3" style="font-size: 0.875rem; color: rgba(240, 244, 255, 0.65); text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#ffffff';" onmouseleave="this.style.color='rgba(240, 244, 255, 0.65)';">AI Video Intelligence</a>
+          <a href="solution-anti-counterfeiting.html" style="font-size: 0.875rem; color: rgba(240, 244, 255, 0.65); text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#ffffff';" onmouseleave="this.style.color='rgba(240, 244, 255, 0.65)';">Payment-linked Incentives</a>
+          <a href="solution-anti-counterfeiting.html" style="font-size: 0.875rem; color: rgba(240, 244, 255, 0.65); text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#ffffff';" onmouseleave="this.style.color='rgba(240, 244, 255, 0.65)';">AI Video Intelligence</a>
         </div>
 
-        <!-- Industries Links -->
         <div style="display: flex; flex-direction: column; gap: 14px;">
           <h4 style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(240, 244, 255, 0.4); margin: 0 0 0.5rem;">Industries</h4>
           <a href="industry-template.html" style="font-size: 0.875rem; color: rgba(240, 244, 255, 0.65); text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#ffffff';" onmouseleave="this.style.color='rgba(240, 244, 255, 0.65)';">Agrochemicals &amp; Seeds</a>
           <a href="industry-template.html" style="font-size: 0.875rem; color: rgba(240, 244, 255, 0.65); text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#ffffff';" onmouseleave="this.style.color='rgba(240, 244, 255, 0.65)';">Lubricants &amp; Auto</a>
           <a href="industry-template.html" style="font-size: 0.875rem; color: rgba(240, 244, 255, 0.65); text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#ffffff';" onmouseleave="this.style.color='rgba(240, 244, 255, 0.65)';">Pharmaceuticals</a>
           <a href="industry-template.html" style="font-size: 0.875rem; color: rgba(240, 244, 255, 0.65); text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#ffffff';" onmouseleave="this.style.color='rgba(240, 244, 255, 0.65)';">CPG &amp; Cosmetics</a>
-          <a href="industry-template.html" style="font-size: 0.875rem; color: rgba(240, 244, 255, 0.65); text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#ffffff';" onmouseleave="this.style.color='rgba(240, 244, 255, 0.65)';">Industrial Chemicals</a>
         </div>
 
-        <!-- Corporate Links -->
         <div style="display: flex; flex-direction: column; gap: 14px;">
           <h4 style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(240, 244, 255, 0.4); margin: 0 0 0.5rem;">Corporate</h4>
           <a href="index.html#philosophy" style="font-size: 0.875rem; color: rgba(240, 244, 255, 0.65); text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#ffffff';" onmouseleave="this.style.color='rgba(240, 244, 255, 0.65)';">About Us</a>
           <a href="case-study-template.html" style="font-size: 0.875rem; color: rgba(240, 244, 255, 0.65); text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#ffffff';" onmouseleave="this.style.color='rgba(240, 244, 255, 0.65)';">Case Studies</a>
           <a href="#cta" style="font-size: 0.875rem; color: rgba(240, 244, 255, 0.65); text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#ffffff';" onmouseleave="this.style.color='rgba(240, 244, 255, 0.65)';">Contact Support</a>
-
         </div>
-
       </div>
-      <!-- Bottom border line -->
       <div style="height: 2px; background: #6b62ac; width: 100%;"></div>
     </div>
 
-    <!-- Right Section: Big brand symbol watermark -->
-    <div style="width: 280px; flex-shrink: 0; display: flex; justify-content: flex-end; align-items: flex-end; padding-top: 0; margin-top: 0; align-self: stretch;">
-      <img class="footer-brand-img" src="assets/symbol-CLMECg9e.png" alt="Smart Epsilon Symbol" width="280" height="280" style="display: block; margin-top: 0; object-fit: contain;" />
+    <div style="width: 280px; flex-shrink: 0; display: flex; justify-content: flex-end; align-items: flex-end; align-self: stretch;">
+      <img class="footer-brand-img" src="assets/symbol-CLMECg9e.png" alt="Smart Epsilon Symbol" width="280" height="280" style="display: block; object-fit: contain;" />
     </div>
-
   </div>
 
-  <!-- Bottom Details & Compliance -->
   <div style="max-width: 1280px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
     <span style="font-size: 0.8rem; color: rgba(240, 244, 255, 0.45);">© 2026 Smart Epsilon. Value Chain Solutions (Global) Pvt. Ltd. All rights reserved.</span>
     <div style="display: flex; gap: 8px; flex-wrap: wrap;">
@@ -1066,36 +1873,233 @@
   <script src="assets/js/smart-epsilon-interact.js"></script>
   
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const counters = document.querySelectorAll('.counter-num');
-    const runCounter = (counter) => {
-      const target = +counter.getAttribute('data-target');
-      const prefix = counter.getAttribute('data-prefix') || '';
-      const suffix = counter.getAttribute('data-suffix') || '';
-      let count = 0;
-      const inc = target / 40;
-      const updateCount = () => {
-        count += inc;
-        if (count < target) {
-          const val = (target % 1 !== 0 ? count.toFixed(1) : Math.ceil(count));
-          counter.innerText = prefix + val + suffix;
-          setTimeout(updateCount, 30);
-        } else {
-          counter.innerText = prefix + target + suffix;
-        }
-      };
-      updateCount();
-    };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          runCounter(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    counters.forEach(c => observer.observe(c));
+// =============================================
+// INTERNAL HERO: Exact 28px SVG Grid (Same as homepage Yo() function)
+// =============================================
+(function initInternalHeroGrid() {
+  const container = document.getElementById('internal-hero-grid');
+  if (!container) return;
+  const CELL_SIZE = 28;
+  
+  function buildGrid() {
+    container.innerHTML = '';
+    const W = Math.max(container.offsetWidth || 0, window.innerWidth || 0);
+    const H = Math.max(container.offsetHeight || 0, window.innerHeight || 0);
+    
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('width', '100%');
+    svg.setAttribute('height', '100%');
+    svg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block;';
+    
+    // Background rect: solid #0b1220
+    const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    bg.setAttribute('width', '100%');
+    bg.setAttribute('height', '100%');
+    bg.setAttribute('fill', '#0b1220');
+    svg.appendChild(bg);
+    
+    // Draw grid cells: solid #1e223b tiles, 28x28px, 2px gap
+    const cols = Math.ceil(W / CELL_SIZE) + 2;
+    const rows = Math.ceil(H / CELL_SIZE) + 2;
+    
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        rect.setAttribute('x', c * CELL_SIZE + 1);
+        rect.setAttribute('y', r * CELL_SIZE + 1);
+        rect.setAttribute('width', CELL_SIZE - 2);
+        rect.setAttribute('height', CELL_SIZE - 2);
+        rect.setAttribute('rx', '4');
+        rect.setAttribute('ry', '4');
+        rect.setAttribute('fill', '#1e223b');
+        rect.style.transition = 'fill 0.2s ease';
+        rect.style.cursor = 'pointer';
+        
+        rect.addEventListener('mouseenter', function() {
+          this.setAttribute('fill', '#6862a7');
+        });
+        rect.addEventListener('mouseleave', function() {
+          this.setAttribute('fill', '#1e223b');
+        });
+        
+        svg.appendChild(rect);
+      }
+    }
+    
+    container.appendChild(svg);
+  }
+  
+  buildGrid();
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(buildGrid, 150);
   });
+})();
+
+// =============================================
+// STICKY TABS: Section 3
+// =============================================
+(function initStickyTabs() {
+  const btns = document.querySelectorAll('.sticky-tab-btn');
+  const panels = document.querySelectorAll('.sticky-tab-panel');
+  
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.getAttribute('data-stab');
+      
+      btns.forEach(b => {
+        b.classList.remove('is-active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      panels.forEach(p => p.classList.remove('is-active'));
+      
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-selected', 'true');
+      
+      const panel = document.getElementById('panel-' + target.replace('tab-', ''));
+      if (panel) panel.classList.add('is-active');
+    });
+  });
+})();
+
+// =============================================
+// EVALUATION ACCORDION: Section 4
+// =============================================
+(function initEvalAccordion() {
+  document.querySelectorAll('.eval-item').forEach(item => {
+    const trigger = item.querySelector('.eval-trigger');
+    trigger.addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+      
+      // Close all
+      document.querySelectorAll('.eval-item').forEach(i => {
+        i.classList.remove('is-open');
+        i.querySelector('.eval-trigger').setAttribute('aria-expanded', 'false');
+      });
+      
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+
+// =============================================
+// FAQ ACCORDION: Section 10
+// =============================================
+(function initFaqAccordion() {
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const trigger = item.querySelector('.faq-trigger');
+    trigger.addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('is-open');
+        i.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+
+// =============================================
+// ROLLOUT TIMELINE ANIMATION
+// =============================================
+(function initRolloutTimeline() {
+  const track = document.getElementById('rollout-track');
+  if (!track) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => track.classList.add('is-animated'), 300);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  
+  observer.observe(track);
+})();
+
+// =============================================
+// QUOTE WALL: Scroll reveal
+// =============================================
+(function initQuoteWall() {
+  const items = document.querySelectorAll('.quote-item[data-quote]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  items.forEach(i => observer.observe(i));
+})();
+
+// =============================================
+// COUNTER ANIMATION: Section 9
+// =============================================
+(function initCounters() {
+  const counters = document.querySelectorAll('.counter-num');
+  const runCounter = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    const prefix = counter.getAttribute('data-prefix') || '';
+    const suffix = counter.getAttribute('data-suffix') || '';
+    let count = 0;
+    const inc = target / 50;
+    const update = () => {
+      count += inc;
+      if (count < target) {
+        counter.innerText = prefix + Math.ceil(count) + suffix;
+        setTimeout(update, 25);
+      } else {
+        counter.innerText = prefix + target + suffix;
+      }
+    };
+    update();
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        runCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  counters.forEach(c => observer.observe(c));
+})();
+
+// =============================================
+// SCROLL REVEAL: Generic data-reveal elements
+// =============================================
+(function initScrollReveal() {
+  const revealStyle = `
+    [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    [data-reveal].is-revealed { opacity: 1; transform: translateY(0); }
+  `;
+  const style = document.createElement('style');
+  style.textContent = revealStyle;
+  document.head.appendChild(style);
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('is-revealed'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  
+  document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+})();
 </script>
 
 </body>
