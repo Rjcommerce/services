@@ -1028,8 +1028,7 @@
           </div>
 
           <div class="hero-actions" style="justify-content: center;">
-            <span data-magnetic=""><a class="btn btn-primary" href="#cta">See It Work On Your SKU <svg class="icon" height="16" width="16"><use href="#icon-arrow-right"></use></svg></a></span>
-            <span data-magnetic=""><a class="btn btn-primary" href="#three-layers" style="background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.18);">Explore Three Layers <svg class="icon" height="16" width="16"><use href="#icon-arrow-right"></use></svg></a></span>
+            <span data-magnetic style="display: inline-block;"><a class="btn btn-primary" href="#cta">See It Work On Your SKU <svg class="icon" height="16" width="16"><use href="#icon-arrow-right"></use></svg></a></span>
           </div>
         </div>
       </div>
@@ -1128,9 +1127,6 @@
               <span class="stb-label">Forensic — AI Watermark</span>
             </div>
           </button>
-          <div style="padding-top: 32px; font-size: 13px; color: #111111; line-height: 1.6;">
-            QR-based consumer verification sits on top of all three: a fast, familiar way for anyone to confirm authenticity in seconds, backed by layers a counterfeiter can't see or replicate.
-          </div>
         </div>
 
         <!-- Right content panels -->
@@ -1139,16 +1135,10 @@
           <div class="sticky-tab-panel is-active" id="panel-overt" role="tabpanel" aria-labelledby="stab-overt">
             <div class="stp-image-wrap">
               <img src="assets/images/overt_hologram.jpg" alt="Nano-OVD Holographic Security Label on product packaging" loading="lazy" />
-              <span class="stp-image-badge">Tamper-Evident / Nano-OVD</span>
             </div>
             <div class="stp-body">
               <h3 class="stp-title">Holographic Security Label</h3>
               <p class="stp-desc">Overt protection can take many accepted forms: holograms, color-shifting inks, tamper-evident seals. Smart Epsilon uses a tamper-evident, nano-OVD holographic label anyone can verify with the naked eye, no device required, before a single scan happens.</p>
-              <div class="stp-features">
-                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> Instant naked-eye validation</span>
-                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> Tamper-evident seal</span>
-                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> No device required</span>
-              </div>
             </div>
           </div>
 
@@ -1156,16 +1146,10 @@
           <div class="sticky-tab-panel" id="panel-covert" role="tabpanel" aria-labelledby="stab-covert">
             <div class="stp-image-wrap">
               <img src="assets/images/covert_map.jpg" alt="Geo-tagged clone detection dashboard showing duplicate scan alert" loading="lazy" />
-              <span class="stp-image-badge">Live Geo-Flagging</span>
             </div>
             <div class="stp-body">
               <h3 class="stp-title">Geo-Tagged Clone Detection</h3>
               <p class="stp-desc">Covert protection can take many accepted forms: UV inks, embedded watermarks, encrypted codes. Smart Epsilon uses geo-tagged clone detection. Every genuine scan is logged by location, and the moment the same code is scanned somewhere it shouldn't be, it's flagged automatically.</p>
-              <div class="stp-features">
-                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> Real-time duplicate alert</span>
-                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> Geolocation &amp; timestamp log</span>
-                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> Instant brand protection team notification</span>
-              </div>
             </div>
           </div>
 
@@ -1173,19 +1157,17 @@
           <div class="sticky-tab-panel" id="panel-forensic" role="tabpanel" aria-labelledby="stab-forensic">
             <div class="stp-image-wrap">
               <img src="assets/images/forensic_watermark.jpg" alt="AI forensic watermark micro-pattern on packaging under magnification" loading="lazy" />
-              <span class="stp-image-badge">Invisible Layer</span>
             </div>
             <div class="stp-body">
               <h3 class="stp-title">AI Watermark Authentication</h3>
               <p class="stp-desc">An invisible marker embedded at the point of print, readable only by Smart Epsilon's verification system. It's the layer a counterfeiter doesn't even know to look for.</p>
-              <div class="stp-features">
-                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> Micro-pattern print signature</span>
-                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> AI texture scanner</span>
-                <span class="stp-feature"><svg class="icon" width="12" height="12"><use href="#icon-check"/></svg> Impossible to copy without access</span>
-              </div>
             </div>
           </div>
         </div>
+      </div>
+      
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; text-align: center;">
+        <p style="font-size: 1.1rem; color: #111111; line-height: 1.6; max-width: 800px; margin: 0 auto;">QR-based consumer verification sits on top of all three: a fast, familiar way for anyone to confirm authenticity in seconds, backed by layers a counterfeiter can't see or replicate.</p>
       </div>
     </section>
 
@@ -1204,19 +1186,19 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
           
           <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000" style="background: #f7f7fa; border: 1px solid rgba(0,0,0,0.06); padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-            <div style="margin-bottom: 1.5rem; color: #6862a7;"><svg class="icon" width="32" height="32"><use href="#icon-eye"/></svg></div>
+            <div style="margin-bottom: 1.5rem; color: #6862a7; background: rgba(104, 98, 167, 0.1); width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; border-radius: 16px;"><svg class="icon" width="32" height="32"><use href="#icon-eye"/></svg></div>
             <p style="font-size: 1.25rem; font-weight: 700; color: #111111; line-height: 1.4; margin-bottom: 1.5rem;">Can a consumer actually tell the difference without our help?</p>
             <p style="font-size: 1rem; color: rgba(0,0,0,0.6); line-height: 1.6; margin: 0;">Yes. The holographic label is visible before any scan, and the QR confirms it in seconds after.</p>
           </div>
 
           <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000" style="background: #f7f7fa; border: 1px solid rgba(0,0,0,0.06); padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-            <div style="margin-bottom: 1.5rem; color: #6862a7;"><svg class="icon" width="32" height="32"><use href="#icon-map"/></svg></div>
+            <div style="margin-bottom: 1.5rem; color: #6862a7; background: rgba(104, 98, 167, 0.1); width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; border-radius: 16px;"><svg class="icon" width="32" height="32"><use href="#icon-map"/></svg></div>
             <p style="font-size: 1.25rem; font-weight: 700; color: #111111; line-height: 1.4; margin-bottom: 1.5rem;">What stops someone from photographing and reusing a genuine code?</p>
             <p style="font-size: 1rem; color: rgba(0,0,0,0.6); line-height: 1.6; margin: 0;">Geo-tagged detection catches a code being scanned somewhere it shouldn't be, the moment it happens. Not weeks later in a report.</p>
           </div>
 
           <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000" style="background: #f7f7fa; border: 1px solid rgba(0,0,0,0.06); padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-            <div style="margin-bottom: 1.5rem; color: #6862a7;"><svg class="icon" width="32" height="32"><use href="#icon-shield"/></svg></div>
+            <div style="margin-bottom: 1.5rem; color: #6862a7; background: rgba(104, 98, 167, 0.1); width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; border-radius: 16px;"><svg class="icon" width="32" height="32"><use href="#icon-shield"/></svg></div>
             <p style="font-size: 1.25rem; font-weight: 700; color: #111111; line-height: 1.4; margin-bottom: 1.5rem;">Could a sophisticated counterfeiter eventually copy the label itself?</p>
             <p style="font-size: 1rem; color: rgba(0,0,0,0.6); line-height: 1.6; margin: 0;">That's exactly why there are three layers, not one. Forensic authentication doesn't rely on anything visible enough to copy.</p>
           </div>
@@ -1349,7 +1331,7 @@
           </div>
         </div>
         <div style="text-align: center; margin-top: 3rem;">
-          <span data-magnetic><a href="#" class="btn btn-primary">See the full technical capability breakdown <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a></span>
+          <span data-magnetic style="display: inline-block;"><a href="#" class="btn btn-primary">See the full technical capability breakdown <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a></span>
         </div>
       </div>
     </section>
@@ -1609,7 +1591,7 @@
         <h2 class="cta-intro__title" style="margin-bottom: 2rem;">
           See how three layers catch what one label can't.
         </h2>
-        <span data-magnetic><a class="btn btn-primary" href="#">Book a demo <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a></span>
+        <span data-magnetic style="display: inline-block;"><a class="btn btn-primary" href="#">Book a demo <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-arrow-right"/></svg></a></span>
       </header>
 
       <div class="cta-board" data-reveal>
@@ -1638,7 +1620,7 @@
               </div>
             </div>
             <div class="cta-form__actions">
-              <span data-magnetic><button class="btn btn-primary cta-form__submit" type="submit">Schedule a Demo <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-arrow-right"/></svg></button></span>
+              <span data-magnetic style="display: inline-block;"><button class="btn btn-primary cta-form__submit" type="submit">Schedule a Demo <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-arrow-right"/></svg></button></span>
               <p class="cta-form__note">We'll reply within one business day.</p>
             </div>
           </form>
